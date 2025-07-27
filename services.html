@@ -12,7 +12,7 @@
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      padding-top: 120px;
+      padding-top: 96px; /* Adjusted to match h-24 (96px) */
       background-color: #f4f7fa;
     }
     .service-box {
@@ -36,7 +36,7 @@
     }
     .social-icons a {
       margin: 0 10px;
-      color: #4a90e2;
+      color: #ffffff;
       font-size: 18px;
       text-decoration: none;
       transition: color 0.3s;
@@ -50,27 +50,186 @@
       color: #fff;
       opacity: 0.8;
     }
+    .floating-widget {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 2000;
+      animation: float 2s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    .booking-popup {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 30px;
+      width: 350px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      z-index: 2001;
+      animation: slideUp 0.3s ease-out;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .booking-popup.active {
+      display: block;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      color: #666;
+    }
+    /* Mobile-specific styles (matching index.html approach) */
+    @media (max-width: 640px) {
+      body {
+        padding-top: 60px; /* Adjusted for mobile navbar height (h-60) */
+      }
+      nav {
+        height: 100px;
+      }
+      .navbar-menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 50;
+      }
+      .navbar-menu.active {
+        display: block;
+      }
+      .nav-links {
+        flex-direction: column;
+        padding: 10px 0;
+      }
+      .nav-links a {
+        padding: 10px 20px;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+      }
+      .hamburger {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 10px;
+        margin-right: 10px;
+      }
+      .hamburger.hidden {
+        display: none;
+      }
+      .service-box {
+        padding: 1rem;
+      }
+      .service-box img {
+        width: 50px;
+        height: 50px;
+      }
+      .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 {
+        grid-template-columns: 1fr;
+      }
+      .floating-widget {
+        bottom: 15px;
+        right: 15px;
+      }
+      .booking-popup {
+        bottom: 60px;
+        right: 15px;
+        width: 90%;
+        max-width: 350px;
+      }
+      .booking-popup input,
+      .booking-popup select,
+      .booking-popup button {
+        padding: 8px;
+      }
+      .terms-section h2 {
+        font-size: 2rem;
+      }
+      .terms-section p {
+        font-size: 0.875rem;
+      }
+    }
+    @media (min-width: 641px) {
+      .hamburger {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body class="text-gray-800">
+  <!-- Floating Book Now Widget with Popup -->
+  <div class="floating-widget">
+    <button id="bookNowBtn" class="bg-green-500 text-white px-6 py-3 rounded-full shadow-2xl hover:bg-green-600 transition-transform hover:scale-110 focus:outline-none">Book Now</button>
+  </div>
+  <div id="bookingPopup" class="booking-popup">
+    <span class="close-btn" onclick="closePopup()">×</span>
+    <h3 class="text-xl font-semibold text-blue-900 mb-4">Book Your Cleaning</h3>
+    <form action="https://getform.io/f/bmdmrdga" method="POST" class="space-y-4 p-4">
+      <div>
+        <label class="block text-gray-700 mb-2" for="popupName">Full Name</label>
+        <input type="text" id="popupName" name="name" class="w-full p-2 border rounded-lg focus:border-blue-500" required>
+      </div>
+      <div>
+        <label class="block text-gray-700 mb-2" for="popupEmail">Email</label>
+        <input type="email" id="popupEmail" name="email" class="w-full p-2 border rounded-lg focus:border-blue-500" required>
+      </div>
+      <div>
+        <label class="block text-gray-700 mb-2" for="popupService">Service</label>
+        <select id="popupService" name="service" class="w-full p-2 border rounded-lg focus:border-blue-500" required>
+          <option value="residential">Residential Cleaning</option>
+          <option value="commercial">Commercial Cleaning</option>
+          <option value="airbnb">Airbnb Cleaning</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-gray-700 mb-2" for="popupDate">Preferred Date</label>
+        <input type="date" id="popupDate" name="date" class="w-full p-2 border rounded-lg focus:border-blue-500" required>
+      </div>
+      <input type="hidden" name="_subject" value="New Booking from The Cleanic">
+      <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+      <div id="successMessage" class="hidden text-green-600 mt-4">Thank you! Your booking request has been sent.</div>
+      <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition mt-6 block debug-button">Submit</button>
+    </form>
+  </div>
+
   <!-- Navbar -->
   <nav class="bg-white shadow-xl fixed w-full z-50 top-0">
-    <div class="max-w-7xl mx-auto px-0">
-      <div class="flex items-center h-24 pl-4">
-        <div class="flex items-center space-x-1">
-          <img src="/logo.png" alt="The Cleanic Logo" class="h-20">
-          <h1 class="text-4xl font-bold text-blue-900">The Cleanic</h1>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-24">
+        <div class="flex items-center space-x-2">
+          <img src="/logo.png" alt="The Cleanic Logo" class="h-16 md:h-32">
+          <h1 class="text-2xl md:text-4xl font-bold text-blue-900">The Cleanic</h1>
         </div>
-        <div class="flex items-center space-x-8 ml-auto">
-          <a href="index.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Home</a>
-          <a href="services.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Services</a>
-          <a href="about.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">About</a>
-          <a href="contact.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Contact</a>
-          <a href="get-a-quote.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Get a Quote</a>
-          <div class="social-icons">
-            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f text-blue-900 hover:text-blue-700"></i></a>
-            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram text-blue-900 hover:text-blue-700"></i></a>
-            <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok text-blue-900 hover:text-blue-700"></i></a>
+        <div class="flex items-center space-x-8">
+          <div class="md:flex items-center space-x-8 hidden md:block navbar-menu" id="navbarMenu">
+            <div class="nav-links flex space-x-8">
+              <a href="index.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Home</a>
+              <a href="services.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Services</a>
+              <a href="about.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">About</a>
+              <a href="contact.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Contact</a>
+              <a href="get-a-quote.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Get a Quote</a>
+            </div>
+            <div class="social-icons">
+              <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f text-blue-900 hover:text-blue-700"></i></a>
+              <a href="https://www.instagram.com/the_cleanic23?igsh=MXQxNW5sNXM4dWxteA==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram text-blue-900 hover:text-blue-700"></i></a>
+              <a href="https://www.tiktok.com/@thecleanicnz5?_t=ZS-8yLcjJF9NH6&_r=1" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok text-blue-900 hover:text-blue-700"></i></a>
+            </div>
+          </div>
+          <div class="md:hidden">
+            <i class="fas fa-bars hamburger" id="hamburgerBtn"></i>
           </div>
         </div>
       </div>
@@ -167,7 +326,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl font-bold text-blue-900 text-center mb-6">Terms & Conditions</h2>
       <p class="text-gray-700 leading-relaxed">
-        Welcome to The Cleanic! By engaging our services, you agree to the following terms and conditions. All cleaning services are provided by The Cleanic, a registered business in New Zealand, operating under the highest standards of professionalism. Payments are due within 7 days of service completion via the accepted payment methods (Visa, Mastercard, Amex) unless otherwise agreed. Cancellations must be made 48 hours prior to the scheduled appointment to avoid a 50% cancellation fee. We are not liable for pre-existing damages or conditions not disclosed prior to service. All cleaning products used are eco-friendly unless specified otherwise by the client, and any special requests must be communicated at booking. Our liability is limited to the cost of the service provided, and we do not accept responsibility for theft or loss of personal items. Services are subject to availability, and pricing may vary based on location, property size, and specific requirements. We reserve the right to refuse service at our discretion. For emergency services, a 20% surcharge applies. All personal data collected is handled in compliance with the Privacy Act 2020, and you may request data removal by contacting us. These terms may be updated, and the latest version will apply to all ongoing services. For disputes, contact us within 14 days of service at thecleanicpro@gmail.com.
+        Welcome to The Cleanic! By engaging our services, you agree to the following terms and conditions. All cleaning services are provided by The Cleanic, a registered business in New Zealand, operating under the highest standards of professionalism. Payments are due within 7 days of service completion via the accepted payment methods (Visa, Mastercard, Amex) unless otherwise agreed. Cancellations must be made 48 hours prior to the scheduled appointment to avoid a 50% cancellation fee. We are not liable for pre-existing damages or conditions not disclosed prior to service. All cleaning products used are eco-friendly unless specified otherwise by the client, and any special requests must be communicated at booking. Our liability is limited to the cost of the service provided, and we do not accept responsibility for theft or loss of personal items. Services are subject to availability, and pricing may vary based on location, property size, and specific requirements. We reserve the right to refuse service at our discretion. For emergency services, a 20% surcharge applies. All personal data collected is handled in compliance with the Privacy Act 2020, and you may request data removal by contacting us. These terms may be updated, and the latest version will apply to all ongoing services. For disputes, contact us within 14 days of service at thecleanicnz@gmail.com.
       </p>
     </div>
   </section>
@@ -188,9 +347,8 @@
         </div>
         <div class="text-center">
           <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
-          <p class="text-gray-300"><a href="tel:+64212388659" class="hover:underline">021 238 8659</a></p>
           <p class="text-gray-300"><a href="tel:+64211759393" class="hover:underline">021 175 9393</a></p>
-          <p class="text-gray-300"><a href="mailto:thecleanicpro@gmail.com" class="hover:underline">thecleanicpro@gmail.com</a></p>
+          <p class="text-gray-300"><a href="mailto:thecleanicnz@gmail.com" class="hover:underline">thecleanicnz@gmail.com</a></p>
         </div>
         <div class="text-right">
           <h3 class="text-xl font-semibold mb-4">Business Hours</h3>
@@ -200,13 +358,80 @@
       </div>
       <div class="text-center mt-8">
         <div class="social-icons mb-4">
-          <a href="https://www.tiktok.com/@the.cleanic6" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-          <a href="https://www.instagram.com/the_cleanic23" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@thecleanicnz5?_t=ZS-8yLcjJF9NH6&_r=1" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.instagram.com/the_cleanic23?igsh=MXQxNW5sNXM4dWxteA==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
           <a href="https://www.facebook.com/the.cleanic.2023" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         </div>
         <p class="text-gray-400">© 2025 The Cleanic. All rights reserved.</p>
       </div>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const bookNowBtn = document.getElementById('bookNowBtn');
+      const bookingPopup = document.getElementById('bookingPopup');
+      const form = bookingPopup.querySelector('form');
+      const successMessage = document.getElementById('successMessage');
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const navbarMenu = document.getElementById('navbarMenu');
+
+      if (bookNowBtn && bookingPopup) {
+        bookNowBtn.addEventListener('click', () => {
+          bookingPopup.classList.add('active');
+        });
+      }
+
+      if (form) {
+        form.addEventListener('submit', async (event) => {
+          event.preventDefault();
+          const name = form.querySelector('#popupName').value.trim();
+          const email = form.querySelector('#popupEmail').value.trim();
+          const date = form.querySelector('#popupDate').value;
+
+          if (!name || !email || !date) {
+            alert('Please fill out all required fields.');
+            return;
+          }
+
+          try {
+            const response = await fetch(form.action, {
+              method: 'POST',
+              body: new FormData(form),
+              headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+              form.reset();
+              successMessage.classList.remove('hidden');
+              setTimeout(() => {
+                bookingPopup.classList.remove('active');
+                successMessage.classList.add('hidden');
+              }, 3000);
+            } else {
+              alert('There was an issue submitting your form. Please try again.');
+            }
+          } catch (error) {
+            alert('Error: ' + error.message);
+          }
+        });
+      }
+
+      if (hamburgerBtn && navbarMenu) {
+        hamburgerBtn.addEventListener('click', () => {
+          navbarMenu.classList.toggle('active');
+        });
+      }
+
+      function closePopup() {
+        if (bookingPopup) bookingPopup.classList.remove('active');
+      }
+
+      document.addEventListener('click', (event) => {
+        if (bookingPopup && !bookingPopup.contains(event.target) && event.target !== bookNowBtn) {
+          bookingPopup.classList.remove('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
