@@ -16,13 +16,13 @@
       padding-top: 60px;
     }
     .parallax {
-      background-attachment: scroll; /* Disable fixed attachment on mobile */
+      background-attachment: fixed;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
       position: relative;
       overflow: hidden;
-      height: 300px; /* Reduced height for mobile */
+      height: 300px;
     }
     .parallax::before {
       content: '';
@@ -38,12 +38,12 @@
       position: relative;
       z-index: 2;
       color: #fff;
-      padding: 2rem 1rem; /* Reduced padding for mobile */
+      padding: 2rem 1rem;
       text-align: center;
     }
     .hero-bg {
       background: linear-gradient(135deg, #0f1f4d, #4a90e2);
-      min-height: 700px; /* Original height */
+      min-height: 700px;
       position: relative;
     }
     .hero-bg::before {
@@ -62,7 +62,7 @@
       z-index: 2;
     }
     #home {
-      padding-top: 96px; /* Offset for navbar height */
+      padding-top: 96px;
     }
     .floating-widget {
       position: fixed;
@@ -87,7 +87,7 @@
       position: fixed;
       bottom: 80px;
       right: 20px;
-      width: 90%; /* Full width on mobile */
+      width: 90%;
       max-width: 350px;
       background: white;
       border-radius: 10px;
@@ -111,8 +111,80 @@
       font-size: 18px;
       color: #666;
     }
+    .promo-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 3000;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    .promo-popup.active {
+      display: flex;
+    }
+    .promo-content {
+      background: linear-gradient(135deg, #1e3a8a, #4a90e2);
+      border-radius: 15px;
+      padding: 2rem;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      animation: zoomIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .promo-close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 24px;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .promo-close-btn:hover {
+      color: #ffd700;
+    }
+    .promo-content h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .promo-content p {
+      font-size: 1.25rem;
+      color: #e6f0fa;
+      margin-bottom: 2rem;
+    }
+    .promo-content button {
+      background: #ffd700;
+      color: #1e3a8a;
+      padding: 0.75rem 2rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    .promo-content button:hover {
+      background: #ffeb3b;
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
     nav .social-icons a {
-      margin: 0 5px; /* Reduced margin on mobile */
+      margin: 0 5px;
       color: #1e3a8a;
       font-size: 18px;
       text-decoration: none;
@@ -122,7 +194,7 @@
       color: #1e40af;
     }
     .social-icons a {
-      margin: 0 5px; /* Reduced margin on mobile */
+      margin: 0 5px;
       color: #ffffff;
       font-size: 18px;
       text-decoration: none;
@@ -132,7 +204,7 @@
       color: #d1d5db;
     }
     .service-icon {
-      width: 60px; /* Reduced size for mobile */
+      width: 60px;
       height: 60px;
       background: #e6f0fa;
       border-radius: 50%;
@@ -142,7 +214,7 @@
       margin-bottom: 1rem;
     }
     .service-icon svg {
-      width: 30px; /* Reduced size for mobile */
+      width: 30px;
       height: 30px;
       fill: #4a90e2;
     }
@@ -160,7 +232,7 @@
       box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
     }
     .feature-box svg {
-      width: 50px; /* Reduced size for mobile */
+      width: 50px;
       height: 50px;
       fill: #4a90e2;
       margin-bottom: 1rem;
@@ -186,7 +258,7 @@
     }
     .payment-icons i {
       font-size: 24px;
-      margin: 0 5px; /* Reduced margin on mobile */
+      margin: 0 5px;
       color: #fff;
       opacity: 0.8;
     }
@@ -197,7 +269,6 @@
       height: auto !important;
       min-height: 40px !important;
     }
-    /* Mobile-specific styles */
     @media (max-width: 640px) {
       .navbar-menu {
         display: none;
@@ -231,43 +302,54 @@
         display: none;
       }
       .parallax {
-        height: 200px; /* Further reduced for very small screens */
+        height: 200px;
+        background-attachment: scroll;
       }
       .hero-bg {
-        min-height: 300px; /* Reduced for mobile */
+        min-height: 300px;
       }
       .hero-content h1 {
-        font-size: 2rem; /* Reduced from 5xl */
+        font-size: 2rem;
       }
       .hero-content p {
-        font-size: 1rem; /* Reduced from xl */
+        font-size: 1rem;
       }
       .hero-content button {
-        padding: 8px 16px; /* Reduced padding */
+        padding: 8px 16px;
       }
       .service-card {
-        padding: 6px; /* Reduced padding */
+        padding: 6px;
       }
       .service-card h3 {
-        font-size: 1.25rem; /* Reduced from 2xl */
+        font-size: 1.25rem;
       }
       .grid-cols-1.md\:grid-cols-3 {
-        grid-template-columns: 1fr; /* Stack cards on mobile */
+        grid-template-columns: 1fr;
       }
       .grid-cols-1.md\:grid-cols-4 {
-        grid-template-columns: 1fr; /* Stack items on mobile */
+        grid-template-columns: 1fr;
       }
       .feature-box {
-        padding: 1rem; /* Reduced padding */
+        padding: 1rem;
       }
       .feature-box h3 {
-        font-size: 1.25rem; /* Reduced from xl */
+        font-size: 1.25rem;
       }
       .testimonials-content h2 {
-        font-size: 2rem; /* Reduced from 4xl */
+        font-size: 2rem;
       }
       .testimonials-content p {
-        font-size: 0.875rem; /* Reduced for mobile */
+        font-size: 0.875rem;
+      }
+      .promo-content h2 {
+        font-size: 1.75rem;
+      }
+      .promo-content p {
+        font-size: 1rem;
+      }
+      .promo-content button {
+        padding: 0.5rem 1.5rem;
+        font-size: 1rem;
       }
     }
     @media (min-width: 641px) {
@@ -278,6 +360,16 @@
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
+  <!-- Promotion Popup -->
+  <div id="promoPopup" class="promo-popup">
+    <div class="promo-content">
+      <span class="promo-close-btn" onclick="closePromoPopup()">×</span>
+      <h2>Exclusive Offer: 50% Off Your First Clean!</h2>
+      <p>Transform your space with The Cleanic’s premium cleaning services. Book now and save big on your first visit!</p>
+      <button id="promoBookNowBtn" class="focus:outline-none">Book Now</button>
+    </div>
+  </div>
+
   <!-- Floating Book Now Widget with Popup -->
   <div class="floating-widget">
     <button id="bookNowBtn" class="bg-green-500 text-white px-6 py-3 rounded-full shadow-2xl hover:bg-green-600 transition-transform hover:scale-110 focus:outline-none">Book Now</button>
@@ -300,7 +392,6 @@
           <option value="airbnb">Airbnb Cleaning</option>
           <option value="residential">Residential Cleaning</option>
           <option value="commercial">Commercial Cleaning</option>
-          
         </select>
       </div>
       <div>
@@ -362,6 +453,7 @@
         <a href="services.html" class="service-card bg-white p-4 sm:p-8 rounded-xl shadow-lg block hover:bg-gray-50">
           <h3 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4 text-blue-900">Airbnb Cleaning</h3>
           <p class="text-gray-600">Expert cleaning tailored for Airbnb properties.</p>
+        </a>
         <a href="services.html" class="service-card bg-white p-4 sm:p-8 rounded-xl shadow-lg block hover:bg-gray-50">
           <h3 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4 text-blue-900">Residential Cleaning</h3>
           <p class="text-gray-600">Deep, detailed cleaning for every room in your home.</p>
@@ -370,97 +462,99 @@
           <h3 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4 text-blue-900">Commercial Cleaning</h3>
           <p class="text-gray-600">Custom cleaning for offices and business spaces.</p>
         </a>
-        
-        </a>
       </div>
     </div>
   </section>
 
-  <!-- Home Cleaning Services Section -->
-  <section class="parallax" style="background-image: url('home-services-bg.jpg?v=1'); height: 300px sm:height:600px;">
-    <div class="parallax-content">
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-12">Home Cleaning Services</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
-        <div>
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">Airbnb Specialist</h3>
-          <p class="text-gray-200">Get your place guest-ready with our tailored cleaning.</p>
+ <!-- ... (previous HTML remains unchanged until the parallax section) ... -->
+
+<!-- Home Cleaning Services Section -->
+<section class="parallax" style="background-image: url('home-services-bg.jpg?v=1');">
+  <div class="parallax-content">
+    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-12">Home Cleaning Services</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 max-h-[calc(100vh-200px)] overflow-y-auto">
+      <div>
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
         </div>
-        <div>
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 2a8 8 0 110 16 8 8 0 010-16zm0 4a2 2 0 100 4 2 2 0 000-4z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">End of Tenancy Cleaning</h3>
-          <p class="text-gray-200">Move-out cleaning done right, ensuring a smooth transition.</p>
+        <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">Airbnb Specialist</h3>
+        <p class="text-gray-200">Get your place guest-ready with our tailored cleaning.</p>
+      </div>
+      <div>
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 2a8 8 0 110 16 8 8 0 010-16zm0 4a2 2 0 100 4 2 2 0 000-4z"></path>
+          </svg>
         </div>
-        <div>
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-              <line x1="4" y1="12" x2="20" y2="12"></line>
-            </svg>
-          </div>
-          <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">Ironing & Laundry</h3>
-          <p class="text-gray-200">Expert care for your clothes and linens, keeping them fresh.</p>
+        <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">End of Tenancy Cleaning</h3>
+        <p class="text-gray-200">Move-out cleaning done right, ensuring a smooth transition.</p>
+      </div>
+      <div>
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+          </svg>
         </div>
-        <div>
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">Regular Cleaning</h3>
-          <p class="text-gray-200">Consistent upkeep to maintain a pristine living space.</p>
+        <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">Ironing & Laundry</h3>
+        <p class="text-gray-200">Expert care for your clothes and linens, keeping them fresh.</p>
+      </div>
+      <div>
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"></path>
+          </svg>
         </div>
-        <div>
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
-              <path d="M12 6v6l-4 4"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">Emergency Cleaning</h3>
-          <p class="text-gray-200">Quick response for urgent clean-ups when you need it most.</p>
+        <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">Regular Cleaning</h3>
+        <p class="text-gray-200">Consistent upkeep to maintain a pristine living space.</p>
+      </div>
+      <div>
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
+            <path d="M12 6v6l-4 4"></path>
+          </svg>
         </div>
-        <div>
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-13h-2v6h2zm0 8h-2v2h-2z"></path>
-              <path d="M12 7v5l-3 3"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">One-Off Cleaning</h3>
-          <p class="text-gray-200">Single deep clean to refresh your space with ease.</p>
+        <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">Emergency Cleaning</h3>
+        <p class="text-gray-200">Quick response for urgent clean-ups when you need it most.</p>
+      </div>
+      <div>
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
+            <path d="M12 6v6l-3 3"></path>
+          </svg>
         </div>
-        <div>
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-13h-2v6h2zm0 8h-2v2h-2z"></path>
-              <path d="M12 7v5l3 3"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">Carpet Cleaning</h3>
-          <p class="text-gray-200">Specialized care to keep your carpets fresh and clean.</p>
+        <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">One-Off Cleaning</h3>
+        <p class="text-gray-200">Single deep clean to refresh your space with ease.</p>
+      </div>
+      <div>
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
+            <path d="M12 7v5l3 3"></path>
+          </svg>
         </div>
-        <div>
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"></path>
-              <path d="M12 7v5l-3 3"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">Spring Cleaning</h3>
-          <p class="text-gray-200">Thorough cleaning from top to bottom, leaving every corner spotless.</p>
+        <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">Carpet Cleaning</h3>
+        <p class="text-gray-200">Specialized care to keep your carpets fresh and clean.</p>
+      </div>
+      <div>
+        <div class="service-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
+            <path d="M12 7v5l-3 3"></path>
+          </svg>
         </div>
+        <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">Spring Cleaning</h3>
+        <p class="text-gray-200">Thorough cleaning from top to bottom, leaving every corner spotless.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- ... (rest of the HTML remains unchanged) ... -->
 
   <!-- Why Choose Us Section -->
   <section class="py-12 sm:py-24 bg-gray-100">
@@ -605,6 +699,17 @@
   </footer>
 
   <script>
+    // Define close functions in global scope
+    function closePopup() {
+      const bookingPopup = document.getElementById('bookingPopup');
+      if (bookingPopup) bookingPopup.classList.remove('active');
+    }
+
+    function closePromoPopup() {
+      const promoPopup = document.getElementById('promoPopup');
+      if (promoPopup) promoPopup.classList.remove('active');
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       const bookNowBtn = document.getElementById('bookNowBtn');
       const bookingPopup = document.getElementById('bookingPopup');
@@ -613,16 +718,32 @@
       const successMessage = document.getElementById('successMessage');
       const hamburgerBtn = document.getElementById('hamburgerBtn');
       const navbarMenu = document.getElementById('navbarMenu');
+      const promoPopup = document.getElementById('promoPopup');
+      const promoBookNowBtn = document.getElementById('promoBookNowBtn');
+
+      // Show promo popup on page load
+      if (promoPopup) {
+        promoPopup.classList.add('active');
+      }
 
       if (bookNowBtn && bookingPopup) {
         bookNowBtn.addEventListener('click', () => {
           bookingPopup.classList.add('active');
+          promoPopup.classList.remove('active');
         });
       }
 
       if (quoteBtn && bookingPopup) {
         quoteBtn.addEventListener('click', () => {
           bookingPopup.classList.add('active');
+          promoPopup.classList.remove('active');
+        });
+      }
+
+      if (promoBookNowBtn && bookingPopup) {
+        promoBookNowBtn.addEventListener('click', () => {
+          bookingPopup.classList.add('active');
+          promoPopup.classList.remove('active');
         });
       }
 
@@ -666,13 +787,18 @@
         });
       }
 
-      function closePopup() {
-        if (bookingPopup) bookingPopup.classList.remove('active');
-      }
-
+      // Close booking popup when clicking outside
       document.addEventListener('click', (event) => {
-        if (bookingPopup && !bookingPopup.contains(event.target) && event.target !== bookNowBtn && event.target !== quoteBtn) {
+        if (bookingPopup && !bookingPopup.contains(event.target) && event.target !== bookNowBtn && event.target !== quoteBtn && event.target !== promoBookNowBtn) {
           bookingPopup.classList.remove('active');
+        }
+      });
+
+      // Close promo popup when clicking outside the promo content
+      document.addEventListener('click', (event) => {
+        const promoContent = document.querySelector('.promo-content');
+        if (promoPopup && !promoContent.contains(event.target) && event.target !== promoBookNowBtn) {
+          promoPopup.classList.remove('active');
         }
       });
     });
