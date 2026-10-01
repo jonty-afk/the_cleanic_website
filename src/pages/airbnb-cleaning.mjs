@@ -11,7 +11,7 @@ const faq = [
   ['What if the property needs a deeper clean?', 'We also offer <a class="link-underline" href="/spring-cleaning">spring cleaning</a>, <a class="link-underline" href="/one-off-cleaning">one-off deep cleans</a>, <a class="link-underline" href="/carpet-cleaning">carpet cleaning</a> and <a class="link-underline" href="/window-cleaning">window cleaning</a> for the jobs a regular turnover doesn’t cover.'],
   ['What is your cancellation policy?', 'Please give us 48 hours’ notice to cancel a booking. Cancellations with less notice incur a 50% cancellation fee.'],
   ['How do I pay?', `Payment is due within 7 days of the clean. We accept ${site.payment.join(', ').replace(/, ([^,]*)$/, ' and $1')}.`],
-  ['When can I reach you?', `Call ${site.phone.display} or email ${site.email}. We’re available ${site.hours.map((h) => `${h.days} ${h.time}`).join(', and ')}.`],
+  ['When can I reach you?', `Call ${site.phone.display} or ${site.phone2.display}, or email ${site.email}. We’re available ${site.hours.map((h) => `${h.days} ${h.time}`).join(', and ')}.`],
 ];
 
 export const meta = {

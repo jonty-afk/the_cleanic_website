@@ -19,6 +19,7 @@ export const businessSchema = () => ({
   logo: `${site.url}/assets/brand/icon-512.png`,
   image: `${site.url}/assets/img/og.jpg`,
   telephone: site.phone.schema,
+  contactPoint: [site.phone, site.phone2].map((p) => ({ '@type': 'ContactPoint', telephone: p.schema, contactType: 'customer service', areaServed: 'NZ' })),
   email: site.email,
   address: { '@type': 'PostalAddress', addressLocality: 'Auckland', addressRegion: 'Auckland', addressCountry: 'NZ' },
   areaServed: { '@type': 'City', name: 'Auckland' },
@@ -134,7 +135,7 @@ function header(p) {
     <div class="menu-item mt-auto grid gap-4 pt-10" style="transition-delay:360ms">
       <a href="/get-a-quote" class="btn btn-primary w-full">Get a quote ${icon.arrow}</a>
       <a href="tel:${site.phone.tel}" class="btn btn-outline w-full">${icon.phone} Call ${site.phone.display}</a>
-      <p class="fine text-center">${site.hours.map((h) => `${h.short} ${h.time}`).join(' · ')}</p>
+      <p class="fine text-center">Also <a class="link-underline" href="tel:${site.phone2.tel}">${site.phone2.display}</a> · ${site.hours.map((h) => `${h.short} ${h.time}`).join(' · ')}</p>
     </div>
   </nav>
 </div>`;
@@ -174,6 +175,7 @@ function footer() {
           <h2 class="eyebrow">Contact</h2>
           <ul class="mt-6 grid gap-3 text-[0.9375rem]" role="list">
             <li><a class="text-linen/80 transition-colors hover:text-linen" href="tel:${site.phone.tel}">${site.phone.display}</a></li>
+            <li><a class="text-linen/80 transition-colors hover:text-linen" href="tel:${site.phone2.tel}">${site.phone2.display}</a></li>
             <li><a class="break-all text-linen/80 transition-colors hover:text-linen" href="mailto:${site.email}">${site.email}</a></li>
             <li class="pt-2 text-night-mute">${site.hours.map((h) => `${h.short}<br><span class="text-linen/80">${h.time}</span>`).join('<br>')}</li>
           </ul>

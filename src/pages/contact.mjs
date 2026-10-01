@@ -34,7 +34,7 @@ export const render = () => `
         <dl class="mt-12 border-t border-line" ${rv(220)}>
           <div class="grid gap-1 border-b border-line py-5 sm:grid-cols-[8rem_1fr]">
             <dt class="fine pt-0.5">Phone</dt>
-            <dd><a href="tel:${site.phone.tel}" class="font-serif text-[1.75rem] leading-tight hover:text-navy">${site.phone.display}</a></dd>
+            <dd class="grid gap-1"><a href="tel:${site.phone.tel}" class="font-serif text-[1.75rem] leading-tight hover:text-navy">${site.phone.display}</a><a href="tel:${site.phone2.tel}" class="font-serif text-[1.75rem] leading-tight hover:text-navy">${site.phone2.display}</a></dd>
           </div>
           <div class="grid gap-1 border-b border-line py-5 sm:grid-cols-[8rem_1fr]">
             <dt class="fine pt-0.5">Email</dt>
