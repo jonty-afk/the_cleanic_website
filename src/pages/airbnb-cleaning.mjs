@@ -1,9 +1,10 @@
 import { site } from '../data/site.mjs';
+import { pricing, money, PRICE_NOTE, AIRBNB_SCOPE_NOTE } from '../data/pricing.mjs';
 import { picture, icon, checklist, rv } from '../lib/html.mjs';
-import { quoteBand, faqList, faqSchema, turnoverSteps, breadcrumb } from '../lib/sections.mjs';
+import { quoteBand, faqList, faqSchema, turnoverSteps, breadcrumb, airbnbTiers } from '../lib/sections.mjs';
 
 const faq = [
-  ['How much does an Airbnb clean cost?', `Airbnb and short-stay turnovers start from ${site.airbnbFrom} per clean. The final price depends on the size of the property and what it needs — request a quote and we’ll price yours.`],
+  ['How much does an Airbnb clean cost?', `Turnovers start from ${pricing.airbnb.tiers.filter((t) => t.from != null).map((t) => `${money(t.from)} for ${t.label.toLowerCase()}`).join(', ')}; 5+ bedrooms are quoted on request. ${PRICE_NOTE} ${AIRBNB_SCOPE_NOTE}`],
   ['Can you work around my booking calendar?', 'Yes. Turnovers are scheduled to fit the gap between your guests. When you request a quote, let us know your usual check-out and check-in times.'],
   ['What’s included in a turnover?', 'Beds changed and made, bathrooms cleaned and sanitised, fresh towels set out, the kitchen cleaned, rubbish removed, surfaces wiped and floors vacuumed and mopped.'],
   ['Which areas do you cover?', 'We clean short-stay properties in Auckland. Tell us the suburb when you request a quote.'],
@@ -18,7 +19,7 @@ export const meta = {
   out: 'airbnb-cleaning.html',
   title: 'Airbnb Cleaning Auckland | Short-Stay Turnovers | The Cleanic',
   ogTitle: 'Airbnb & short-stay turnover cleaning in Auckland — The Cleanic',
-  description: 'Airbnb turnover cleaning in Auckland. Beds changed, bathrooms and kitchens cleaned, floors done — scheduled around your bookings so the property is guest-ready. From $120.',
+  description: `Airbnb turnover cleaning in Auckland. Beds changed, bathrooms and kitchens cleaned, floors done — scheduled around your bookings so the property is guest-ready. From ${site.airbnbFrom}.`,
   crumbs: [['/airbnb-cleaning', 'Airbnb cleaning']],
   schema: [
     {
@@ -124,6 +125,11 @@ export const render = () => `
         ])}
       </div>
       <p class="fine mt-6" ${rv(200)}>Need something specific for your property? Add it to your quote request and we’ll let you know.</p>
+      <div class="mt-10" ${rv(220)}>
+        <h3 class="h4">Starting prices</h3>
+        ${airbnbTiers('mt-4')}
+        <p class="fine mt-4">${PRICE_NOTE} ${AIRBNB_SCOPE_NOTE}</p>
+      </div>
       <a href="/airbnb-turnover-checklist" class="link-arrow mt-6" ${rv(240)}>Free guide: the full host turnover checklist ${icon.arrow}</a>
     </div>
   </div>

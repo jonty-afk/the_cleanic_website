@@ -1,5 +1,6 @@
 import { site } from '../data/site.mjs';
 import { airbnb, services } from '../data/services.mjs';
+import { pricing, money, QUOTE } from '../data/pricing.mjs';
 import { icon, picture, rv, esc } from './html.mjs';
 
 export const faqSchema = (faq) => ({
@@ -66,5 +67,11 @@ export const breadcrumb = (items) => `
     ${items.map(([h, l], i) => `<li aria-hidden="true">/</li><li>${i === items.length - 1 ? `<span aria-current="page" class="text-ink-soft">${l}</span>` : `<a href="${h}" class="hover:text-ink">${l}</a>`}</li>`).join('')}
   </ol>
 </nav>`;
+
+/** Airbnb starting prices by property size (from ../data/pricing.mjs). */
+export const airbnbTiers = (cls = '') => `
+<dl class="border-t border-line ${cls}">
+  ${pricing.airbnb.tiers.map((t) => `<div class="flex items-baseline justify-between gap-4 border-b border-line py-3"><dt class="text-[0.9375rem] text-ink-soft">${t.label}</dt><dd class="text-[0.9375rem] font-semibold">${t.from == null ? QUOTE : `From ${money(t.from)}`}</dd></div>`).join('')}
+</dl>`;
 
 export { airbnb, esc };

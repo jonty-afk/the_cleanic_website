@@ -2,6 +2,8 @@
 // Only facts that appear on the original website are included here.
 // See NOTES in the project README for items awaiting confirmation.
 
+import { airbnbFrom } from './pricing.mjs';
+
 export const site = {
   name: 'The Cleanic',
   url: 'https://the-cleanic-website.vercel.app',
@@ -23,5 +25,5 @@ export const site = {
     quote: 'https://getform.io/f/bxoykmza', // original homepage popup + quote page
     contact: 'https://getform.io/f/bmdmrdga', // original contact page + other popups
   },
-  airbnbFrom: '$120',
+  airbnbFrom, // from ./pricing.mjs
 };

@@ -1,15 +1,16 @@
 import { site } from '../data/site.mjs';
+import { PRICE_NOTE, AIRBNB_SCOPE_NOTE } from '../data/pricing.mjs';
 import { services, groups } from '../data/services.mjs';
 import { businessSchema } from '../lib/layout.mjs';
 import { picture, icon, checklist, rv } from '../lib/html.mjs';
-import { quoteBand, turnoverSteps } from '../lib/sections.mjs';
+import { quoteBand, turnoverSteps, airbnbTiers } from '../lib/sections.mjs';
 
 export const meta = {
   path: '/',
   out: 'index.html',
   title: 'Airbnb & Short-Stay Cleaning in Auckland | The Cleanic',
   ogTitle: 'The Cleanic — Airbnb & short-stay cleaning in Auckland',
-  description: 'Airbnb and short-stay turnover cleaning in Auckland. Beds remade, kitchens and bathrooms cleaned, floors done — guest-ready between every stay. From $120 per clean.',
+  description: `Airbnb and short-stay turnover cleaning in Auckland. Beds remade, kitchens and bathrooms cleaned, floors done — guest-ready between every stay. From ${site.airbnbFrom} per clean.`,
   schema: [businessSchema(), { '@type': 'WebSite', '@id': `${site.url}/#website`, url: `${site.url}/`, name: 'The Cleanic', publisher: { '@id': `${site.url}/#business` } }],
   preload: [`href="/assets/img/bedroom-linen-1280.avif" imagesrcset="/assets/img/bedroom-linen-640.avif 640w, /assets/img/bedroom-linen-1280.avif 1280w, /assets/img/bedroom-linen-1920.avif 1920w" imagesizes="(min-width: 1024px) 50vw, 100vw" type="image/avif"`],
   quoteService: 'airbnb',
@@ -144,8 +145,9 @@ export const render = () => `
         </div>`).join('')}
       </div>
       <div class="mt-14 border border-line bg-paper p-7 sm:p-9" ${rv()}>
-        <p class="font-serif text-[1.75rem] leading-tight">From ${site.airbnbFrom} per clean.</p>
-        <p class="mt-3 text-ink-soft">The final price depends on the size of the property and what it needs. Tell us about yours and we’ll quote it.</p>
+        <p class="font-serif text-[1.75rem] leading-tight">Simple starting prices.</p>
+        ${airbnbTiers('mt-6')}
+        <p class="fine mt-4">${PRICE_NOTE} ${AIRBNB_SCOPE_NOTE}</p>
         <div class="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
           <a href="/get-a-quote?service=airbnb" class="btn btn-primary">Get a quote ${icon.arrow}</a>
           <a href="/airbnb-cleaning" class="link-arrow">Airbnb cleaning in detail ${icon.arrow}</a>

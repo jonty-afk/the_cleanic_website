@@ -140,6 +140,6 @@ export const render = () => `
 </article>
 
 <div class="print:hidden">
-${quoteBand({ title: 'Rather not do it yourself?', text: 'We handle Airbnb and short-stay turnovers across Auckland — beds, bathrooms, kitchen and floors, ready for the next arrival. From $120 per clean.', service: 'airbnb', image: null })}
+${quoteBand({ title: 'Rather not do it yourself?', text: `We handle Airbnb and short-stay turnovers across Auckland — beds, bathrooms, kitchen and floors, ready for the next arrival. From ${site.airbnbFrom} per clean.`, service: 'airbnb', image: null })}
 </div>
 `;

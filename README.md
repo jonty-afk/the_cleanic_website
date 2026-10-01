@@ -72,6 +72,12 @@ Every photo on the site is used exactly once — no image appears on more than o
 
 Airbnb & short-stay turnovers are the headline service. The other 11 services are grouped as *Deep & specialist cleans*, *Homes & moving* and *Business & events* (`groups` in `src/data/services.mjs`) and appear in the Services dropdown, mobile menu, footer, homepage and `/services`. Commercial cleaning was listed on the original homepage and now has its own page; it shows "Quote on request" because the original site gave no price.
 
+## Pricing
+
+All public prices live in `src/data/pricing.mjs` — change a number there and run `npm run build`; every page, FAQ, meta description and structured-data entry updates. Prices are cleaning-only starting prices ("From …"); Commercial, Emergency and 5+ bedroom Airbnb are quote on request. No GST wording is shown because GST status hasn't been confirmed.
+
+The "What every turnover covers" film (`assets/video/what-every-turnover-covers.mp4`) has "from $120 per clean" baked into its end card — re-render it if the 1-bedroom Airbnb price changes.
+
 ## Analytics
 
 Vercel Web Analytics is wired in (it is skipped on localhost). It starts collecting once it is switched on in the Vercel dashboard: Project → Analytics → Enable. No cookies are used.

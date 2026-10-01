@@ -1,4 +1,5 @@
 import { site } from '../data/site.mjs';
+import { PRICE_NOTE } from '../data/pricing.mjs';
 import { services, groups, airbnb } from '../data/services.mjs';
 import { picture, icon, rv } from '../lib/html.mjs';
 import { quoteBand, serviceIndex, breadcrumb } from '../lib/sections.mjs';
@@ -59,7 +60,7 @@ export const render = () => `
       <h2 class="h2 lg:col-span-3" ${rv()}>${g}</h2>
       <div class="lg:col-span-9">${serviceIndex(services.filter((s) => s.group === g), { numbered: false })}</div>
     </div>`).join('')}
-    <p class="fine max-w-2xl lg:ml-[25%]" ${rv()}>Prices are starting points or typical ranges. Your quote depends on the size of the property, its condition and what you need. Services are subject to availability — see our <a class="link-underline" href="/terms">terms &amp; conditions</a>.</p>
+    <p class="fine max-w-2xl lg:ml-[25%]" ${rv()}>${PRICE_NOTE} Services are subject to availability — see our <a class="link-underline" href="/terms">terms &amp; conditions</a>.</p>
   </div>
 </section>
 

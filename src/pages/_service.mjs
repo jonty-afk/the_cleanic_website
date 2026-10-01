@@ -1,4 +1,5 @@
 import { site } from '../data/site.mjs';
+import { priceNote } from '../data/pricing.mjs';
 import { serviceBySlug, airbnb, quoteKeyBySlug } from '../data/services.mjs';
 import { picture, icon, checklist, rv } from '../lib/html.mjs';
 import { quoteBand, faqList, faqSchema, breadcrumb } from '../lib/sections.mjs';
@@ -101,7 +102,7 @@ ${hero(s)}
       </div>
       <div class="mt-4 grid gap-4 sm:grid-cols-[10rem_1fr]" ${rv(160)}>
         <h2 class="eyebrow pt-1">Pricing</h2>
-        <p class="text-[0.9375rem]"><span class="font-semibold">${s.price}.</span> <span class="text-ink-soft">Final pricing depends on the property and the work involved.</span></p>
+        <p class="text-[0.9375rem]"><span class="font-semibold">${s.price}.</span> <span class="text-ink-soft">${priceNote(s.priceKey)}</span></p>
       </div>
     </div>
   </div>
