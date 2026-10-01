@@ -1,363 +1,228 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-NZ">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact The Cleanic for premium cleaning services in New Zealand.">
-  <meta name="keywords" content="contact, cleaning services, The Cleanic, New Zealand">
-  <title>The Cleanic - Contact Us</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      padding-top: 96px; /* Adjusted for desktop navbar height (h-24) */
-      background-color: #ffffff;
-    }
-    .social-icons a {
-      margin: 0 10px;
-      color: #ffffff;
-      font-size: 18px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .social-icons a:hover {
-      color: #ffffff;
-    }
-    .payment-icons i {
-      font-size: 24px;
-      margin: 0 10px;
-      color: #fff;
-      opacity: 0.8;
-    }
-    .floating-widget {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 2000;
-    }
-    .booking-popup {
-      display: none;
-      position: fixed;
-      bottom: 80px;
-      right: 30px;
-      width: 350px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      padding: 20px;
-      z-index: 2001;
-    }
-    .booking-popup.active {
-      display: block;
-    }
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      cursor: pointer;
-      font-size: 18px;
-      color: #666;
-    }
-    .debug-button {
-      display: block !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-      height: auto !important;
-      min-height: 40px !important;
-    }
-    /* Mobile-specific styles */
-    @media (max-width: 640px) {
-      body {
-        padding-top: 60px; /* Adjusted for mobile navbar height (h-60) */
-      }
-      nav {
-        height: 100px;
-      }
-      .navbar-menu {
-        display: none;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: white;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 50;
-      }
-      .navbar-menu.active {
-        display: block;
-      }
-      .nav-links {
-        flex-direction: column;
-        padding: 10px 0;
-      }
-      .nav-links a {
-        padding: 10px 20px;
-        width: 100%;
-        text-align: center;
-        font-size: 1rem;
-      }
-      .hamburger {
-        display: block;
-        font-size: 24px;
-        cursor: pointer;
-        padding: 10px;
-        margin-right: 10px;
-      }
-      .hamburger.hidden {
-        display: none;
-      }
-      .floating-widget {
-        bottom: 15px;
-        right: 15px;
-      }
-      .booking-popup {
-        bottom: 60px;
-        right: 15px;
-        width: 90%;
-        max-width: 350px;
-      }
-      .booking-popup input,
-      .booking-popup select,
-      .booking-popup button {
-        padding: 8px;
-      }
-      form {
-        padding: 0 10px;
-      }
-      input,
-      textarea,
-      select,
-      button {
-        font-size: 0.875rem;
-        padding: 8px;
-      }
-      h2 {
-        font-size: 2rem;
-      }
-    }
-    @media (min-width: 641px) {
-      .hamburger {
-        display: none;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact The Cleanic | Auckland Cleaning</title>
+<meta name="description" content="Call The Cleanic on 021 0260 6025, email thecleanicnz@gmail.com or send a message. Airbnb, short-stay and home cleaning across Auckland, seven days.">
+<link rel="canonical" href="https://the-cleanic-website.vercel.app/contact">
+<meta name="theme-color" content="#F5F1EA">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Cleanic">
+<meta property="og:locale" content="en_NZ">
+<meta property="og:title" content="Contact The Cleanic | Auckland Cleaning">
+<meta property="og:description" content="Call The Cleanic on 021 0260 6025, email thecleanicnz@gmail.com or send a message. Airbnb, short-stay and home cleaning across Auckland, seven days.">
+<meta property="og:url" content="https://the-cleanic-website.vercel.app/contact">
+<meta property="og:image" content="https://the-cleanic-website.vercel.app/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A freshly made bed in a calm, sunlit bedroom">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact The Cleanic | Auckland Cleaning">
+<meta name="twitter:description" content="Call The Cleanic on 021 0260 6025, email thecleanicnz@gmail.com or send a message. Airbnb, short-stay and home cleaning across Auckland, seven days.">
+<meta name="twitter:image" content="https://the-cleanic-website.vercel.app/assets/img/og.jpg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/brand/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/hanken-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=e924d9a53a">
+<script>document.documentElement.classList.add('js')</script>
+<script src="/assets/js/site.js?v=8932747c75" defer></script>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};if(!/^(localhost|127.)/.test(location.hostname)){var s=document.createElement('script');s.defer=1;s.src='/_vercel/insights/script.js';document.head.appendChild(s)}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ContactPage","url":"https://the-cleanic-website.vercel.app/contact","about":{"@id":"https://the-cleanic-website.vercel.app/#business"}},{"@type":"LocalBusiness","@id":"https://the-cleanic-website.vercel.app/#business","name":"The Cleanic","description":"Airbnb and short-stay turnover cleaning, plus home and property cleaning, in Auckland.","url":"https://the-cleanic-website.vercel.app/","logo":"https://the-cleanic-website.vercel.app/assets/brand/icon-512.png","image":"https://the-cleanic-website.vercel.app/assets/img/og.jpg","telephone":"+64 21 0260 6025","email":"thecleanicnz@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Auckland","addressRegion":"Auckland","addressCountry":"NZ"},"areaServed":{"@type":"City","name":"Auckland"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:00","closes":"15:00"}],"paymentAccepted":"Visa, Mastercard, American Express","sameAs":["https://www.instagram.com/the_cleanic23","https://www.facebook.com/the.cleanic.2023","https://www.tiktok.com/@thecleanicnz5"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://the-cleanic-website.vercel.app/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://the-cleanic-website.vercel.app/contact"}]}]}</script>
 </head>
-<body class="text-gray-800">
-  <!-- Floating Book Now Widget with Popup -->
-  <div class="floating-widget">
-    <button id="bookNowBtn" class="bg-green-500 text-white px-6 py-3 rounded-full shadow-2xl hover:bg-green-600 transition-transform hover:scale-110 focus:outline-none">Book Now</button>
-  </div>
-  <div id="bookingPopup" class="booking-popup">
-    <span class="close-btn" onclick="closePopup()">×</span>
-    <h3 class="text-xl font-semibold text-blue-900 mb-4">Book Your Cleaning</h3>
-    <form action="https://getform.io/f/bxoykmza" method="POST" class="space-y-4 p-4">
-      <div>
-        <label class="block text-gray-700 mb-2" for="popupName">Full Name</label>
-        <input type="text" id="popupName" name="name" class="w-full p-2 border rounded-lg focus:border-blue-500" required>
-      </div>
-      <div>
-        <label class="block text-gray-700 mb-2" for="popupEmail">Email</label>
-        <input type="email" id="popupEmail" name="email" class="w-full p-2 border rounded-lg focus:border-blue-500" required>
-      </div>
-      <div>
-        <label class="block text-gray-700 mb-2" for="popupService">Service</label>
-        <select id="popupService" name="service" class="w-full p-2 border rounded-lg focus:border-blue-500" required>
-          <option value="residential">Residential Cleaning</option>
-          <option value="commercial">Commercial Cleaning</option>
-          <option value="airbnb">Airbnb Cleaning</option>
-        </select>
-      </div>
-      <div>
-        <label class="block text-gray-700 mb-2" for="popupDate">Preferred Date</label>
-        <input type="date" id="popupDate" name="date" class="w-full p-2 border rounded-lg focus:border-blue-500" required>
-      </div>
-      <input type="hidden" name="_subject" value="New Booking from The Cleanic">
-      <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
-      <div id="successMessage" class="hidden text-green-600 mt-4">Thank you! Your booking request has been sent.</div>
-      <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition mt-6 block debug-button">Submit</button>
-    </form>
-  </div>
-
-  <!-- Navbar -->
-  <nav class="bg-white shadow-xl fixed w-full z-50 top-0">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-24">
-        <div class="flex items-center space-x-1">
-          <img src="/logo.png" alt="The Cleanic Logo" class="h-16 md:h-32">
-          <h1 class="text-2xl md:text-4xl font-bold text-blue-900">The Cleanic</h1>
-        </div>
-        <div class="flex items-center space-x-8">
-          <div class="md:flex items-center space-x-8 hidden md:block navbar-menu" id="navbarMenu">
-            <div class="nav-links flex space-x-8">
-              <a href="index.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Home</a>
-              <a href="services.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Services</a>
-              <a href="about.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">About</a>
-              <a href="contact.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Contact</a>
-              <a href="get-a-quote.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Get a Quote</a>
-            </div>
-            <div class="social-icons">
-              <a href="https://www.facebook.com/the.cleanic.2023" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f text-blue-900 hover:text-blue-700"></i></a>
-              <a href="https://www.instagram.com/the_cleanic23?igsh=MXQxNW5sNXM4dWxteA==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram text-blue-900 hover:text-blue-700"></i></a>
-              <a href="https://www.tiktok.com/@thecleanicnz5?_t=ZS-8yLcjJF9NH6&_r=1" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok text-blue-900 hover:text-blue-700"></i></a>
-            </div>
-          </div>
-          <div class="md:hidden">
-            <i class="fas fa-bars hamburger" id="hamburgerBtn"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Contact Form Section -->
-  <section class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-4xl font-bold text-blue-900 text-center mb-16">Get in Touch</h2>
-      <form action="https://getform.io/f/bmdmrdga" method="POST" class="max-w-2xl mx-auto space-y-6">
-        <div>
-          <label class="block text-gray-700 mb-2" for="contactName">Full Name</label>
-          <input type="text" id="contactName" name="name" class="w-full p-3 border rounded-lg focus:border-blue-500" required>
-        </div>
-        <div>
-          <label class="block text-gray-700 mb-2" for="contactEmail">Email</label>
-          <input type="email" id="contactEmail" name="email" class="w-full p-3 border rounded-lg focus:border-blue-500" required>
-        </div>
-        <div>
-          <label class="block text-gray-700 mb-2" for="contactPhone">Phone Number</label>
-          <input type="tel" id="contactPhone" name="phone" class="w-full p-3 border rounded-lg focus:border-blue-500" required>
-        </div>
-        <div>
-          <label class="block text-gray-700 mb-2" for="contactAddress">Address</label>
-          <textarea id="contactAddress" name="address" class="w-full p-3 border rounded-lg focus:border-blue-500" rows="3" required></textarea>
-        </div>
-        <div>
-          <label class="block text-gray-700 mb-2" for="contactService">Service Type</label>
-          <select id="contactService" name="service" class="w-full p-3 border rounded-lg focus:border-blue-500" required>
-            <option value="residential">Residential Cleaning</option>
-            <option value="commercial">Commercial Cleaning</option>
-            <option value="airbnb">Airbnb Cleaning</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-gray-700 mb-2" for="contactMessage">Message</label>
-          <textarea id="contactMessage" name="message" class="w-full p-3 border rounded-lg focus:border-blue-500" rows="5" placeholder="Tell us more..." required></textarea>
-        </div>
-        <div>
-          <label class="block text-gray-700 mb-2" for="contactDate">Preferred Date</label>
-          <input type="date" id="contactDate" name="date" class="w-full p-3 border rounded-lg focus:border-blue-500" required>
-        </div>
-        <div>
-          <label class="block text-gray-700 mb-2" for="contactNotes">Additional Notes</label>
-          <textarea id="contactNotes" name="notes" class="w-full p-3 border rounded-lg focus:border-blue-500" rows="3" placeholder="Any special requests?"></textarea>
-        </div>
-        <button type="submit" class="w-full bg-blue-900 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">Submit</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-blue-900 text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-        <div class="text-left">
-          <h3 class="text-2xl font-bold mb-2">The Cleanic</h3>
-          <p class="text-gray-300 mb-4">Your Trusted Cleaning Experts</p>
-          <h3 class="text-xl font-semibold mb-2">Payment Options</h3>
-          <div class="payment-icons flex space-x-4">
-            <i class="fab fa-cc-visa"></i>
-            <i class="fab fa-cc-mastercard"></i>
-            <i class="fab fa-cc-amex"></i>
-          </div>
-        </div>
-        <div class="text-center">
-          <h3 class="text-xl font-semibold mb-4">Contact Us</h3>  
-          <p class="text-gray-300"><a href="tel:+64211759393" class="hover:underline">021 175 9393</a></p>
-          <p class="text-gray-300"><a href="mailto:thecleanicnz@gmail.com" class="hover:underline">thecleanicnz@gmail.com</a></p>
-        </div>
-        <div class="text-right">
-          <h3 class="text-xl font-semibold mb-4">Business Hours</h3>
-          <p class="text-gray-300">Mon-Fri: 8 AM - 6 PM</p>
-          <p class="text-gray-300">Sat-Sun: 9 AM - 3 PM</p>
-        </div>
-      </div>
-      <div class="text-center mt-8">
-        <div class="social-icons mb-4">
-          <a href="https://www.tiktok.com/@thecleanicnz5?_t=ZS-8yLcjJF9NH6&_r=1" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-          <a href="https://www.instagram.com/the_cleanic23?igsh=MXQxNW5sNXM4dWxteA==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/the.cleanic.2023" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        </div>
-        <p class="text-gray-400">© 2025 The Cleanic. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const bookNowBtn = document.getElementById('bookNowBtn');
-      const bookingPopup = document.getElementById('bookingPopup');
-      const form = bookingPopup.querySelector('form');
-      const successMessage = document.getElementById('successMessage');
-      const hamburgerBtn = document.getElementById('hamburgerBtn');
-      const navbarMenu = document.getElementById('navbarMenu');
-
-      if (bookNowBtn && bookingPopup) {
-        bookNowBtn.addEventListener('click', () => {
-          bookingPopup.classList.add('active');
-        });
-      }
-
-      if (form) {
-        form.addEventListener('submit', async (event) => {
-          event.preventDefault();
-          const name = form.querySelector('#popupName').value.trim();
-          const email = form.querySelector('#popupEmail').value.trim();
-          const date = form.querySelector('#popupDate').value;
-
-          if (!name || !email || !date) {
-            alert('Please fill out all required fields.');
-            return;
-          }
-
-          try {
-            const response = await fetch(form.action, {
-              method: 'POST',
-              body: new FormData(form),
-              headers: { 'Accept': 'application/json' }
-            });
-            if (response.ok) {
-              form.reset();
-              successMessage.classList.remove('hidden');
-              setTimeout(() => {
-                bookingPopup.classList.remove('active');
-                successMessage.classList.add('hidden');
-              }, 3000);
-            } else {
-              alert('There was an issue submitting your form. Please try again.');
-            }
-          } catch (error) {
-            alert('Error: ' + error.message);
-          }
-        });
-      }
-
-      if (hamburgerBtn && navbarMenu) {
-        hamburgerBtn.addEventListener('click', () => {
-          navbarMenu.classList.toggle('active');
-        });
-      }
-
-      function closePopup() {
-        if (bookingPopup) bookingPopup.classList.remove('active');
-      }
-
-      document.addEventListener('click', (event) => {
-        if (bookingPopup && !bookingPopup.contains(event.target) && event.target !== bookNowBtn) {
-          bookingPopup.classList.remove('active');
-        }
-      });
-    });
-  </script>
+<body>
+<a href="#main" class="sr-only-focusable fixed left-4 top-3 z-[80] bg-ink px-4 py-2 text-sm font-semibold text-linen">Skip to content</a>
+<header class="site-header fixed inset-x-0 top-0 z-50 border-b border-transparent" data-header>
+<div class="wrap flex h-full items-center justify-between gap-6">
+<a href="/" class="flex items-center gap-3 text-ink" aria-label="The Cleanic — home">
+<svg class="h-8 w-auto text-navy" viewBox="0 0 86 128" fill="currentColor" aria-hidden="true"><defs><mask id="m-head"><rect width="86" height="128" fill="#fff"/><path d="M-2 103 L62 51 L92 76" fill="none" stroke="#000" stroke-width="7.5"/><rect x="24" y="96" width="8.5" height="40" fill="#000"/><g fill="#000"><rect x="52.5" y="92.5" width="8.6" height="8.6"/><rect x="63.4" y="92.5" width="8.6" height="8.6"/><rect x="52.5" y="103.4" width="8.6" height="8.6"/><rect x="63.4" y="103.4" width="8.6" height="8.6"/></g></mask></defs><path mask="url(#m-head)" d="M41 0C29 22 0 52 0 85a43 43 0 0 0 86 0c0-8-2-15-6-24Z"/></svg>
+<span class="font-serif text-[1.625rem] leading-none tracking-[-0.01em]">The Cleanic</span>
+</a>
+<nav aria-label="Main" class="hidden lg:block">
+<ul class="flex items-center gap-7 xl:gap-9" role="list">
+<li><a class="nav-link" href="/airbnb-cleaning">Airbnb cleaning</a></li>
+<li class="has-dropdown relative">
+<a class="nav-link inline-flex items-center gap-1.5" href="/services">Services<svg class="h-2 w-2.5" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m1 1 4 4 4-4"/></svg></a>
+<div class="dropdown-panel absolute left-1/2 top-full w-[54rem] -translate-x-1/2 pt-5">
+<div class="grid grid-cols-[15rem_1fr] border border-line bg-linen shadow-[0_24px_48px_-24px_rgba(27,32,38,.25)]">
+<a href="/airbnb-cleaning" class="group flex flex-col justify-between gap-6 bg-night p-7 text-linen">
+<span><span class="eyebrow !text-night-mute">Our speciality</span><span class="mt-4 block font-serif text-[1.75rem] leading-tight">Airbnb &amp; short-stay turnovers</span></span>
+<span class="inline-flex items-center gap-2 text-[0.875rem] font-semibold">From $120 per clean <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></span>
+</a>
+<div class="grid grid-cols-3 gap-6 p-7">
+<div><p class="fine font-semibold uppercase tracking-[0.12em]">Deep & specialist cleans</p><ul class="mt-3 grid gap-2" role="list"><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/spring-cleaning">Spring cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/one-off-cleaning">One-off deep cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/carpet-cleaning">Carpet cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/window-cleaning">Window cleaning</a></li></ul></div><div><p class="fine font-semibold uppercase tracking-[0.12em]">Homes & moving</p><ul class="mt-3 grid gap-2" role="list"><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/regular-cleaning">Regular cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/end-of-tenancy-cleaning">End of tenancy cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/after-builders-cleaning">After builders cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/ironing-laundry">Ironing & laundry</a></li></ul></div><div><p class="fine font-semibold uppercase tracking-[0.12em]">Business & events</p><ul class="mt-3 grid gap-2" role="list"><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/commercial-cleaning">Commercial cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/after-party-cleaning">After party cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/emergency-cleaning">Emergency cleaning</a></li></ul></div>
+</div>
+</div>
+</div>
+</li><li><a class="nav-link" href="/how-it-works">How it works</a></li><li><a class="nav-link" href="/about">About</a></li><li><a class="nav-link" href="/contact" aria-current="page">Contact</a></li>
+</ul>
+</nav>
+<div class="flex items-center gap-3 sm:gap-5">
+<a href="tel:+642102606025" class="hidden items-center gap-2 text-[0.9375rem] font-medium text-ink-soft transition-colors hover:text-ink xl:inline-flex"><svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5.6 1.8 3.4 2.3c-.8.2-1.3 1-1.2 1.8.9 5 4.7 8.8 9.7 9.7.8.1 1.6-.4 1.8-1.2l.5-2.2-3-1.4-1.4 1.6a8.4 8.4 0 0 1-3.8-3.8L7.6 5.4 6.2 2.4z"/></svg>021 0260 6025</a>
+<a href="/get-a-quote" class="btn btn-primary btn-sm hidden sm:inline-flex">Get a quote</a>
+<button type="button" class="-mr-2 flex h-11 items-center gap-3 px-2 text-[0.9375rem] font-medium text-ink lg:hidden" aria-expanded="false" aria-controls="site-menu" data-menu-toggle>
+<span data-menu-label>Menu</span>
+<span class="menu-icon grid gap-[6px]" aria-hidden="true"><span></span><span></span></span>
+</button>
+</div>
+</div>
+</header>
+<div id="site-menu" class="menu-panel fixed inset-0 z-40 flex flex-col overflow-y-auto bg-linen pt-[76px] lg:hidden" role="dialog" aria-modal="true" aria-label="Menu" data-menu>
+<nav aria-label="Mobile" class="wrap flex flex-1 flex-col pb-8 pt-6">
+<ul class="border-t border-line" role="list">
+<li class="menu-item border-b border-line" style="transition-delay:60ms"><a href="/" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink">Home<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li><li class="menu-item border-b border-line" style="transition-delay:105ms"><a href="/airbnb-cleaning" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink">Airbnb cleaning<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li><li class="menu-item border-b border-line" style="transition-delay:150ms"><a href="/services" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink">Services<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li><li class="menu-item border-b border-line" style="transition-delay:195ms"><a href="/how-it-works" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink">How it works<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li><li class="menu-item border-b border-line" style="transition-delay:240ms"><a href="/about" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink">About<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li><li class="menu-item border-b border-line" style="transition-delay:285ms"><a href="/contact" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink" aria-current="page">Contact<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li><li class="menu-item border-b border-line" style="transition-delay:330ms"><a href="/get-a-quote" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink">Get a quote<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li>
+</ul>
+<div class="menu-item pt-8" style="transition-delay:330ms">
+<p class="eyebrow">All services</p>
+<ul class="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5 text-[0.9375rem]" role="list">
+<li><a class="text-ink-soft" href="/airbnb-cleaning">Airbnb & short-stay</a></li><li><a class="text-ink-soft" href="/regular-cleaning">Regular cleaning</a></li><li><a class="text-ink-soft" href="/spring-cleaning">Spring cleaning</a></li><li><a class="text-ink-soft" href="/one-off-cleaning">One-off deep cleaning</a></li><li><a class="text-ink-soft" href="/end-of-tenancy-cleaning">End of tenancy cleaning</a></li><li><a class="text-ink-soft" href="/after-builders-cleaning">After builders cleaning</a></li><li><a class="text-ink-soft" href="/carpet-cleaning">Carpet cleaning</a></li><li><a class="text-ink-soft" href="/window-cleaning">Window cleaning</a></li><li><a class="text-ink-soft" href="/ironing-laundry">Ironing & laundry</a></li><li><a class="text-ink-soft" href="/commercial-cleaning">Commercial cleaning</a></li><li><a class="text-ink-soft" href="/after-party-cleaning">After party cleaning</a></li><li><a class="text-ink-soft" href="/emergency-cleaning">Emergency cleaning</a></li>
+</ul>
+</div>
+<div class="menu-item mt-auto grid gap-4 pt-10" style="transition-delay:360ms">
+<a href="/get-a-quote" class="btn btn-primary w-full">Get a quote <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a>
+<a href="tel:+642102606025" class="btn btn-outline w-full"><svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5.6 1.8 3.4 2.3c-.8.2-1.3 1-1.2 1.8.9 5 4.7 8.8 9.7 9.7.8.1 1.6-.4 1.8-1.2l.5-2.2-3-1.4-1.4 1.6a8.4 8.4 0 0 1-3.8-3.8L7.6 5.4 6.2 2.4z"/></svg> Call 021 0260 6025</a>
+<p class="fine text-center">Mon–Fri 8am – 6pm · Sat–Sun 9am – 3pm</p>
+</div>
+</nav>
+</div>
+<main id="main" tabindex="-1" class="outline-none">
+<section data-hero class="pb-20 pt-[calc(var(--header-h)+2rem)] sm:pb-28 sm:pt-[calc(var(--header-h)+3.5rem)]" aria-labelledby="hero-title">
+<div class="wrap">
+<nav aria-label="Breadcrumb" class="fine">
+<ol class="flex flex-wrap items-center gap-2" role="list">
+<li><a href="/" class="hover:text-ink">Home</a></li>
+<li aria-hidden="true">/</li><li><span aria-current="page" class="text-ink-soft">Contact</span></li>
+</ol>
+</nav>
+<div class="mt-10 grid gap-16 lg:grid-cols-12 lg:gap-12">
+<div class="lg:col-span-5">
+<p class="eyebrow" data-reveal>Contact</p>
+<h1 id="hero-title" class="h1 mt-6 max-w-[11ch]" data-reveal style="--d:80ms">Talk to The Cleanic</h1>
+<p class="lead mt-6 max-w-md" data-reveal style="--d:160ms">The quickest way to reach us is by phone. For anything else, send a message and we’ll get back to you.</p>
+<dl class="mt-12 border-t border-line" data-reveal style="--d:220ms">
+<div class="grid gap-1 border-b border-line py-5 sm:grid-cols-[8rem_1fr]">
+<dt class="fine pt-0.5">Phone</dt>
+<dd><a href="tel:+642102606025" class="font-serif text-[1.75rem] leading-tight hover:text-navy">021 0260 6025</a></dd>
+</div>
+<div class="grid gap-1 border-b border-line py-5 sm:grid-cols-[8rem_1fr]">
+<dt class="fine pt-0.5">Email</dt>
+<dd><a href="mailto:thecleanicnz@gmail.com" class="break-all font-semibold hover:text-navy">thecleanicnz@gmail.com</a></dd>
+</div>
+<div class="grid gap-1 border-b border-line py-5 sm:grid-cols-[8rem_1fr]">
+<dt class="fine pt-0.5">Hours</dt>
+<dd class="grid gap-1"><span class="flex justify-between gap-4 sm:justify-start sm:gap-8"><span class="text-ink-soft sm:w-40">Monday – Friday</span><span class="font-semibold">8am – 6pm</span></span><span class="flex justify-between gap-4 sm:justify-start sm:gap-8"><span class="text-ink-soft sm:w-40">Saturday – Sunday</span><span class="font-semibold">9am – 3pm</span></span></dd>
+</div>
+<div class="grid gap-1 border-b border-line py-5 sm:grid-cols-[8rem_1fr]">
+<dt class="fine pt-0.5">Area</dt>
+<dd class="font-semibold">Auckland</dd>
+</div>
+<div class="grid gap-1 border-b border-line py-4 sm:grid-cols-[8rem_1fr] sm:items-center">
+<dt class="fine">Social</dt>
+<dd class="-ml-3 flex gap-1"><a href="https://www.instagram.com/the_cleanic23" class="grid h-11 w-11 place-items-center text-ink-soft hover:text-ink" target="_blank" rel="noopener" aria-label="The Cleanic on Instagram"><svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg></a><a href="https://www.facebook.com/the.cleanic.2023" class="grid h-11 w-11 place-items-center text-ink-soft hover:text-ink" target="_blank" rel="noopener" aria-label="The Cleanic on Facebook"><svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21h3.1z"/></svg></a><a href="https://www.tiktok.com/@thecleanicnz5" class="grid h-11 w-11 place-items-center text-ink-soft hover:text-ink" target="_blank" rel="noopener" aria-label="The Cleanic on TikTok"><svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3h-3v12.2a2.7 2.7 0 1 1-2.7-2.7c.3 0 .6 0 .8.1V9.5a5.8 5.8 0 1 0 4.9 5.7V9a7.4 7.4 0 0 0 4.2 1.3v-3A4.3 4.3 0 0 1 16.6 3z"/></svg></a></dd>
+</div>
+</dl>
+<div class="media mt-12 hidden aspect-[16/10] lg:block" data-reveal="image"><picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/window-seat-640.avif 640w, /assets/img/window-seat-1280.avif 1280w, /assets/img/window-seat-1920.avif 1920w" sizes="40vw"><source type="image/webp" srcset="/assets/img/window-seat-640.webp 640w, /assets/img/window-seat-1280.webp 1280w, /assets/img/window-seat-1920.webp 1920w" sizes="40vw"><img src="/assets/img/window-seat-1280.webp" alt="A window seat with cushions looking out over green hills" width="1280" height="1067" loading="lazy" decoding="async"></picture></div>
+</div>
+<div class="lg:col-span-6 lg:col-start-7">
+<div class="border border-line bg-paper p-6 sm:p-10" data-reveal style="--d:120ms">
+<h2 class="h3">Send a message</h2>
+<p class="mt-2 text-[0.9375rem] text-ink-soft">Looking for a price? The <a class="link-underline" href="/get-a-quote">quote form</a> asks the right questions.</p>
+<form class="mt-8 grid gap-6" action="https://getform.io/f/bmdmrdga" method="POST" novalidate data-form="contact">
+<input type="hidden" name="_subject" value="New message from The Cleanic website">
+<input type="hidden" name="form" value="contact">
+<input type="hidden" name="_next" value="https://the-cleanic-website.vercel.app/thank-you">
+<div class="hidden" aria-hidden="true"><label for="c-gotcha">Leave this empty</label><input type="text" id="c-gotcha" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+<div class="field">
+<label class="label" for="c-name">Your name</label>
+<input class="input" id="c-name" name="name" type="text" autocomplete="name" required aria-describedby="c-name-error">
+<p class="error" id="c-name-error" hidden></p>
+</div>
+<div class="grid gap-6 sm:grid-cols-2">
+<div class="field">
+<label class="label" for="c-email">Email</label>
+<input class="input" id="c-email" name="email" type="email" autocomplete="email" required aria-describedby="c-email-error">
+<p class="error" id="c-email-error" hidden></p>
+</div>
+<div class="field">
+<label class="label" for="c-phone">Phone <span class="opt">(optional)</span></label>
+<input class="input" id="c-phone" name="phone" type="tel" autocomplete="tel" aria-describedby="c-phone-error">
+<p class="error" id="c-phone-error" hidden></p>
+</div>
+</div>
+<div class="field">
+<label class="label" for="c-message">Message</label>
+<textarea class="input" id="c-message" name="message" rows="6" required aria-describedby="c-message-error"></textarea>
+<p class="error" id="c-message-error" hidden></p>
+</div>
+<div class="grid gap-4 pt-2">
+<button type="submit" class="btn btn-primary w-full sm:w-auto sm:justify-self-start" data-submit>Send message <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></button>
+<p class="error" data-form-error role="alert" hidden></p>
+</div>
+</form>
+<div class="hidden" data-form-success tabindex="-1">
+<p class="eyebrow">Message sent</p>
+<p class="h2 mt-5">Thank you<span data-success-name></span>.</p>
+<p class="mt-4 text-ink-soft">We’ve received your message and will get back to you. If it’s urgent, call <a class="link-underline" href="tel:+642102606025">021 0260 6025</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="on-dark bg-night text-linen" data-footer>
+<div class="wrap pb-28 pt-20 md:pb-12 md:pt-28">
+<div class="grid gap-14 lg:grid-cols-12">
+<div class="lg:col-span-5">
+<a href="/" class="inline-flex items-center gap-3" aria-label="The Cleanic — home">
+<svg class="h-9 w-auto text-linen" viewBox="0 0 86 128" fill="currentColor" aria-hidden="true"><defs><mask id="m-foot"><rect width="86" height="128" fill="#fff"/><path d="M-2 103 L62 51 L92 76" fill="none" stroke="#000" stroke-width="7.5"/><rect x="24" y="96" width="8.5" height="40" fill="#000"/><g fill="#000"><rect x="52.5" y="92.5" width="8.6" height="8.6"/><rect x="63.4" y="92.5" width="8.6" height="8.6"/><rect x="52.5" y="103.4" width="8.6" height="8.6"/><rect x="63.4" y="103.4" width="8.6" height="8.6"/></g></mask></defs><path mask="url(#m-foot)" d="M41 0C29 22 0 52 0 85a43 43 0 0 0 86 0c0-8-2-15-6-24Z"/></svg>
+<span class="font-serif text-[1.75rem] leading-none">The Cleanic</span>
+</a>
+<p class="mt-8 max-w-sm font-serif text-[1.75rem] leading-[1.15] text-linen/90">Airbnb &amp; short-stay cleaning in Auckland.</p>
+<a href="/get-a-quote" class="btn btn-light mt-9">Get a quote <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a>
+</div>
+<div class="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:col-span-7">
+<div>
+<h2 class="eyebrow">Speciality</h2>
+<ul class="mt-6 grid gap-3 text-[0.9375rem]" role="list">
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="/airbnb-cleaning">Airbnb &amp; short-stay</a></li>
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="/airbnb-turnover-checklist">Host turnover checklist</a></li>
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="/commercial-cleaning">Commercial cleaning</a></li>
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="/services">All services</a></li>
+</ul>
+</div>
+<div>
+<h2 class="eyebrow">Company</h2>
+<ul class="mt-6 grid gap-3 text-[0.9375rem]" role="list">
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="/about">About</a></li><li><a class="text-linen/80 transition-colors hover:text-linen" href="/how-it-works">How it works</a></li><li><a class="text-linen/80 transition-colors hover:text-linen" href="/contact">Contact</a></li><li><a class="text-linen/80 transition-colors hover:text-linen" href="/get-a-quote">Get a quote</a></li><li><a class="text-linen/80 transition-colors hover:text-linen" href="/terms">Terms & conditions</a></li>
+</ul>
+</div>
+<div class="col-span-2 sm:col-span-1">
+<h2 class="eyebrow">Contact</h2>
+<ul class="mt-6 grid gap-3 text-[0.9375rem]" role="list">
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="tel:+642102606025">021 0260 6025</a></li>
+<li><a class="break-all text-linen/80 transition-colors hover:text-linen" href="mailto:thecleanicnz@gmail.com">thecleanicnz@gmail.com</a></li>
+<li class="pt-2 text-night-mute">Mon–Fri<br><span class="text-linen/80">8am – 6pm</span><br>Sat–Sun<br><span class="text-linen/80">9am – 3pm</span></li>
+</ul>
+</div>
+</div>
+</div>
+<nav aria-label="All services" class="rule mt-16 grid gap-4 pt-8 sm:grid-cols-[9rem_1fr]">
+<h2 class="eyebrow pt-1">Services</h2>
+<ul class="flex flex-wrap gap-x-5 gap-y-2 text-[0.875rem]" role="list">
+<li><a class="text-linen/70 transition-colors hover:text-linen" href="/regular-cleaning">Regular cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/spring-cleaning">Spring cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/one-off-cleaning">One-off deep cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/end-of-tenancy-cleaning">End of tenancy cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/after-builders-cleaning">After builders cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/carpet-cleaning">Carpet cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/window-cleaning">Window cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/ironing-laundry">Ironing & laundry</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/after-party-cleaning">After party cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/emergency-cleaning">Emergency cleaning</a></li>
+</ul>
+</nav>
+<div class="rule mt-8 flex flex-col-reverse gap-6 pt-8 text-[0.8125rem] text-night-mute sm:flex-row sm:items-center sm:justify-between">
+<p>© 2026 The Cleanic · Auckland, New Zealand</p>
+<ul class="flex items-center gap-2" role="list">
+<li><a href="https://www.instagram.com/the_cleanic23" class="grid h-10 w-10 place-items-center text-linen/75 transition-colors hover:text-linen" target="_blank" rel="noopener" aria-label="The Cleanic on Instagram"><svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg></a></li><li><a href="https://www.facebook.com/the.cleanic.2023" class="grid h-10 w-10 place-items-center text-linen/75 transition-colors hover:text-linen" target="_blank" rel="noopener" aria-label="The Cleanic on Facebook"><svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21h3.1z"/></svg></a></li><li><a href="https://www.tiktok.com/@thecleanicnz5" class="grid h-10 w-10 place-items-center text-linen/75 transition-colors hover:text-linen" target="_blank" rel="noopener" aria-label="The Cleanic on TikTok"><svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3h-3v12.2a2.7 2.7 0 1 1-2.7-2.7c.3 0 .6 0 .8.1V9.5a5.8 5.8 0 1 0 4.9 5.7V9a7.4 7.4 0 0 0 4.2 1.3v-3A4.3 4.3 0 0 1 16.6 3z"/></svg></a></li>
+</ul>
+</div>
+</div>
+</footer>
 </body>
 </html>
