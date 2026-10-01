@@ -136,11 +136,11 @@ export const render = () => `
       </div>
     </div>
     <div class="lg:col-span-6 lg:col-start-7">
-      <div class="grid gap-12 sm:grid-cols-2 sm:gap-x-10">
+      <div class="grid gap-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-0">
         ${covered.map(([room, items], i) => `
-        <div ${rv(i * 80)}>
-          <h3 class="h3 mb-5">${room}</h3>
-          ${checklist(items)}
+        <div class="sm:row-span-3 sm:grid sm:grid-rows-subgrid" ${rv(i * 80)}>
+          <h3 class="h3 mb-5 self-end ${i > 1 ? 'sm:mt-12' : ''}">${room}</h3>
+          ${checklist(items, 'sm:row-span-2 sm:grid sm:grid-rows-subgrid')}
         </div>`).join('')}
       </div>
       <div class="mt-14 border border-line bg-paper p-7 sm:p-9" ${rv()}>
