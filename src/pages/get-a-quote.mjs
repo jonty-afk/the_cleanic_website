@@ -120,6 +120,13 @@ export const render = () => `
               <input class="input" id="q-date" name="date" type="date" aria-describedby="q-date-hint">
               <p class="hint" id="q-date-hint">Leave blank if you’re flexible or it’s ongoing.</p>
             </div>
+            <fieldset class="grid gap-3">
+              <legend class="label mb-3">Airbnb add-ons <span class="opt">(optional)</span></legend>
+              <div class="grid gap-2 sm:grid-cols-2">
+                <label class="choice"><input type="checkbox" name="addon_linen_service" value="yes"><span>Linen service</span></label>
+                <label class="choice"><input type="checkbox" name="addon_guest_toiletries" value="yes"><span>Guest toiletries</span></label>
+              </div>
+            </fieldset>
             <div class="field">
               <label class="label" for="q-notes">Anything we should know? <span class="opt">(optional)</span></label>
               <textarea class="input" id="q-notes" name="requests" rows="4" placeholder="e.g. usual check-out and check-in times, access, pets, specific areas"></textarea>

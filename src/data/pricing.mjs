@@ -26,7 +26,14 @@ export const pricing = {
 };
 
 export const PRICE_NOTE = 'Starting prices. Final pricing depends on property size, condition, access and cleaning scope.';
-export const AIRBNB_SCOPE_NOTE = 'Prices are for the cleaning service only. They don’t include supplying or laundering linen, or restocking consumables.';
+export const AIRBNB_SCOPE_NOTE = 'Prices are for the clean. Our linen service and guest toiletries can be added, and are priced with your quote.';
+
+// Optional Airbnb add-ons. `from: null` shows as "Priced with your quote" until prices are set.
+export const addOns = {
+  linen: { name: 'Linen service', from: null, unit: 'turnover' },
+  amenities: { name: 'Guest toiletries', from: null, unit: 'turnover' },
+};
+export const addOnPrice = (key) => (addOns[key].from == null ? 'Priced with your quote' : `From $${addOns[key].from} per ${addOns[key].unit}`);
 export const QUOTE = 'Quote on request';
 
 export const money = (n) => `$${n}`;

@@ -1,5 +1,5 @@
 import { site } from '../data/site.mjs';
-import { pricing, money, PRICE_NOTE, AIRBNB_SCOPE_NOTE } from '../data/pricing.mjs';
+import { pricing, money, PRICE_NOTE, AIRBNB_SCOPE_NOTE, addOnPrice } from '../data/pricing.mjs';
 import { picture, icon, checklist, rv } from '../lib/html.mjs';
 import { quoteBand, faqList, faqSchema, turnoverSteps, breadcrumb, airbnbTiers } from '../lib/sections.mjs';
 
@@ -8,6 +8,8 @@ const faq = [
   ['Can you work around my booking calendar?', 'Yes. Turnovers are scheduled to fit the gap between your guests. When you request a quote, let us know your usual check-out and check-in times.'],
   ['What’s included in a turnover?', 'Beds changed and made, bathrooms cleaned and sanitised, fresh towels set out, the kitchen cleaned, rubbish removed, surfaces wiped and floors vacuumed and mopped.'],
   ['Which areas do you cover?', 'We clean short-stay properties in Auckland. Tell us the suburb when you request a quote.'],
+  ['Do you provide linen and towels?', 'Yes — our linen service can be added to any turnover. We bring fresh, washed and pressed bed linen and towels, make up the beds, and take the used set away to be laundered. It’s priced with your quote.'],
+  ['Can you restock guest toiletries?', 'Yes. We can restock single-use guest toiletries, such as small soaps, at each turnover. Add it to your quote request and we’ll include it in the price.'],
   ['What if the property needs a deeper clean?', 'We also offer <a class="link-underline" href="/spring-cleaning">spring cleaning</a>, <a class="link-underline" href="/one-off-cleaning">one-off deep cleans</a>, <a class="link-underline" href="/carpet-cleaning">carpet cleaning</a> and <a class="link-underline" href="/window-cleaning">window cleaning</a> for the jobs a regular turnover doesn’t cover.'],
   ['What is your cancellation policy?', 'Please give us 48 hours’ notice to cancel a booking. Cancellations with less notice incur a 50% cancellation fee.'],
   ['How do I pay?', `Payment is due within 7 days of the clean. We accept ${site.payment.join(', ').replace(/, ([^,]*)$/, ' and $1')}.`],
@@ -53,8 +55,8 @@ const areas = [
 
 const why = [
   ['Short-stay is our focus', 'Turnover cleaning for Airbnb and short-stay properties is the centre of what we do.'],
+  ['Linen and toiletries available', 'Add our linen service and single-use guest toiletries, so the whole turnover is taken care of.'],
   ['Scheduled around your bookings', 'Cleans are arranged to fit the gap between check-out and check-in.'],
-  ['A clear starting price', `Turnovers start from ${site.airbnbFrom} per clean, with the final price based on your property.`],
   ['Local and easy to reach', `We’re based in Auckland. Call ${site.phone.display} or email — seven days a week during business hours.`],
 ];
 
@@ -131,6 +133,33 @@ export const render = () => `
         <p class="fine mt-4">${PRICE_NOTE} ${AIRBNB_SCOPE_NOTE}</p>
       </div>
       <a href="/airbnb-turnover-checklist" class="link-arrow mt-6" ${rv(240)}>Free guide: the full host turnover checklist ${icon.arrow}</a>
+    </div>
+  </div>
+</section>
+
+<!-- Linen & guest supplies -->
+<section class="section" aria-labelledby="linen-title">
+  <div class="wrap grid gap-14 lg:grid-cols-12 lg:items-center lg:gap-12">
+    <div class="lg:col-span-6">
+      <div class="media zoom aspect-[4/3]" ${rv(0, 'image')}>
+        ${picture('linen-folded', { sizes: '(min-width: 1024px) 50vw, 100vw', className: 'absolute inset-0' })}
+      </div>
+    </div>
+    <div class="lg:col-span-5 lg:col-start-8">
+      <p class="eyebrow" ${rv()}>Add-ons</p>
+      <h2 id="linen-title" class="h1 mt-6 max-w-[12ch]" ${rv(80)}>Linen and guest supplies, handled</h2>
+      <p class="lead mt-6" ${rv(160)}>Add our linen service and guest toiletries to your turnovers, so there’s one less thing to organise between stays.</p>
+      <dl class="mt-10 border-t border-line" ${rv(220)}>
+        <div class="grid gap-2 border-b border-line py-6 sm:grid-cols-[1fr_auto] sm:gap-6">
+          <div><dt class="h4">Linen service</dt><dd class="mt-2 text-[0.9375rem] leading-relaxed text-ink-soft">Fresh, washed and pressed bed linen and towels brought to each turnover. Beds made up, and the used set taken away to be laundered.</dd></div>
+          <dd class="text-[0.875rem] font-semibold sm:pt-0.5 sm:text-right">${addOnPrice('linen')}</dd>
+        </div>
+        <div class="grid gap-2 border-b border-line py-6 sm:grid-cols-[1fr_auto] sm:gap-6">
+          <div><dt class="h4">Guest toiletries</dt><dd class="mt-2 text-[0.9375rem] leading-relaxed text-ink-soft">Single-use guest toiletries, such as small soaps, restocked at each turnover.</dd></div>
+          <dd class="text-[0.875rem] font-semibold sm:pt-0.5 sm:text-right">${addOnPrice('amenities')}</dd>
+        </div>
+      </dl>
+      <a href="/get-a-quote?service=airbnb" class="btn btn-primary mt-10" ${rv(260)}>Get an Airbnb quote ${icon.arrow}</a>
     </div>
   </div>
 </section>

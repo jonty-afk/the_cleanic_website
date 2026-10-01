@@ -7,6 +7,7 @@ import { quoteBand, breadcrumb } from '../lib/sections.mjs';
 const rooms = [
   ['Bedrooms', 'checklist-bedside', [
     ['Strip beds and remake with fresh linen', true],
+    ['Swap in freshly laundered linen; send the used set to be washed', 'addon'],
     ['Check under beds and in drawers for left-behind items', false],
     ['Dust bedside tables, headboards and surfaces', true],
     ['Vacuum floors and rugs', true],
@@ -16,7 +17,8 @@ const rooms = [
     ['Clean and sanitise toilet, basin, shower and tiles', true],
     ['Wipe mirrors, taps and fixtures', true],
     ['Set out fresh towels', true],
-    ['Top up toilet paper, soap and toiletries', false],
+    ['Restock single-use guest toiletries, such as small soaps', 'addon'],
+    ['Top up toilet paper and other supplies', false],
     ['Check drains and extractor fan', false],
   ]],
   ['Kitchen', null, [
@@ -71,7 +73,7 @@ export const meta = {
 const item = ([text, ours]) => `
   <li class="flex items-start gap-3 border-b border-line py-3.5">
     <span class="mt-[5px] h-4 w-4 flex-none border border-ink/40 print:border-ink" aria-hidden="true"></span>
-    <span class="flex-1">${text}${ours ? ' <span class="ml-1 whitespace-nowrap text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-navy">The Cleanic</span>' : ''}</span>
+    <span class="flex-1">${text}${ours === true ? ' <span class="ml-1 whitespace-nowrap text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-navy">The Cleanic</span>' : ours === 'addon' ? ' <span class="ml-1 whitespace-nowrap text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-ink-mute">Cleanic add-on</span>' : ''}</span>
   </li>`;
 
 export const render = () => `
@@ -103,7 +105,7 @@ export const render = () => `
     <aside class="lg:col-span-4">
       <div class="lg:sticky lg:top-[calc(var(--header-h)+2rem)]">
         <h2 id="list-title" class="h2">Room by room</h2>
-        <p class="mt-5 text-ink-soft">Tick each item off as you go. Items marked <span class="whitespace-nowrap text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-navy">The Cleanic</span> are included in every turnover we do — the rest are usually handled by the host.</p>
+        <p class="mt-5 text-ink-soft">Tick each item off as you go. Items marked <span class="whitespace-nowrap text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-navy">The Cleanic</span> are included in every turnover we do; <span class="whitespace-nowrap text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-ink-mute">Cleanic add-on</span> items can be added to your turnovers. The rest are usually handled by the host.</p>
         <nav aria-label="Checklist sections" class="mt-8 hidden border-t border-line lg:block print:hidden">
           <ol class="grid" role="list">
             ${rooms.map(([r], i) => `<li><a href="#room-${i}" class="flex items-baseline gap-4 border-b border-line py-3 text-[0.9375rem] text-ink-soft hover:text-ink"><span class="num">${String(i + 1).padStart(2, '0')}</span>${r}</a></li>`).join('')}

@@ -49,7 +49,7 @@ Submissions are sent in the background and the visitor sees an on-site thank-you
 
 These were left out or kept conservative because the old site's claims could not be verified:
 
-- **Airbnb service:** bed linen changes and towel replacement are shown (the original Airbnb page listed them). Restocking toiletries/consumables, final inspections, laundry of linen, key/lock handling and same-day turnovers are **not** claimed.
+- **Airbnb service:** bed linen changes and towels are shown. A **linen service** (fresh, washed and pressed linen supplied; used linen laundered via the owner's laundry partner) and **single-use guest toiletries** were confirmed by the owner in October 2026 and are offered as add-ons, priced with the quote (`addOns` in `src/data/pricing.mjs`). Final inspections, key/lock handling and same-day turnovers are **not** claimed.
 - **Removed claims:** 24/7 availability, flood extraction, biohazard cleanup, water blasting, laundry pickup/delivery, 48-hour and deposit-return guarantees, safety certifications, secure payment portal, insurance, and eco-friendly products (in marketing copy).
 - **Terms & conditions:** kept word for word from the original site. They still say products are "eco-friendly unless specified otherwise" and describe The Cleanic as "a registered business in New Zealand" — please confirm or edit.
 - **Phone number:** the old site used 021 175 9393; 022 154 2994 also appeared once, but its link dialled 021 175 9393. Both have been replaced by 021 0260 6025 (confirmed by the owner, October 2026).

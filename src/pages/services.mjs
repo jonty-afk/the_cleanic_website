@@ -41,7 +41,7 @@ export const render = () => `
         <div>
           <p class="eyebrow">Our speciality</p>
           <h2 id="featured-title" class="h1 mt-6">Airbnb &amp; short-stay turnovers</h2>
-          <p class="mt-6 max-w-sm text-night-mute">Cleaning and resetting short-stay properties between guests — beds, bathrooms, kitchen and floors — ready for the next arrival.</p>
+          <p class="mt-6 max-w-sm text-night-mute">Cleaning and resetting short-stay properties between guests — beds, bathrooms, kitchen and floors — with linen service and guest toiletries available.</p>
         </div>
         <div class="flex items-end justify-between gap-6 border-t border-night-line pt-6">
           <span class="text-[0.9375rem] font-semibold">From ${site.airbnbFrom} per clean</span>

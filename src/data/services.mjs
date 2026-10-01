@@ -8,7 +8,7 @@ import { price, minPrice, airbnbFrom } from './pricing.mjs';
 export const airbnb = {
   slug: 'airbnb-cleaning',
   name: 'Airbnb & short-stay cleaning',
-  short: 'Turnover cleaning between guests, so the property is ready for the next arrival.',
+  short: 'Turnover cleaning between guests, with linen service and guest toiletries available.',
   price: `From ${airbnbFrom} per clean`,
   minPrice: minPrice('airbnb'),
   image: 'bedroom-window',

@@ -706,5 +706,17 @@
     ],
     "alt": "A timber bedside table beside a neatly made bed",
     "source": "https://unsplash.com/photos/white-ceramic-mug-on-brown-wooden-nightstand-DeYym9Ji6LI"
+  },
+  "linen-folded": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "Stacks of freshly laundered and folded white sheets",
+    "source": "https://unsplash.com/photos/stack-of-gray-plastic-packs-04ZMu2-vusI"
   }
 }
