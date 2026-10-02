@@ -56,7 +56,7 @@ These were left out or kept conservative because the old site's claims could not
 - **Company history:** the old About page said founded 2018 and nationwide (Auckland, Wellington, Christchurch, Hamilton); other pages said Auckland only. History has been removed and the site now says Auckland only.
 - **Testimonials:** the four old homepage quotes are not shown until their source is confirmed. Genuine Google or Airbnb reviews can be added with a link to the source.
 - **Promotion:** the 20% first-clean popup has been removed.
-- **Domain:** canonical URLs, sitemap and structured data use `https://the-cleanic-website.vercel.app`. Change `site.url` in `src/data/site.mjs` if a custom domain is added.
+- **Domain:** the site uses `https://thecleanic.co.nz` (registered at 1st Domains, October 2026) for canonical URLs, the sitemap and structured data — set by `site.url` in `src/data/site.mjs`.
 
 ## How it works (films)
 

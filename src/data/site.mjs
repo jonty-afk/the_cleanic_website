@@ -6,7 +6,7 @@ import { airbnbFrom } from './pricing.mjs';
 
 export const site = {
   name: 'The Cleanic',
-  url: 'https://the-cleanic-website.vercel.app',
+  url: 'https://thecleanic.co.nz',
   area: 'Auckland',
   phone: { display: '021 0260 6025', tel: '+642102606025', schema: '+64 21 0260 6025' },
   phone2: { display: '022 379 1794', tel: '+64223791794', schema: '+64 22 379 1794' },

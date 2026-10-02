@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /thank-you
 
-Sitemap: https://the-cleanic-website.vercel.app/sitemap.xml
+Sitemap: https://thecleanic.co.nz/sitemap.xml
