@@ -1,0 +1,722 @@
+{
+  "bedroom-linen": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A low timber bed made up with white and oatmeal linen in a calm, sunlit bedroom",
+    "source": "https://unsplash.com/photos/white-bed-pillow-on-brown-wooden-bed-frame-gVKmonDbotU"
+  },
+  "towels-on-bed": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "Folded towels set out on a freshly made bed",
+    "source": "https://unsplash.com/photos/a-stack-of-brown-paper-Zlm38pirg54"
+  },
+  "bedroom-window": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A made bed beside tall windows in a bright apartment bedroom",
+    "source": "https://unsplash.com/photos/vacant-white-bed-near-the-window-B4rEJ09-Puo"
+  },
+  "bathroom-bath": {
+    "w": 2400,
+    "h": 2585,
+    "ratio": 0.9284,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A freestanding bath in a clean, softly lit stone bathroom",
+    "source": "https://unsplash.com/photos/a-luxurious-bathroom-with-a-freestanding-bathtub-JGfXR2a8RNg"
+  },
+  "bathroom-vanity": {
+    "w": 2400,
+    "h": 1920,
+    "ratio": 1.25,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A bathroom vanity with hand towels and a tidy benchtop",
+    "source": "https://unsplash.com/photos/clear-glass-jar-with-brown-sticks-JShZUXLqjcM"
+  },
+  "bathroom-timber": {
+    "w": 2400,
+    "h": 2400,
+    "ratio": 1,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A modern bathroom with a floating timber vanity",
+    "source": "https://unsplash.com/photos/a-bathroom-with-a-toilet-sink-and-mirror-bZDWpKYCCao"
+  },
+  "kitchen-galley": {
+    "w": 2400,
+    "h": 3600,
+    "ratio": 0.6667,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A long, clean galley kitchen with timber cabinetry",
+    "source": "https://unsplash.com/photos/white-wooden-kitchen-island-and-cupboard-cabinets-near-glass-panel-door-AQl-J19ocWE"
+  },
+  "kitchen-dining": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "An open-plan kitchen and dining room with clear benches",
+    "source": "https://unsplash.com/photos/brown-wooden-table-with-chairs-nzGV4YQ5fII"
+  },
+  "kitchen-open": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A bright white kitchen and living area",
+    "source": "https://unsplash.com/photos/a-kitchen-with-a-refrigerator-freezer-sitting-next-to-a-counter-KYM5QsbRsxk"
+  },
+  "living-neutral": {
+    "w": 2400,
+    "h": 1333,
+    "ratio": 1.8005,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A neutral living room with a low sofa and round coffee table",
+    "source": "https://unsplash.com/photos/a-living-room-with-a-couch-and-a-table-g_5UyVBIX_k"
+  },
+  "living-curved": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A curved window seat with cushions in a pale, quiet room",
+    "source": "https://unsplash.com/photos/white-sofa-near-round-table-eNHZC6dEi0Y"
+  },
+  "linen-light": {
+    "w": 2400,
+    "h": 3200,
+    "ratio": 0.75,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "Crisp white sheet in afternoon light",
+    "source": "https://unsplash.com/photos/gray-textile-on-white-textile-rH2V_fAozGo"
+  },
+  "holiday-bedroom": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A holiday-home bedroom with timber walls and floor-to-ceiling glass",
+    "source": "https://unsplash.com/photos/a-bedroom-with-a-bed-and-a-large-window-p6pfOaavscc"
+  },
+  "auckland": {
+    "w": 2400,
+    "h": 1602,
+    "ratio": 1.4981,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "The Auckland city skyline seen across the harbour",
+    "source": "https://unsplash.com/photos/people-riding-on-boat-on-sea-near-city-buildings-during-daytime-ieU1BWQJEmI"
+  },
+  "dining": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A dining room with a dark table, chairs and garden views",
+    "source": "https://unsplash.com/photos/a-dining-room-with-a-table-and-chairs-aYjdg6wZrOU"
+  },
+  "empty-room": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "An empty, freshly cleaned room with timber-look floors",
+    "source": "https://unsplash.com/photos/white-wooden-framed-glass-window-Cu2xZLKgn10"
+  },
+  "renovated-room": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A freshly renovated room with a ladder and stool left behind",
+    "source": "https://unsplash.com/photos/ladder-stool-and-snake-plant-DLD5LvnFblU"
+  },
+  "window-light": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "Sunlight through a large window onto a white chair",
+    "source": "https://unsplash.com/photos/white-plastic-trash-bin-beside-white-curtain-lZfBkUqknEI"
+  },
+  "curtain-light": {
+    "w": 2400,
+    "h": 3600,
+    "ratio": 0.6667,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "Sheer curtains with soft light and shadow",
+    "source": "https://unsplash.com/photos/white-and-brown-window-curtain-LdPzzJcrPLM"
+  },
+  "living-rug": {
+    "w": 2400,
+    "h": 3600,
+    "ratio": 0.6667,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A living room with a patterned rug, white sofa and timber floors",
+    "source": "https://unsplash.com/photos/white-sofa-near-brown-wooden-chair-nQBc6clG3X4"
+  },
+  "linen-stack": {
+    "w": 2400,
+    "h": 3600,
+    "ratio": 0.6667,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A stack of folded linen on a timber bench",
+    "source": "https://unsplash.com/photos/white-textile-on-brown-wooden-table-AXWyDjC_Y3U"
+  },
+  "living-calm": {
+    "w": 2400,
+    "h": 3600,
+    "ratio": 0.6667,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A calm living room with a round rug and timber side tables",
+    "source": "https://unsplash.com/photos/a-living-room-filled-with-furniture-and-a-large-window-OtXADkUh3-I"
+  },
+  "checkout-bed": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "An unmade bed in morning light after a guest has checked out",
+    "source": "https://unsplash.com/photos/black-android-smartphone-on-bed-Q4KQWFKX0Gs"
+  },
+  "bed-making": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A bed being made up with fresh linen",
+    "source": "https://unsplash.com/photos/a-woman-putting-a-blue-blanket-on-top-of-a-bed-Y9xl0rnRd1I"
+  },
+  "clean-products": {
+    "w": 2400,
+    "h": 3600,
+    "ratio": 0.6667,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "Amber spray bottles and a brush on a timber bench",
+    "source": "https://unsplash.com/photos/two-brown-spray-bottles-on-brown-table-uooMllXe6gE"
+  },
+  "towels-rolled": {
+    "w": 2400,
+    "h": 3000,
+    "ratio": 0.8,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "Rolled white towels at the end of a made bed",
+    "source": "https://unsplash.com/photos/a-pair-of-white-gloves-Q_cAsBDLEI0"
+  },
+  "bedside-tray": {
+    "w": 2400,
+    "h": 3600,
+    "ratio": 0.6667,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A bedside table with a small tray beside a freshly made bed",
+    "source": "https://unsplash.com/photos/white-and-brown-ceramic-mug-on-brown-wooden-round-table-FTMpAmPRSdg"
+  },
+  "soap-detail": {
+    "w": 2400,
+    "h": 3639,
+    "ratio": 0.6595,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A glass soap dispenser on a clean bathroom benchtop",
+    "source": "https://unsplash.com/photos/ribbed-glass-soap-dispenser-with-gold-pump-on-a-windowsill-7gYlkoV1e1A"
+  },
+  "apartment-bedroom": {
+    "w": 2400,
+    "h": 3600,
+    "ratio": 0.6667,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A bright apartment bedroom with a made bed beneath a tall window",
+    "source": "https://unsplash.com/photos/a-bed-with-a-lamp-on-it-kQjEq2bNFS0"
+  },
+  "house-living": {
+    "w": 2400,
+    "h": 1613,
+    "ratio": 1.4879,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A large, light-filled living room in a family home",
+    "source": "https://unsplash.com/photos/a-living-room-filled-with-furniture-and-a-large-window--_eNaluvWv0"
+  },
+  "holiday-attic": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A timber-lined attic bedroom in a holiday home",
+    "source": "https://unsplash.com/photos/a-bedroom-with-two-beds-and-a-desk-rP0OTFdVaak"
+  },
+  "sheets-unmade": {
+    "w": 2400,
+    "h": 3600,
+    "ratio": 0.6667,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "Crumpled sheets on a bed after a guest has checked out",
+    "source": "https://unsplash.com/photos/white-pillows-and-bed-comforter--R2uNyGmeM4"
+  },
+  "pillows-fresh": {
+    "w": 2400,
+    "h": 1597,
+    "ratio": 1.5028,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "Fresh pillows and a smooth duvet on a newly made bed",
+    "source": "https://unsplash.com/photos/a-bed-with-a-lamp-on-it-999xEzwi7oA"
+  },
+  "bath-amber": {
+    "w": 2400,
+    "h": 3600,
+    "ratio": 0.6667,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "An amber soap bottle and a folded white towel beside a bath",
+    "source": "https://unsplash.com/photos/a-bottle-of-soap-sitting-on-a-bathroom-counter-00l8o8UJI_Y"
+  },
+  "made-bed-warm": {
+    "w": 2400,
+    "h": 3200,
+    "ratio": 0.75,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A neatly made bed with soft cushions in warm afternoon light",
+    "source": "https://unsplash.com/photos/a-bed-with-a-white-comforter-and-pillows-9Cmony35LOE"
+  },
+  "hotel-pillows": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "Crisp white pillows against a dark timber headboard",
+    "source": "https://unsplash.com/photos/white-bed-pillow-on-white-bed-6MYm-cUJRB0"
+  },
+  "bedroom-pendant": {
+    "w": 2400,
+    "h": 3599,
+    "ratio": 0.6669,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A calm bedroom with white linen and a brass pendant light",
+    "source": "https://unsplash.com/photos/a-bed-with-white-sheets-and-pillows-in-a-room-qifUgNsrWmU"
+  },
+  "entry-hall": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A bright entrance hall with a staircase and timber floors",
+    "source": "https://unsplash.com/photos/a-cozy-entryway-with-wooden-stairs-and-a-glass-door-NfyeP5Bcvd8"
+  },
+  "bath-light": {
+    "w": 2400,
+    "h": 3600,
+    "ratio": 0.6667,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "Sunlight falling across a freestanding bath",
+    "source": "https://unsplash.com/photos/a-bathtub-in-a-bathroom-nYfx6BtdEeE"
+  },
+  "entry-modern": {
+    "w": 2400,
+    "h": 3605,
+    "ratio": 0.6657,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A modern apartment entrance with timber panelling and an oval mirror",
+    "source": "https://unsplash.com/photos/modern-hallway-with-an-organic-mirror-and-ocean-view-jaz2BueLsEc"
+  },
+  "window-seat": {
+    "w": 2400,
+    "h": 2001,
+    "ratio": 1.1994,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A window seat with cushions looking out over green hills",
+    "source": "https://unsplash.com/photos/window-curtain-open-wide-Fd9tUmRBJzk"
+  },
+  "living-sage": {
+    "w": 2400,
+    "h": 1500,
+    "ratio": 1.6,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A living room with a sage-green sofa and large windows",
+    "source": "https://unsplash.com/photos/a-living-room-with-a-large-green-couch-VZ2z8ozzy10"
+  },
+  "kitchen-warm": {
+    "w": 2400,
+    "h": 3601,
+    "ratio": 0.6665,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A warm, sunlit kitchen with timber cabinetry",
+    "source": "https://unsplash.com/photos/brown-wooden-desk-with-chair-K-ndOjMfxKs"
+  },
+  "kitchen-minimal": {
+    "w": 2400,
+    "h": 3000,
+    "ratio": 0.8,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A minimal white kitchen with clear benchtops",
+    "source": "https://unsplash.com/photos/a-kitchen-with-white-cabinets-and-a-wooden-ceiling-PkepZpGteGQ"
+  },
+  "empty-bright": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A bright, empty room with new flooring, ready for handover",
+    "source": "https://unsplash.com/photos/an-empty-room-with-a-washer-and-dryer-rgfbZBhnxqQ"
+  },
+  "reno-kitchen": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A kitchen mid-renovation with benches covered in protective plastic",
+    "source": "https://unsplash.com/photos/kitchen-renovation-with-white-cabinets-UqNEbyRQ660"
+  },
+  "rug-round": {
+    "w": 2400,
+    "h": 3200,
+    "ratio": 0.75,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A round woven rug in a light living room",
+    "source": "https://unsplash.com/photos/blue-and-white-pillows-on-white-couch-and-round-white-area-mat-on-floor-Tp7kc0p0W8c"
+  },
+  "window-bright": {
+    "w": 2400,
+    "h": 3200,
+    "ratio": 0.75,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A tall window letting light onto a polished floor",
+    "source": "https://unsplash.com/photos/white-framed-glass-window-during-daytime-z3drmcczVTc"
+  },
+  "shirts": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "Pressed white shirts hanging in soft window light",
+    "source": "https://unsplash.com/photos/white-dress-shirt-hangign-on-clothes-gkbAYJIMVDA"
+  },
+  "table-glasses": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A long dining table set with glasses and napkins",
+    "source": "https://unsplash.com/photos/clear-wine-glasses-on-top-of-dining-table-PCE0T5i4pDI"
+  },
+  "living-sunny": {
+    "w": 2400,
+    "h": 1800,
+    "ratio": 1.3333,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A sunny living room with a leather sofa and plants",
+    "source": "https://unsplash.com/photos/green-potted-plant-on-table-HmHArS-HvNw"
+  },
+  "bathroom-bright": {
+    "w": 2400,
+    "h": 3000,
+    "ratio": 0.8,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A bright, clean bathroom with a floating basin",
+    "source": "https://unsplash.com/photos/a-bathroom-with-a-toilet-sink-and-bathtub-vTj_dmFGB1Y"
+  },
+  "bed-sunlit": {
+    "w": 2400,
+    "h": 2056,
+    "ratio": 1.1673,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A soft white bed in morning sunlight",
+    "source": "https://unsplash.com/photos/white-bed-linen-near-green-plant-gSOdp7YlgNQ"
+  },
+  "bed-stripes": {
+    "w": 2400,
+    "h": 3600,
+    "ratio": 0.6667,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "Stripes of sunlight across rumpled white bedding",
+    "source": "https://unsplash.com/photos/a-bed-with-white-sheets-and-white-pillows-pl3sj3DigxM"
+  },
+  "office-bright": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "An office meeting room with a long table beside floor-to-ceiling windows",
+    "source": "https://unsplash.com/photos/a-conference-room-with-a-large-table-and-chairs-ZCDA1-cih6o"
+  },
+  "office-kitchen": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A clean office kitchen and shared table",
+    "source": "https://unsplash.com/photos/black-and-brown-wooden-table-and-chairs-iIYGy97Fib8"
+  },
+  "checklist-bedroom": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A bright bedroom with a freshly made timber bed and soft morning light",
+    "source": "https://unsplash.com/photos/a-bed-sitting-in-a-bedroom-next-to-a-window-GJW6b9vim1s"
+  },
+  "checklist-towels": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "Folded white towels set out on a made bed",
+    "source": "https://unsplash.com/photos/white-soap-on-white-towel-COp-kDF4RWs"
+  },
+  "checklist-bedside": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "A timber bedside table beside a neatly made bed",
+    "source": "https://unsplash.com/photos/white-ceramic-mug-on-brown-wooden-nightstand-DeYym9Ji6LI"
+  },
+  "linen-folded": {
+    "w": 2400,
+    "h": 1600,
+    "ratio": 1.5,
+    "widths": [
+      640,
+      1280,
+      1920
+    ],
+    "alt": "Stacks of freshly laundered and folded white sheets",
+    "source": "https://unsplash.com/photos/stack-of-gray-plastic-packs-04ZMu2-vusI"
+  }
+}

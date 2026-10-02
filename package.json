@@ -1,18 +1,17 @@
 {
   "name": "the_cleanic_website",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.html",
+  "version": "2.0.0",
+  "private": true,
+  "description": "The Cleanic — Airbnb & short-stay cleaning in Auckland. Static site built from src/ into plain HTML.",
+  "type": "module",
   "scripts": {
-    "dev": "concurrently \"tailwindcss -i ./css/tailwind.css -o ./css/output.css --watch\" \"live-server --port=3000 --watch=css,html --no-browser\"",
-    "build": "tailwindcss -i ./css/tailwind.css -o ./css/output.css"
+    "build:css": "tailwindcss -i ./src/styles.css -o ./assets/css/site.css --minify",
+    "build:html": "node scripts/build.mjs",
+    "build": "npm run build:css && npm run build:html",
+    "dev": "npm run build && node scripts/serve.mjs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "UNLICENSED",
   "devDependencies": {
-    "concurrently": "^9.2.0",
-    "live-server": "^1.2.2",
     "tailwindcss": "^3.4.17"
   }
 }

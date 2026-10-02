@@ -1,808 +1,426 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-NZ">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The Cleanic: Premium cleaning services for homes and businesses in Auckland. Book online for expert care.">
-  <meta name="keywords" content="cleaning services, professional cleaning, Auckland, residential, commercial, airbnb cleaning">
-  <title>The Cleanic - Elite Cleaning Excellence</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="icon" href="/favicon.png" type="image/png" />
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      padding-top: 60px;
-    }
-    .parallax {
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      position: relative;
-      overflow: hidden;
-      height: 300px;
-    }
-    .parallax::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
-      z-index: 1;
-    }
-    .parallax-content {
-      position: relative;
-      z-index: 2;
-      color: #fff;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    .hero-bg {
-      background: linear-gradient(135deg, #0f1f4d, #4a90e2);
-      min-height: 700px;
-      position: relative;
-    }
-    .hero-bg::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('elite-excellence-bg.jpg?v=1') no-repeat center/cover;
-      opacity: 0.4;
-      z-index: 1;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-    #home {
-      padding-top: 96px;
-    }
-    .floating-widget {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 2000;
-      animation: float 2s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
-    .service-card {
-      transition: all 0.4s ease;
-    }
-    .service-card:hover {
-      transform: translateY(-15px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    }
-    .booking-popup {
-      display: none;
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      width: 90%;
-      max-width: 350px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      padding: 20px;
-      z-index: 2001;
-      animation: slideUp 0.3s ease-out;
-    }
-    @keyframes slideUp {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    .booking-popup.active {
-      display: block;
-    }
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      cursor: pointer;
-      font-size: 18px;
-      color: #666;
-    }
-    .promo-popup {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 3000;
-      justify-content: center;
-      align-items: center;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    .promo-popup.active {
-      display: flex;
-    }
-    .promo-content {
-      background: linear-gradient(135deg, #1e3a8a, #4a90e2);
-      border-radius: 15px;
-      padding: 2rem;
-      max-width: 600px;
-      width: 90%;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-      animation: zoomIn 0.5s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes zoomIn {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-    .promo-close-btn {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      font-size: 24px;
-      color: #fff;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-    .promo-close-btn:hover {
-      color: #ffd700;
-    }
-    .promo-content h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 1rem;
-    }
-    .promo-content p {
-      font-size: 1.25rem;
-      color: #e6f0fa;
-      margin-bottom: 2rem;
-    }
-    .promo-content button {
-      background: #ffd700;
-      color: #1e3a8a;
-      padding: 0.75rem 2rem;
-      font-size: 1.25rem;
-      font-weight: 600;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-    }
-    .promo-content button:hover {
-      background: #ffeb3b;
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-    nav .social-icons a {
-      margin: 0 5px;
-      color: #1e3a8a;
-      font-size: 18px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    nav .social-icons a:hover {
-      color: #1e40af;
-    }
-    .social-icons a {
-      margin: 0 5px;
-      color: #ffffff;
-      font-size: 18px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .social-icons a:hover {
-      color: #d1d5db;
-    }
-    .service-icon {
-      width: 60px;
-      height: 60px;
-      background: #e6f0fa;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-    }
-    .service-icon svg {
-      width: 30px;
-      height: 30px;
-      fill: #4a90e2;
-    }
-    .feature-box {
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 1.5rem;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-      margin-bottom: 1rem;
-    }
-    .feature-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    }
-    .feature-box svg {
-      width: 50px;
-      height: 50px;
-      fill: #4a90e2;
-      margin-bottom: 1rem;
-    }
-    .testimonials-bg {
-      background: url('client-testimonials-bg.jpg?v=1') no-repeat center/cover;
-      position: relative;
-    }
-    .testimonials-bg::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
-      z-index: 1;
-      filter: blur(2px);
-    }
-    .testimonials-content {
-      position: relative;
-      z-index: 2;
-    }
-    .payment-icons i {
-      font-size: 24px;
-      margin: 0 5px;
-      color: #fff;
-      opacity: 0.8;
-    }
-    .debug-button {
-      display: block !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-      height: auto !important;
-      min-height: 40px !important;
-    }
-    @media (max-width: 640px) {
-      .navbar-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 50;
-      }
-      .navbar-menu.active {
-        display: block;
-      }
-      .nav-links {
-        flex-direction: column;
-        padding: 10px 0;
-      }
-      .nav-links a {
-        padding: 10px 20px;
-        width: 100%;
-        text-align: center;
-      }
-      .hamburger {
-        display: block;
-        font-size: 24px;
-        cursor: pointer;
-        padding: 10px;
-      }
-      .hamburger.hidden {
-        display: none;
-      }
-      .parallax {
-        height: 200px;
-        background-attachment: scroll;
-      }
-      .hero-bg {
-        min-height: 300px;
-      }
-      .hero-content h1 {
-        font-size: 2rem;
-      }
-      .hero-content p {
-        font-size: 1rem;
-      }
-      .hero-content button {
-        padding: 8px 16px;
-      }
-      .service-card {
-        padding: 6px;
-      }
-      .service-card h3 {
-        font-size: 1.25rem;
-      }
-      .grid-cols-1.md\:grid-cols-3 {
-        grid-template-columns: 1fr;
-      }
-      .grid-cols-1.md\:grid-cols-4 {
-        grid-template-columns: 1fr;
-      }
-      .feature-box {
-        padding: 1rem;
-      }
-      .feature-box h3 {
-        font-size: 1.25rem;
-      }
-      .testimonials-content h2 {
-        font-size: 2rem;
-      }
-      .testimonials-content p {
-        font-size: 0.875rem;
-      }
-      .promo-content h2 {
-        font-size: 1.75rem;
-      }
-      .promo-content p {
-        font-size: 1rem;
-      }
-      .promo-content button {
-        padding: 0.5rem 1.5rem;
-        font-size: 1rem;
-      }
-    }
-    @media (min-width: 641px) {
-      .hamburger {
-        display: none;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Airbnb &amp; Short-Stay Cleaning in Auckland | The Cleanic</title>
+<meta name="description" content="Airbnb and short-stay turnover cleaning in Auckland. Beds remade, kitchens and bathrooms cleaned, floors done — guest-ready between every stay. From $120 per clean.">
+<link rel="canonical" href="https://thecleanic.co.nz/">
+<meta name="theme-color" content="#F5F1EA">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Cleanic">
+<meta property="og:locale" content="en_NZ">
+<meta property="og:title" content="The Cleanic — Airbnb &amp; short-stay cleaning in Auckland">
+<meta property="og:description" content="Airbnb and short-stay turnover cleaning in Auckland. Beds remade, kitchens and bathrooms cleaned, floors done — guest-ready between every stay. From $120 per clean.">
+<meta property="og:url" content="https://thecleanic.co.nz/">
+<meta property="og:image" content="https://thecleanic.co.nz/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A freshly made bed in a calm, sunlit bedroom">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Cleanic — Airbnb &amp; short-stay cleaning in Auckland">
+<meta name="twitter:description" content="Airbnb and short-stay turnover cleaning in Auckland. Beds remade, kitchens and bathrooms cleaned, floors done — guest-ready between every stay. From $120 per clean.">
+<meta name="twitter:image" content="https://thecleanic.co.nz/assets/img/og.jpg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/brand/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/hanken-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="/assets/img/bedroom-linen-1280.avif" imagesrcset="/assets/img/bedroom-linen-640.avif 640w, /assets/img/bedroom-linen-1280.avif 1280w, /assets/img/bedroom-linen-1920.avif 1920w" imagesizes="(min-width: 1024px) 50vw, 100vw" type="image/avif">
+<link rel="stylesheet" href="/assets/css/site.css?v=e9568af40d">
+<script>document.documentElement.classList.add('js')</script>
+<script src="/assets/js/site.js?v=8932747c75" defer></script>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};if(!/^(localhost|127.)/.test(location.hostname)){var s=document.createElement('script');s.defer=1;s.src='/_vercel/insights/script.js';document.head.appendChild(s)}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","@id":"https://thecleanic.co.nz/#business","name":"The Cleanic","description":"Airbnb and short-stay turnover cleaning, plus home and property cleaning, in Auckland.","url":"https://thecleanic.co.nz/","logo":"https://thecleanic.co.nz/assets/brand/icon-512.png","image":"https://thecleanic.co.nz/assets/img/og.jpg","telephone":"+64 21 0260 6025","contactPoint":[{"@type":"ContactPoint","telephone":"+64 21 0260 6025","contactType":"customer service","areaServed":"NZ"},{"@type":"ContactPoint","telephone":"+64 22 379 1794","contactType":"customer service","areaServed":"NZ"}],"email":"thecleanicnz@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Auckland","addressRegion":"Auckland","addressCountry":"NZ"},"areaServed":{"@type":"City","name":"Auckland"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:00","closes":"15:00"}],"paymentAccepted":"Visa, Mastercard, American Express","sameAs":["https://www.instagram.com/the_cleanic23","https://www.facebook.com/the.cleanic.2023","https://www.tiktok.com/@thecleanicnz5"]},{"@type":"WebSite","@id":"https://thecleanic.co.nz/#website","url":"https://thecleanic.co.nz/","name":"The Cleanic","publisher":{"@id":"https://thecleanic.co.nz/#business"}}]}</script>
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <!-- Promotion Popup -->
-  <div id="promoPopup" class="promo-popup">
-    <div class="promo-content">
-      <span class="promo-close-btn" onclick="closePromoPopup()">×</span>
-      <h2>Exclusive Offer: 20% Off Your First Clean!</h2>
-      <p>Transform your space with The Cleanic’s premium cleaning services. Book now and save big on your first visit!</p>
-      <button id="promoBookNowBtn" class="focus:outline-none">Book Now</button>
-    </div>
-  </div>
-
-  <!-- Floating Book Now Widget with Popup -->
-  <div class="floating-widget">
-    <button id="bookNowBtn" class="bg-green-500 text-white px-6 py-3 rounded-full shadow-2xl hover:bg-green-600 transition-transform hover:scale-110 focus:outline-none">Book Now</button>
-  </div>
-  <div id="bookingPopup" class="booking-popup">
-    <span class="close-btn" onclick="closePopup()">×</span>
-    <h3 class="text-xl font-semibold text-blue-900 mb-4">Book Your Cleaning</h3>
-    <form action="https://getform.io/f/bxoykmza" method="POST" class="space-y-4 p-4">
-      <div>
-        <label class="block text-gray-700 mb-2" for="popupName">Full Name</label>
-        <input type="text" id="popupName" name="name" class="w-full p-2 border rounded-lg focus:border-blue-500" required>
-      </div>
-      <div>
-        <label class="block text-gray-700 mb-2" for="popupEmail">Email</label>
-        <input type="email" id="popupEmail" name="email" class="w-full p-2 border rounded-lg focus:border-blue-500" required>
-      </div>
-      <div>
-        <label class="block text-gray-700 mb-2" for="popupService">Service</label>
-        <select id="popupService" name="service" class="w-full p-2 border rounded-lg focus:border-blue-500" required>
-          <option value="airbnb">Airbnb Cleaning</option>
-          <option value="residential">Residential Cleaning</option>
-          <option value="commercial">Commercial Cleaning</option>
-        </select>
-      </div>
-      <div>
-        <label class="block text-gray-700 mb-2" for="popupDate">Preferred Date</label>
-        <input type="date" id="popupDate" name="date" class="w-full p-2 border rounded-lg focus:border-blue-500" required>
-      </div>
-      <input type="hidden" name="_subject" value="New Booking from The Cleanic">
-      <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
-      <div id="successMessage" class="hidden text-green-600 mt-4">Thank you! Your booking request has been sent.</div>
-      <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition mt-6 block debug-button">Submit</button>
-    </form>
-  </div>
-
-  <!-- Navbar -->
-  <nav class="bg-white shadow-xl fixed w-full z-50 top-0">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="flex items-center justify-between h-24">
-        <div class="flex items-center space-x-1">
-          <img src="/logo.png" alt="The Cleanic Logo" class="h-20 md:h-32">
-          <h1 class="text-2xl md:text-4xl font-bold text-blue-900">The Cleanic</h1>
-        </div>
-        <div class="flex items-center space-x-8">
-          <div class="md:flex items-center space-x-8 hidden md:block navbar-menu" id="navbarMenu">
-            <div class="nav-links flex space-x-8">
-              <a href="index.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Home</a>
-              <a href="services.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Services</a>
-              <a href="about.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">About</a>
-              <a href="contact.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Contact</a>
-              <a href="get-a-quote.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Get a Quote</a>
-            </div>
-            <div class="social-icons">
-              <a href="https://www.facebook.com/the.cleanic.2023" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://www.instagram.com/the_cleanic23?igsh=MXQxNW5sNXM4dWxteA==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.tiktok.com/@thecleanicnz5?_t=ZS-8yLcjJF9NH6&_r=1" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-            </div>
-          </div>
-          <div class="md:hidden">
-            <i class="fas fa-bars hamburger" id="hamburgerBtn"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section (Elite Cleaning Excellence) -->
-  <section id="home" class="hero-bg flex items-center justify-center text-white relative pt-24">
-    <div class="hero-content text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-12">
-      <h1 class="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 leading-tight">Spotless Every Time</h1>
-      <p class="text-lg sm:text-xl md:text-2xl mb-6">Specialising in Airbnb, residential, and commercial cleans — fast, detailed, and reliable.</p>
-      <button id="quoteBtn" class="bg-yellow-400 text-blue-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-lg hover:bg-yellow-500 transition">Request a Free Quote</button>
-    </div>
-  </section>
-
-  <!-- Premium Services Section -->
-  <section id="services" class="py-12 sm:py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl sm:text-4xl font-bold text-blue-900 text-center mb-12 sm:mb-16">Our Premium Services</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-12">
-        <a href="services.html" class="service-card bg-white p-4 sm:p-8 rounded-xl shadow-lg block hover:bg-gray-50">
-          <h3 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4 text-blue-900">Airbnb Cleaning</h3>
-          <p class="text-gray-600">Expert cleaning tailored for Airbnb properties.</p>
-        </a>
-        <a href="services.html" class="service-card bg-white p-4 sm:p-8 rounded-xl shadow-lg block hover:bg-gray-50">
-          <h3 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4 text-blue-900">Residential Cleaning</h3>
-          <p class="text-gray-600">Deep, detailed cleaning for every room in your home.</p>
-        </a>
-        <a href="services.html" class="service-card bg-white p-4 sm:p-8 rounded-xl shadow-lg block hover:bg-gray-50">
-          <h3 class="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4 text-blue-900">Commercial Cleaning</h3>
-          <p class="text-gray-600">Custom cleaning for offices and business spaces.</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
- <!-- ... (previous HTML remains unchanged until the parallax section) ... -->
-
-<!-- Home Cleaning Services Section -->
-<section class="parallax" style="background-image: url('home-services-bg.jpg?v=1');">
-  <div class="parallax-content">
-    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-12">Home Cleaning Services</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 max-h-[calc(100vh-200px)] overflow-y-auto">
-      <div>
-        <div class="service-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-          </svg>
-        </div>
-        <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">Airbnb Specialist</h3>
-        <p class="text-gray-200">Get your place guest-ready with our tailored cleaning.</p>
-      </div>
-      <div>
-        <div class="service-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 2a8 8 0 110 16 8 8 0 010-16zm0 4a2 2 0 100 4 2 2 0 000-4z"></path>
-          </svg>
-        </div>
-        <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">End of Tenancy Cleaning</h3>
-        <p class="text-gray-200">Move-out cleaning done right, ensuring a smooth transition.</p>
-      </div>
-      <div>
-        <div class="service-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-            <line x1="4" y1="12" x2="20" y2="12"></line>
-          </svg>
-        </div>
-        <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">Ironing & Laundry</h3>
-        <p class="text-gray-200">Expert care for your clothes and linens, keeping them fresh.</p>
-      </div>
-      <div>
-        <div class="service-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"></path>
-          </svg>
-        </div>
-        <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">Regular Cleaning</h3>
-        <p class="text-gray-200">Consistent upkeep to maintain a pristine living space.</p>
-      </div>
-      <div>
-        <div class="service-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
-            <path d="M12 6v6l-4 4"></path>
-          </svg>
-        </div>
-        <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">Emergency Cleaning</h3>
-        <p class="text-gray-200">Quick response for urgent clean-ups when you need it most.</p>
-      </div>
-      <div>
-        <div class="service-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
-            <path d="M12 6v6l-3 3"></path>
-          </svg>
-        </div>
-        <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">One-Off Cleaning</h3>
-        <p class="text-gray-200">Single deep clean to refresh your space with ease.</p>
-      </div>
-      <div>
-        <div class="service-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
-            <path d="M12 7v5l3 3"></path>
-          </svg>
-        </div>
-        <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">Carpet Cleaning</h3>
-        <p class="text-gray-200">Specialized care to keep your carpets fresh and clean.</p>
-      </div>
-      <div>
-        <div class="service-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
-            <path d="M12 7v5l-3 3"></path>
-          </svg>
-        </div>
-        <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">Spring Cleaning</h3>
-        <p class="text-gray-200">Thorough cleaning from top to bottom, leaving every corner spotless.</p>
-      </div>
-    </div>
-  </div>
+<body>
+<a href="#main" class="sr-only-focusable fixed left-4 top-3 z-[80] bg-ink px-4 py-2 text-sm font-semibold text-linen">Skip to content</a>
+<header class="site-header fixed inset-x-0 top-0 z-50 border-b border-transparent" data-header>
+<div class="wrap flex h-full items-center justify-between gap-6">
+<a href="/" class="flex items-center gap-3 text-ink" aria-label="The Cleanic — home">
+<svg class="h-8 w-auto text-navy" viewBox="0 0 86 128" fill="currentColor" aria-hidden="true"><defs><mask id="m-head"><rect width="86" height="128" fill="#fff"/><path d="M-2 103 L62 51 L92 76" fill="none" stroke="#000" stroke-width="7.5"/><rect x="24" y="96" width="8.5" height="40" fill="#000"/><g fill="#000"><rect x="52.5" y="92.5" width="8.6" height="8.6"/><rect x="63.4" y="92.5" width="8.6" height="8.6"/><rect x="52.5" y="103.4" width="8.6" height="8.6"/><rect x="63.4" y="103.4" width="8.6" height="8.6"/></g></mask></defs><path mask="url(#m-head)" d="M41 0C29 22 0 52 0 85a43 43 0 0 0 86 0c0-8-2-15-6-24Z"/></svg>
+<span class="font-serif text-[1.625rem] leading-none tracking-[-0.01em]">The Cleanic</span>
+</a>
+<nav aria-label="Main" class="hidden lg:block">
+<ul class="flex items-center gap-7 xl:gap-9" role="list">
+<li><a class="nav-link" href="/airbnb-cleaning">Airbnb cleaning</a></li>
+<li class="has-dropdown relative">
+<a class="nav-link inline-flex items-center gap-1.5" href="/services">Services<svg class="h-2 w-2.5" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m1 1 4 4 4-4"/></svg></a>
+<div class="dropdown-panel absolute left-1/2 top-full w-[54rem] -translate-x-1/2 pt-5">
+<div class="grid grid-cols-[15rem_1fr] border border-line bg-linen shadow-[0_24px_48px_-24px_rgba(27,32,38,.25)]">
+<a href="/airbnb-cleaning" class="group flex flex-col justify-between gap-6 bg-night p-7 text-linen">
+<span><span class="eyebrow !text-night-mute">Our speciality</span><span class="mt-4 block font-serif text-[1.75rem] leading-tight">Airbnb &amp; short-stay turnovers</span></span>
+<span class="inline-flex items-center gap-2 text-[0.875rem] font-semibold">From $120 per clean <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></span>
+</a>
+<div class="grid grid-cols-3 gap-6 p-7">
+<div><p class="fine font-semibold uppercase tracking-[0.12em]">Deep & specialist cleans</p><ul class="mt-3 grid gap-2" role="list"><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/spring-cleaning">Spring cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/one-off-cleaning">One-off cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/carpet-cleaning">Carpet cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/window-cleaning">Window cleaning</a></li></ul></div><div><p class="fine font-semibold uppercase tracking-[0.12em]">Homes & moving</p><ul class="mt-3 grid gap-2" role="list"><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/regular-cleaning">Regular cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/end-of-tenancy-cleaning">End of tenancy cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/after-builders-cleaning">After builders cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/ironing-laundry">Ironing & laundry</a></li></ul></div><div><p class="fine font-semibold uppercase tracking-[0.12em]">Business & events</p><ul class="mt-3 grid gap-2" role="list"><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/commercial-cleaning">Commercial cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/after-party-cleaning">After party cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/emergency-cleaning">Emergency cleaning</a></li></ul></div>
+</div>
+</div>
+</div>
+</li><li><a class="nav-link" href="/how-it-works">How it works</a></li><li><a class="nav-link" href="/about">About</a></li><li><a class="nav-link" href="/contact">Contact</a></li>
+</ul>
+</nav>
+<div class="flex items-center gap-3 sm:gap-5">
+<a href="tel:+642102606025" class="hidden items-center gap-2 text-[0.9375rem] font-medium text-ink-soft transition-colors hover:text-ink xl:inline-flex"><svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5.6 1.8 3.4 2.3c-.8.2-1.3 1-1.2 1.8.9 5 4.7 8.8 9.7 9.7.8.1 1.6-.4 1.8-1.2l.5-2.2-3-1.4-1.4 1.6a8.4 8.4 0 0 1-3.8-3.8L7.6 5.4 6.2 2.4z"/></svg>021 0260 6025</a>
+<a href="/get-a-quote" class="btn btn-primary btn-sm hidden sm:inline-flex">Get a quote</a>
+<button type="button" class="-mr-2 flex h-11 items-center gap-3 px-2 text-[0.9375rem] font-medium text-ink lg:hidden" aria-expanded="false" aria-controls="site-menu" data-menu-toggle>
+<span data-menu-label>Menu</span>
+<span class="menu-icon grid gap-[6px]" aria-hidden="true"><span></span><span></span></span>
+</button>
+</div>
+</div>
+</header>
+<div id="site-menu" class="menu-panel fixed inset-0 z-40 flex flex-col overflow-y-auto bg-linen pt-[76px] lg:hidden" role="dialog" aria-modal="true" aria-label="Menu" data-menu>
+<nav aria-label="Mobile" class="wrap flex flex-1 flex-col pb-8 pt-6">
+<ul class="border-t border-line" role="list">
+<li class="menu-item border-b border-line" style="transition-delay:60ms"><a href="/" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink" aria-current="page">Home<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li><li class="menu-item border-b border-line" style="transition-delay:105ms"><a href="/airbnb-cleaning" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink">Airbnb cleaning<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li><li class="menu-item border-b border-line" style="transition-delay:150ms"><a href="/services" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink">Services<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li><li class="menu-item border-b border-line" style="transition-delay:195ms"><a href="/how-it-works" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink">How it works<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li><li class="menu-item border-b border-line" style="transition-delay:240ms"><a href="/about" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink">About<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li><li class="menu-item border-b border-line" style="transition-delay:285ms"><a href="/contact" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink">Contact<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li><li class="menu-item border-b border-line" style="transition-delay:330ms"><a href="/get-a-quote" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink">Get a quote<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li>
+</ul>
+<div class="menu-item pt-8" style="transition-delay:330ms">
+<p class="eyebrow">All services</p>
+<ul class="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5 text-[0.9375rem]" role="list">
+<li><a class="text-ink-soft" href="/airbnb-cleaning">Airbnb & short-stay</a></li><li><a class="text-ink-soft" href="/regular-cleaning">Regular cleaning</a></li><li><a class="text-ink-soft" href="/spring-cleaning">Spring cleaning</a></li><li><a class="text-ink-soft" href="/one-off-cleaning">One-off cleaning</a></li><li><a class="text-ink-soft" href="/end-of-tenancy-cleaning">End of tenancy cleaning</a></li><li><a class="text-ink-soft" href="/after-builders-cleaning">After builders cleaning</a></li><li><a class="text-ink-soft" href="/carpet-cleaning">Carpet cleaning</a></li><li><a class="text-ink-soft" href="/window-cleaning">Window cleaning</a></li><li><a class="text-ink-soft" href="/ironing-laundry">Ironing & laundry</a></li><li><a class="text-ink-soft" href="/commercial-cleaning">Commercial cleaning</a></li><li><a class="text-ink-soft" href="/after-party-cleaning">After party cleaning</a></li><li><a class="text-ink-soft" href="/emergency-cleaning">Emergency cleaning</a></li>
+</ul>
+</div>
+<div class="menu-item mt-auto grid gap-4 pt-10" style="transition-delay:360ms">
+<a href="/get-a-quote" class="btn btn-primary w-full">Get a quote <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a>
+<a href="tel:+642102606025" class="btn btn-outline w-full"><svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5.6 1.8 3.4 2.3c-.8.2-1.3 1-1.2 1.8.9 5 4.7 8.8 9.7 9.7.8.1 1.6-.4 1.8-1.2l.5-2.2-3-1.4-1.4 1.6a8.4 8.4 0 0 1-3.8-3.8L7.6 5.4 6.2 2.4z"/></svg> Call 021 0260 6025</a>
+<p class="fine text-center">Also <a class="link-underline" href="tel:+64223791794">022 379 1794</a> · Mon–Fri 8am – 6pm · Sat–Sun 9am – 3pm</p>
+</div>
+</nav>
+</div>
+<main id="main" tabindex="-1" class="outline-none">
+<!-- Hero -->
+<section data-hero class="relative pt-[calc(var(--header-h)+1.5rem)] sm:pt-[calc(var(--header-h)+3rem)] lg:pt-[calc(var(--header-h)+2rem)]" aria-labelledby="hero-title">
+<div class="wrap grid gap-8 sm:gap-10 lg:min-h-[calc(100svh-var(--header-h)-2rem)] lg:grid-cols-12 lg:grid-rows-[1fr_auto] lg:gap-x-12 lg:gap-y-0 lg:pb-14">
+<div class="lg:col-span-6 lg:row-start-1 lg:self-end">
+<p class="eyebrow" data-reveal>Airbnb &amp; short-stay cleaning · Auckland</p>
+<h1 id="hero-title" class="display mt-6 sm:mt-7" data-reveal style="--d:80ms">Guest-ready between <em>every</em> stay.</h1>
+</div>
+<div class="relative lg:col-span-6 lg:col-start-7 lg:row-span-2 lg:row-start-1" data-depth-scene>
+<div class="media aspect-[16/11] lg:absolute lg:inset-0 lg:aspect-auto" data-depth="-10" data-reveal="image">
+<picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/bedroom-linen-640.avif 640w, /assets/img/bedroom-linen-1280.avif 1280w, /assets/img/bedroom-linen-1920.avif 1920w" sizes="(min-width: 1024px) 50vw, 100vw"><source type="image/webp" srcset="/assets/img/bedroom-linen-640.webp 640w, /assets/img/bedroom-linen-1280.webp 1280w, /assets/img/bedroom-linen-1920.webp 1920w" sizes="(min-width: 1024px) 50vw, 100vw"><img src="/assets/img/bedroom-linen-1280.webp" alt="A low timber bed made up with white and oatmeal linen in a calm, sunlit bedroom" width="1280" height="853" fetchpriority="high" loading="eager" decoding="async" style="object-position:50% 60%"></picture>
+</div>
+<div class="media depth-shadow absolute -bottom-10 right-4 hidden aspect-square w-[30%] border-[10px] border-linen sm:block lg:-left-8 lg:bottom-10 lg:right-auto lg:w-[30%] xl:-left-16 xl:w-[36%]" data-depth="26" data-reveal="image" style="--d:300ms">
+<picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/bedside-tray-640.avif 640w, /assets/img/bedside-tray-1280.avif 1280w, /assets/img/bedside-tray-1920.avif 1920w" sizes="(min-width: 1024px) 18vw, 30vw"><source type="image/webp" srcset="/assets/img/bedside-tray-640.webp 640w, /assets/img/bedside-tray-1280.webp 1280w, /assets/img/bedside-tray-1920.webp 1920w" sizes="(min-width: 1024px) 18vw, 30vw"><img src="/assets/img/bedside-tray-1280.webp" alt="A bedside table with a small tray beside a freshly made bed" width="1280" height="1920" loading="lazy" decoding="async"></picture>
+</div>
+</div>
+<div class="lg:col-span-6 lg:row-start-2 lg:pb-2">
+<p class="lead max-w-[34rem] lg:mt-7" data-reveal style="--d:160ms">The Cleanic cleans Airbnb and short-stay properties across Auckland. When one guest checks out, we turn the property around — beds, bathrooms, kitchen and floors — ready for the next arrival.</p>
+<div class="mt-8 flex flex-col gap-4 sm:mt-9 sm:flex-row sm:items-center sm:gap-8" data-reveal style="--d:240ms">
+<a href="/get-a-quote?service=airbnb" class="btn btn-primary">Get a quote <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a>
+<a href="#turnover" class="link-arrow self-start sm:self-auto">How a turnover works <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a>
+</div>
+<dl class="mt-12 grid grid-cols-2 gap-y-5 border-t border-line pt-6 sm:grid-cols-3 lg:mt-14" data-reveal style="--d:320ms">
+<div><dt class="fine">Turnovers</dt><dd class="mt-1 text-[0.9375rem] font-semibold">From $120 per clean</dd></div>
+<div><dt class="fine">Service area</dt><dd class="mt-1 text-[0.9375rem] font-semibold">Auckland</dd></div>
+<div class="col-span-2 sm:col-span-1"><dt class="fine">Talk to us</dt><dd class="mt-1 text-[0.9375rem] font-semibold"><a href="tel:+642102606025" class="link-underline">021 0260 6025</a></dd></div>
+</dl>
+</div>
+</div>
+<div class="wrap mt-12 sm:mt-16 lg:mt-0">
+<nav aria-label="Other services" class="flex flex-wrap items-center gap-x-6 gap-y-3 border-y border-line py-5">
+<span class="eyebrow">Also available</span>
+<a href="/regular-cleaning" class="text-[0.9375rem] font-medium text-ink-soft underline decoration-line underline-offset-4 transition-colors hover:text-ink hover:decoration-ink">Regular cleaning</a><a href="/spring-cleaning" class="text-[0.9375rem] font-medium text-ink-soft underline decoration-line underline-offset-4 transition-colors hover:text-ink hover:decoration-ink">Spring cleaning</a><a href="/end-of-tenancy-cleaning" class="text-[0.9375rem] font-medium text-ink-soft underline decoration-line underline-offset-4 transition-colors hover:text-ink hover:decoration-ink">End of tenancy cleaning</a><a href="/carpet-cleaning" class="text-[0.9375rem] font-medium text-ink-soft underline decoration-line underline-offset-4 transition-colors hover:text-ink hover:decoration-ink">Carpet cleaning</a><a href="/window-cleaning" class="text-[0.9375rem] font-medium text-ink-soft underline decoration-line underline-offset-4 transition-colors hover:text-ink hover:decoration-ink">Window cleaning</a><a href="/commercial-cleaning" class="text-[0.9375rem] font-medium text-ink-soft underline decoration-line underline-offset-4 transition-colors hover:text-ink hover:decoration-ink">Commercial cleaning</a>
+<a href="/services" class="link-arrow text-[0.9375rem] sm:ml-auto">All services <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a>
+</nav>
+</div>
 </section>
-
-<!-- ... (rest of the HTML remains unchanged) ... -->
-
-  <!-- Why Choose Us Section -->
-  <section class="py-12 sm:py-24 bg-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl sm:text-4xl font-bold text-blue-900 text-center mb-8 sm:mb-12">Why Choose The Cleanic?</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
-        <div class="feature-box">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-            <polygon points="12 8 15 11 9 11 12 8" />
-          </svg>
-          <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Reliable Experts</h3>
-          <p class="text-gray-600 mt-1 sm:mt-2">Our crews are seasoned pros with a proven track record.</p>
-        </div>
-        <div class="feature-box">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-            <path d="M12 8v8m-4-4h8" />
-          </svg>
-          <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Outstanding Results</h3>
-          <p class="text-gray-600 mt-1 sm:mt-2">We deliver exceptional care for your home or workspace.</p>
-        </div>
-        <div class="feature-box">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-            <path d="M12 8v8m4-4H8" />
-          </svg>
-          <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Fully Covered</h3>
-          <p class="text-gray-600 mt-1 sm:mt-2">Comprehensive insurance for your total reassurance.</p>
-        </div>
-        <div class="feature-box">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-            <path d="M12 6v6l4 2" />
-          </svg>
-          <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Eco-Conscious Methods</h3>
-          <p class="text-gray-600 mt-1 sm:mt-2">Sustainable products that respect the environment.</p>
-        </div>
-        <div class="feature-box">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-            <path d="M12 6v6m-6-6h12" />
-          </svg>
-          <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Customized Care</h3>
-          <p class="text-gray-600 mt-1 sm:mt-2">A wide array of services tailored to your preferences.</p>
-        </div>
-        <div class="feature-box">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-            <path d="M12 6v12m6-6H6" />
-          </svg>
-          <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Always Available</h3>
-          <p class="text-gray-600 mt-1 sm:mt-2">Support whenever you need it, day or night.</p>
-        </div>
-        <div class="feature-box">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#1e3a8a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-            <path d="M12 6v6l-3 3" />
-          </svg>
-          <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Rave Reviews</h3>
-          <p class="text-gray-600 mt-1 sm:mt-2">Your satisfaction drives us—see what others say.</p>
-        </div>
-        <div class="feature-box">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="#4a90e2" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-            <path d="M12 6v6l3 3" />
-          </svg>
-          <h3 class="text-lg sm:text-xl font-semibold text-blue-900">Protected Payments</h3>
-          <p class="text-gray-600 mt-1 sm:mt-2">Safe and simple transactions through our secure portal.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section class="py-12 sm:py-24 testimonials-bg">
-    <div class="testimonials-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6 sm:mb-12">What our clients say</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
-        <div>
-          <p class="text-pink-200 text-3xl sm:text-4xl mb-2 sm:mb-4">“</p>
-          <p class="text-gray-100 mb-2 sm:mb-4">"Honestly, my place in Ponsonby hasn’t looked this good in years—super impressed!"</p>
-          <p class="text-white font-semibold">Jess T.</p>
-          <p class="text-gray-300">Ponsonby</p>
-        </div>
-        <div>
-          <p class="text-gray-200 text-3xl sm:text-4xl mb-2 sm:mb-4">“</p>
-          <p class="text-gray-100 mb-2 sm:mb-4">"The team sorted out my messy flat in Mt Eden in no time—total lifesavers!"</p>
-          <p class="text-white font-semibold">Mike R.</p>
-          <p class="text-gray-300">Mt Eden</p>
-        </div>
-        <div>
-          <p class="text-pink-200 text-3xl sm:text-4xl mb-2 sm:mb-4">“</p>
-          <p class="text-gray-100 mb-2 sm:mb-4">"Really friendly crew, left my Remuera house sparkling—would call again!"</p>
-          <p class="text-white font-semibold">Sarah L.</p>
-          <p class="text-gray-300">Remuera</p>
-        </div>
-        <div>
-          <p class="text-gray-200 text-3xl sm:text-4xl mb-2 sm:mb-4">“</p>
-          <p class="text-gray-100 mb-2 sm:mb-4">"Got my Airbnb in Grey Lynn spotless before guests—amazing service!"</p>
-          <p class="text-white font-semibold">Liam K.</p>
-          <p class="text-gray-300">Grey Lynn</p>
-        </div>
-      </div>
-      <button class="mt-6 sm:mt-12 bg-blue-900 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-blue-700 transition">Read More</button>
-    </div>
-  </section>
-
-  <footer class="bg-blue-900 text-white py-6 sm:py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 mb-4 sm:mb-8">
-        <div class="text-left">
-          <h3 class="text-xl sm:text-2xl font-bold mb-1 sm:mb-2">The Cleanic</h3>
-          <p class="text-gray-300 mb-1 sm:mb-4">Your Trusted Cleaning Experts</p>
-          <h3 class="text-lg sm:text-xl font-semibold mb-1 sm:mb-2">Payment Options</h3>
-          <div class="payment-icons flex space-x-2 sm:space-x-4">
-            <i class="fab fa-cc-visa"></i>
-            <i class="fab fa-cc-mastercard"></i>
-            <i class="fab fa-cc-amex"></i>
-          </div>
-        </div>
-        <div class="text-center">
-          <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-4">Contact Us</h3>
-          <p class="text-gray-300"><a href="tel:+64211759393" class="hover:underline">021 175 9393</a></p>
-          <p class="text-gray-300"><a href="tel:+64211759393" class="hover:underline">022 154 2994</a></p>
-          <p class="text-gray-300"><a href="mailto:thecleanicnz@gmail.com" class="hover:underline">thecleanicnz@gmail.com</a></p>
-        </div>
-        <div class="text-right">
-          <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-4">Business Hours</h3>
-          <p class="text-gray-300">Mon-Fri: 8 AM - 6 PM</p>
-          <p class="text-gray-300">Sat-Sun: 9 AM - 3 PM</p>
-        </div>
-      </div>
-      <div class="text-center mt-4 sm:mt-8">
-        <div class="social-icons mb-2 sm:mb-4">
-          <a href="https://www.tiktok.com/@thecleanicnz5?_t=ZS-8yLcjJF9NH6&_r=1" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-          <a href="https://www.instagram.com/the_cleanic23?igsh=MXQxNW5sNXM4dWxteA==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/the.cleanic.2023" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        </div>
-        <p class="text-gray-400">© 2025 The Cleanic. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Define close functions in global scope
-    function closePopup() {
-      const bookingPopup = document.getElementById('bookingPopup');
-      if (bookingPopup) bookingPopup.classList.remove('active');
-    }
-
-    function closePromoPopup() {
-      const promoPopup = document.getElementById('promoPopup');
-      if (promoPopup) promoPopup.classList.remove('active');
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const bookNowBtn = document.getElementById('bookNowBtn');
-      const bookingPopup = document.getElementById('bookingPopup');
-      const quoteBtn = document.getElementById('quoteBtn');
-      const form = bookingPopup.querySelector('form');
-      const successMessage = document.getElementById('successMessage');
-      const hamburgerBtn = document.getElementById('hamburgerBtn');
-      const navbarMenu = document.getElementById('navbarMenu');
-      const promoPopup = document.getElementById('promoPopup');
-      const promoBookNowBtn = document.getElementById('promoBookNowBtn');
-
-      // Show promo popup on page load
-      if (promoPopup) {
-        promoPopup.classList.add('active');
-      }
-
-      if (bookNowBtn && bookingPopup) {
-        bookNowBtn.addEventListener('click', () => {
-          bookingPopup.classList.add('active');
-          promoPopup.classList.remove('active');
-        });
-      }
-
-      if (quoteBtn && bookingPopup) {
-        quoteBtn.addEventListener('click', () => {
-          bookingPopup.classList.add('active');
-          promoPopup.classList.remove('active');
-        });
-      }
-
-      if (promoBookNowBtn && bookingPopup) {
-        promoBookNowBtn.addEventListener('click', () => {
-          bookingPopup.classList.add('active');
-          promoPopup.classList.remove('active');
-        });
-      }
-
-      if (form) {
-        form.addEventListener('submit', async (event) => {
-          event.preventDefault();
-          const name = form.querySelector('#popupName').value.trim();
-          const email = form.querySelector('#popupEmail').value.trim();
-          const date = form.querySelector('#popupDate').value;
-
-          if (!name || !email || !date) {
-            alert('Please fill out all required fields.');
-            return;
-          }
-
-          try {
-            const response = await fetch(form.action, {
-              method: 'POST',
-              body: new FormData(form),
-              headers: { 'Accept': 'application/json' }
-            });
-            if (response.ok) {
-              form.reset();
-              successMessage.classList.remove('hidden');
-              setTimeout(() => {
-                bookingPopup.classList.remove('active');
-                successMessage.classList.add('hidden');
-              }, 3000);
-            } else {
-              alert('There was an issue submitting your form. Please try again.');
-            }
-          } catch (error) {
-            alert('Error: ' + error.message);
-          }
-        });
-      }
-
-      if (hamburgerBtn && navbarMenu) {
-        hamburgerBtn.addEventListener('click', () => {
-          navbarMenu.classList.toggle('active');
-        });
-      }
-
-      // Close booking popup when clicking outside
-      document.addEventListener('click', (event) => {
-        if (bookingPopup && !bookingPopup.contains(event.target) && event.target !== bookNowBtn && event.target !== quoteBtn && event.target !== promoBookNowBtn) {
-          bookingPopup.classList.remove('active');
-        }
-      });
-
-      // Close promo popup when clicking outside the promo content
-      document.addEventListener('click', (event) => {
-        const promoContent = document.querySelector('.promo-content');
-        if (promoPopup && !promoContent.contains(event.target) && event.target !== promoBookNowBtn) {
-          promoPopup.classList.remove('active');
-        }
-      });
-    });
-  </script>
+<!-- The host problem -->
+<section class="section" aria-labelledby="gap-title">
+<div class="wrap grid gap-12 lg:grid-cols-12 lg:gap-12">
+<div class="lg:col-span-7">
+<p class="eyebrow" data-reveal>The gap between guests</p>
+<h2 id="gap-title" class="h1 mt-6 max-w-[17ch]" data-reveal style="--d:80ms">One guest leaves. The next is already on the way.</h2>
+</div>
+<div class="grid content-end gap-6 text-ink-soft lg:col-span-4 lg:col-start-9" data-reveal style="--d:160ms">
+<p>Every stay leaves the same jobs behind: beds to strip and remake, a bathroom and kitchen to reset, floors to do and rubbish to clear. It all has to be done properly, and it has to be done before the next check-in.</p>
+<p>That turnover is what we focus on. We schedule around your bookings and clean to the same standard each time, so every guest walks into a property that looks the way your listing promised.</p>
+</div>
+</div>
+<div class="wrap mt-16 grid grid-cols-12 gap-4 sm:mt-24 sm:gap-6">
+<div class="media zoom col-span-12 aspect-[16/10] sm:col-span-8 sm:aspect-[16/10]" data-reveal="image">
+<picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/kitchen-dining-640.avif 640w, /assets/img/kitchen-dining-1280.avif 1280w, /assets/img/kitchen-dining-1920.avif 1920w" sizes="(min-width: 640px) 66vw, 100vw"><source type="image/webp" srcset="/assets/img/kitchen-dining-640.webp 640w, /assets/img/kitchen-dining-1280.webp 1280w, /assets/img/kitchen-dining-1920.webp 1920w" sizes="(min-width: 640px) 66vw, 100vw"><img src="/assets/img/kitchen-dining-1280.webp" alt="An open-plan kitchen and dining room with clear benches" width="1280" height="853" loading="lazy" decoding="async"></picture>
+</div>
+<div class="col-span-12 flex flex-col gap-4 sm:col-span-4 sm:gap-5">
+<div class="media zoom aspect-[4/3] sm:aspect-auto sm:flex-1" data-reveal="image" style="--d:120ms">
+<picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/soap-detail-640.avif 640w, /assets/img/soap-detail-1280.avif 1280w, /assets/img/soap-detail-1920.avif 1920w" sizes="(min-width: 640px) 33vw, 100vw"><source type="image/webp" srcset="/assets/img/soap-detail-640.webp 640w, /assets/img/soap-detail-1280.webp 1280w, /assets/img/soap-detail-1920.webp 1920w" sizes="(min-width: 640px) 33vw, 100vw"><img src="/assets/img/soap-detail-1280.webp" alt="A glass soap dispenser on a clean bathroom benchtop" width="1280" height="1941" loading="lazy" decoding="async"></picture>
+</div>
+<p class="fine max-w-xs" data-reveal style="--d:200ms">Kitchens, bathrooms and beds are what guests notice first — so that’s where every turnover starts.</p>
+</div>
+</div>
+</section>
+<!-- Turnover process -->
+<section id="turnover" class="on-dark section bg-night text-linen" aria-labelledby="turnover-title">
+<div class="wrap">
+<div class="grid gap-8 lg:grid-cols-12">
+<div class="lg:col-span-6">
+<p class="eyebrow" data-reveal>How a turnover works</p>
+<h2 id="turnover-title" class="h1 mt-6 max-w-[14ch]" data-reveal style="--d:80ms">From check-out to <em>guest-ready</em>.</h2>
+</div>
+<p class="lead self-end lg:col-span-4 lg:col-start-9" data-reveal style="--d:160ms">Four stages, the same way every time. You get a property that’s ready for the next arrival.</p>
+</div>
+<div class="mt-16 grid gap-12 sm:mt-24 lg:grid-cols-12 lg:gap-12" data-steps>
+<div class="hidden lg:col-span-6 lg:block">
+<div class="step-stage sticky top-[calc(var(--header-h)+2rem)]">
+<div class="media aspect-[4/5] bg-night-line" data-reveal="image">
+<div class="step-img absolute inset-0 " data-step-img="0"><picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/checkout-bed-640.avif 640w, /assets/img/checkout-bed-1280.avif 1280w, /assets/img/checkout-bed-1920.avif 1920w" sizes="45vw"><source type="image/webp" srcset="/assets/img/checkout-bed-640.webp 640w, /assets/img/checkout-bed-1280.webp 1280w, /assets/img/checkout-bed-1920.webp 1920w" sizes="45vw"><img src="/assets/img/checkout-bed-1280.webp" alt="An unmade bed in morning light after a guest has checked out" width="1280" height="853" loading="lazy" decoding="async"></picture></div><div class="step-img absolute inset-0 opacity-0" data-step-img="1"><picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/bed-making-640.avif 640w, /assets/img/bed-making-1280.avif 1280w, /assets/img/bed-making-1920.avif 1920w" sizes="45vw"><source type="image/webp" srcset="/assets/img/bed-making-640.webp 640w, /assets/img/bed-making-1280.webp 1280w, /assets/img/bed-making-1920.webp 1920w" sizes="45vw"><img src="/assets/img/bed-making-1280.webp" alt="A bed being made up with fresh linen" width="1280" height="853" loading="lazy" decoding="async"></picture></div><div class="step-img absolute inset-0 opacity-0" data-step-img="2"><picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/clean-products-640.avif 640w, /assets/img/clean-products-1280.avif 1280w, /assets/img/clean-products-1920.avif 1920w" sizes="45vw"><source type="image/webp" srcset="/assets/img/clean-products-640.webp 640w, /assets/img/clean-products-1280.webp 1280w, /assets/img/clean-products-1920.webp 1920w" sizes="45vw"><img src="/assets/img/clean-products-1280.webp" alt="Amber spray bottles and a brush on a timber bench" width="1280" height="1920" loading="lazy" decoding="async"></picture></div><div class="step-img absolute inset-0 opacity-0" data-step-img="3"><picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/towels-on-bed-640.avif 640w, /assets/img/towels-on-bed-1280.avif 1280w, /assets/img/towels-on-bed-1920.avif 1920w" sizes="45vw"><source type="image/webp" srcset="/assets/img/towels-on-bed-640.webp 640w, /assets/img/towels-on-bed-1280.webp 1280w, /assets/img/towels-on-bed-1920.webp 1920w" sizes="45vw"><img src="/assets/img/towels-on-bed-1280.webp" alt="Folded towels set out on a freshly made bed" width="1280" height="853" loading="lazy" decoding="async"></picture></div>
+</div>
+</div>
+</div>
+<ol class="lg:col-span-5 lg:col-start-8" role="list">
+<li class="border-t border-night-line py-10 lg:flex lg:min-h-[56vh] lg:flex-col lg:justify-center lg:py-16" data-step="0">
+<div class="media mb-8 aspect-[16/10] lg:hidden" data-reveal="image"><picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/checkout-bed-640.avif 640w, /assets/img/checkout-bed-1280.avif 1280w, /assets/img/checkout-bed-1920.avif 1920w" sizes="100vw"><source type="image/webp" srcset="/assets/img/checkout-bed-640.webp 640w, /assets/img/checkout-bed-1280.webp 1280w, /assets/img/checkout-bed-1920.webp 1920w" sizes="100vw"><img src="/assets/img/checkout-bed-1280.webp" alt="An unmade bed in morning light after a guest has checked out" width="1280" height="853" loading="lazy" decoding="async"></picture></div>
+<p class="num text-[3.5rem] leading-none sm:text-[4.5rem]" data-reveal>01</p>
+<h3 class="h2 mt-5" data-reveal style="--d:60ms">Check-out</h3>
+<p class="mt-5 max-w-md text-night-mute" data-reveal style="--d:120ms">Your guest leaves. We work to your booking calendar, so the clean is lined up for the gap between stays.</p>
+</li>
+<li class="border-t border-night-line py-10 lg:flex lg:min-h-[56vh] lg:flex-col lg:justify-center lg:py-16" data-step="1">
+<div class="media mb-8 aspect-[16/10] lg:hidden" data-reveal="image"><picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/bed-making-640.avif 640w, /assets/img/bed-making-1280.avif 1280w, /assets/img/bed-making-1920.avif 1920w" sizes="100vw"><source type="image/webp" srcset="/assets/img/bed-making-640.webp 640w, /assets/img/bed-making-1280.webp 1280w, /assets/img/bed-making-1920.webp 1920w" sizes="100vw"><img src="/assets/img/bed-making-1280.webp" alt="A bed being made up with fresh linen" width="1280" height="853" loading="lazy" decoding="async"></picture></div>
+<p class="num text-[3.5rem] leading-none sm:text-[4.5rem]" data-reveal>02</p>
+<h3 class="h2 mt-5" data-reveal style="--d:60ms">Reset</h3>
+<p class="mt-5 max-w-md text-night-mute" data-reveal style="--d:120ms">Beds are stripped and remade with fresh linen, towels are replaced and the rubbish goes out.</p>
+</li>
+<li class="border-t border-night-line py-10 lg:flex lg:min-h-[56vh] lg:flex-col lg:justify-center lg:py-16" data-step="2">
+<div class="media mb-8 aspect-[16/10] lg:hidden" data-reveal="image"><picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/clean-products-640.avif 640w, /assets/img/clean-products-1280.avif 1280w, /assets/img/clean-products-1920.avif 1920w" sizes="100vw"><source type="image/webp" srcset="/assets/img/clean-products-640.webp 640w, /assets/img/clean-products-1280.webp 1280w, /assets/img/clean-products-1920.webp 1920w" sizes="100vw"><img src="/assets/img/clean-products-1280.webp" alt="Amber spray bottles and a brush on a timber bench" width="1280" height="1920" loading="lazy" decoding="async"></picture></div>
+<p class="num text-[3.5rem] leading-none sm:text-[4.5rem]" data-reveal>03</p>
+<h3 class="h2 mt-5" data-reveal style="--d:60ms">Clean</h3>
+<p class="mt-5 max-w-md text-night-mute" data-reveal style="--d:120ms">Kitchen and bathrooms cleaned and sanitised, surfaces wiped down, floors vacuumed and mopped.</p>
+</li>
+<li class="border-t border-night-line py-10 lg:flex lg:min-h-[56vh] lg:flex-col lg:justify-center lg:py-16" data-step="3">
+<div class="media mb-8 aspect-[16/10] lg:hidden" data-reveal="image"><picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/towels-on-bed-640.avif 640w, /assets/img/towels-on-bed-1280.avif 1280w, /assets/img/towels-on-bed-1920.avif 1920w" sizes="100vw"><source type="image/webp" srcset="/assets/img/towels-on-bed-640.webp 640w, /assets/img/towels-on-bed-1280.webp 1280w, /assets/img/towels-on-bed-1920.webp 1920w" sizes="100vw"><img src="/assets/img/towels-on-bed-1280.webp" alt="Folded towels set out on a freshly made bed" width="1280" height="853" loading="lazy" decoding="async"></picture></div>
+<p class="num text-[3.5rem] leading-none sm:text-[4.5rem]" data-reveal>04</p>
+<h3 class="h2 mt-5" data-reveal style="--d:60ms">Guest-ready</h3>
+<p class="mt-5 max-w-md text-night-mute" data-reveal style="--d:120ms">The property is presented and ready for the next arrival.</p>
+</li>
+</ol>
+</div>
+</div>
+</section>
+<!-- What every turnover covers -->
+<section class="section" aria-labelledby="covers-title">
+<div class="wrap grid gap-14 lg:grid-cols-12 lg:gap-12">
+<div class="lg:col-span-5">
+<div class="lg:sticky lg:top-[calc(var(--header-h)+2rem)]">
+<p class="eyebrow" data-reveal>Included</p>
+<h2 id="covers-title" class="h1 mt-6 max-w-[12ch]" data-reveal style="--d:80ms">What every turnover covers</h2>
+<div class="media zoom mt-10 aspect-[4/5] max-w-md" data-reveal="image" style="--d:160ms">
+<picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/bathroom-bath-640.avif 640w, /assets/img/bathroom-bath-1280.avif 1280w, /assets/img/bathroom-bath-1920.avif 1920w" sizes="(min-width: 1024px) 34vw, 100vw"><source type="image/webp" srcset="/assets/img/bathroom-bath-640.webp 640w, /assets/img/bathroom-bath-1280.webp 1280w, /assets/img/bathroom-bath-1920.webp 1920w" sizes="(min-width: 1024px) 34vw, 100vw"><img src="/assets/img/bathroom-bath-1280.webp" alt="A freestanding bath in a clean, softly lit stone bathroom" width="1280" height="1379" loading="lazy" decoding="async"></picture>
+</div>
+</div>
+</div>
+<div class="lg:col-span-6 lg:col-start-7">
+<div class="grid gap-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-0">
+<div class="sm:row-span-3 sm:grid sm:grid-rows-subgrid" data-reveal>
+<h3 class="h3 mb-5 self-end ">Bedrooms</h3>
+<ul class="checklist sm:row-span-2 sm:grid sm:grid-rows-subgrid" role="list"><li><svg class="tick" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m2 7.4 3.2 3.1L12 3.5"/></svg><span>Bed linen changed and beds made</span></li><li><svg class="tick" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m2 7.4 3.2 3.1L12 3.5"/></svg><span>Surfaces dusted and wiped</span></li></ul>
+</div>
+<div class="sm:row-span-3 sm:grid sm:grid-rows-subgrid" data-reveal style="--d:80ms">
+<h3 class="h3 mb-5 self-end ">Bathrooms</h3>
+<ul class="checklist sm:row-span-2 sm:grid sm:grid-rows-subgrid" role="list"><li><svg class="tick" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m2 7.4 3.2 3.1L12 3.5"/></svg><span>Toilet, basin, shower and tiles cleaned and sanitised</span></li><li><svg class="tick" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m2 7.4 3.2 3.1L12 3.5"/></svg><span>Fresh towels set out</span></li></ul>
+</div>
+<div class="sm:row-span-3 sm:grid sm:grid-rows-subgrid" data-reveal style="--d:160ms">
+<h3 class="h3 mb-5 self-end sm:mt-12">Kitchen</h3>
+<ul class="checklist sm:row-span-2 sm:grid sm:grid-rows-subgrid" role="list"><li><svg class="tick" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m2 7.4 3.2 3.1L12 3.5"/></svg><span>Benches, sink and appliances cleaned</span></li><li><svg class="tick" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m2 7.4 3.2 3.1L12 3.5"/></svg><span>Rubbish removed</span></li></ul>
+</div>
+<div class="sm:row-span-3 sm:grid sm:grid-rows-subgrid" data-reveal style="--d:240ms">
+<h3 class="h3 mb-5 self-end sm:mt-12">Living areas & floors</h3>
+<ul class="checklist sm:row-span-2 sm:grid sm:grid-rows-subgrid" role="list"><li><svg class="tick" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m2 7.4 3.2 3.1L12 3.5"/></svg><span>Surfaces wiped down</span></li><li><svg class="tick" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m2 7.4 3.2 3.1L12 3.5"/></svg><span>Floors vacuumed and mopped</span></li></ul>
+</div>
+</div>
+<div class="mt-14 border border-line bg-paper p-7 sm:p-9" data-reveal>
+<p class="font-serif text-[1.75rem] leading-tight">Simple starting prices.</p>
+<dl class="border-t border-line mt-6">
+<div class="flex items-baseline justify-between gap-4 border-b border-line py-3"><dt class="text-[0.9375rem] text-ink-soft">Studio / 1 bedroom</dt><dd class="text-[0.9375rem] font-semibold">From $120</dd></div><div class="flex items-baseline justify-between gap-4 border-b border-line py-3"><dt class="text-[0.9375rem] text-ink-soft">2 bedroom</dt><dd class="text-[0.9375rem] font-semibold">From $145</dd></div><div class="flex items-baseline justify-between gap-4 border-b border-line py-3"><dt class="text-[0.9375rem] text-ink-soft">3 bedroom</dt><dd class="text-[0.9375rem] font-semibold">From $175</dd></div><div class="flex items-baseline justify-between gap-4 border-b border-line py-3"><dt class="text-[0.9375rem] text-ink-soft">4 bedroom</dt><dd class="text-[0.9375rem] font-semibold">From $205</dd></div><div class="flex items-baseline justify-between gap-4 border-b border-line py-3"><dt class="text-[0.9375rem] text-ink-soft">5+ bedroom</dt><dd class="text-[0.9375rem] font-semibold">Quote on request</dd></div>
+</dl>
+<p class="fine mt-4">Starting prices. Final pricing depends on property size, condition, access and cleaning scope. Prices are for the clean. Our linen service and guest toiletries can be added, and are priced with your quote.</p>
+<div class="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
+<a href="/get-a-quote?service=airbnb" class="btn btn-primary">Get a quote <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a>
+<a href="/airbnb-cleaning" class="link-arrow">Airbnb cleaning in detail <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Property types -->
+<section class="section rule bg-sand/40" aria-labelledby="types-title">
+<div class="wrap">
+<div class="grid gap-8 lg:grid-cols-12">
+<div class="lg:col-span-7">
+<p class="eyebrow" data-reveal>Property types</p>
+<h2 id="types-title" class="h1 mt-6 max-w-[15ch]" data-reveal style="--d:80ms">Short-stay properties, large and small</h2>
+</div>
+<p class="self-end text-ink-soft lg:col-span-4 lg:col-start-9" data-reveal style="--d:160ms">Whatever the size of the listing, the job is the same: get it ready for the next guest, and get it right every time.</p>
+</div>
+<div class="mt-14 grid gap-12 sm:mt-20 md:grid-cols-3 md:gap-8">
+<article class="" data-reveal>
+<div class="media zoom aspect-[4/5]" data-reveal="image"><picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/apartment-bedroom-640.avif 640w, /assets/img/apartment-bedroom-1280.avif 1280w, /assets/img/apartment-bedroom-1920.avif 1920w" sizes="(min-width: 768px) 33vw, 100vw"><source type="image/webp" srcset="/assets/img/apartment-bedroom-640.webp 640w, /assets/img/apartment-bedroom-1280.webp 1280w, /assets/img/apartment-bedroom-1920.webp 1920w" sizes="(min-width: 768px) 33vw, 100vw"><img src="/assets/img/apartment-bedroom-1280.webp" alt="A bright apartment bedroom with a made bed beneath a tall window" width="1280" height="1920" loading="lazy" decoding="async"></picture></div>
+<h3 class="h3 mt-6">Apartments & studios</h3>
+<p class="mt-3 max-w-sm text-ink-soft">City apartments and compact studios, where every surface is on show.</p>
+</article>
+<article class="md:mt-24" data-reveal style="--d:100ms">
+<div class="media zoom aspect-[4/5]" data-reveal="image" style="--d:100ms"><picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/house-living-640.avif 640w, /assets/img/house-living-1280.avif 1280w, /assets/img/house-living-1920.avif 1920w" sizes="(min-width: 768px) 33vw, 100vw"><source type="image/webp" srcset="/assets/img/house-living-640.webp 640w, /assets/img/house-living-1280.webp 1280w, /assets/img/house-living-1920.webp 1920w" sizes="(min-width: 768px) 33vw, 100vw"><img src="/assets/img/house-living-1280.webp" alt="A large, light-filled living room in a family home" width="1280" height="860" loading="lazy" decoding="async"></picture></div>
+<h3 class="h3 mt-6">Houses & townhouses</h3>
+<p class="mt-3 max-w-sm text-ink-soft">Larger homes with more bedrooms, bathrooms and living space to turn over.</p>
+</article>
+<article class="" data-reveal style="--d:200ms">
+<div class="media zoom aspect-[4/5]" data-reveal="image" style="--d:200ms"><picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/holiday-attic-640.avif 640w, /assets/img/holiday-attic-1280.avif 1280w, /assets/img/holiday-attic-1920.avif 1920w" sizes="(min-width: 768px) 33vw, 100vw"><source type="image/webp" srcset="/assets/img/holiday-attic-640.webp 640w, /assets/img/holiday-attic-1280.webp 1280w, /assets/img/holiday-attic-1920.webp 1920w" sizes="(min-width: 768px) 33vw, 100vw"><img src="/assets/img/holiday-attic-1280.webp" alt="A timber-lined attic bedroom in a holiday home" width="1280" height="853" loading="lazy" decoding="async"></picture></div>
+<h3 class="h3 mt-6">Holiday homes</h3>
+<p class="mt-3 max-w-sm text-ink-soft">Holiday rentals and baches that need to be ready whenever the next booking arrives.</p>
+</article>
+</div>
+</div>
+</section>
+<!-- Other services -->
+<section class="section rule" aria-labelledby="more-title">
+<div class="wrap">
+<div class="grid gap-8 lg:grid-cols-12">
+<div class="lg:col-span-7">
+<p class="eyebrow" data-reveal>Beyond turnovers</p>
+<h2 id="more-title" class="h1 mt-6 max-w-[14ch]" data-reveal style="--d:80ms">Every other clean, done properly</h2>
+</div>
+<div class="self-end lg:col-span-4 lg:col-start-9" data-reveal style="--d:160ms">
+<p class="text-ink-soft">Airbnb turnovers are our focus, and we take on the rest too — deep cleans, move-outs, regular home cleaning and workplaces across Auckland.</p>
+<a href="/services" class="link-arrow mt-5">All services <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a>
+</div>
+</div>
+<div class="mt-14 grid gap-12 sm:mt-20 md:grid-cols-3 md:gap-8 lg:gap-12">
+<div data-reveal>
+<h3 class="eyebrow">Deep & specialist cleans</h3>
+<ul class="mt-6 border-t border-line" role="list">
+<li><a href="/spring-cleaning" class="group flex items-baseline justify-between gap-4 border-b border-line py-5">
+<span><span class="block font-serif text-[1.5rem] leading-tight text-ink transition-colors group-hover:text-navy">Spring cleaning</span><span class="mt-1 block text-[0.875rem] text-ink-mute">From $180</span></span>
+<span class="text-ink transition-transform duration-500 ease-soft group-hover:translate-x-1"><svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></span>
+</a></li>
+<li><a href="/one-off-cleaning" class="group flex items-baseline justify-between gap-4 border-b border-line py-5">
+<span><span class="block font-serif text-[1.5rem] leading-tight text-ink transition-colors group-hover:text-navy">One-off cleaning</span><span class="mt-1 block text-[0.875rem] text-ink-mute">From $65/hour</span></span>
+<span class="text-ink transition-transform duration-500 ease-soft group-hover:translate-x-1"><svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></span>
+</a></li>
+<li><a href="/carpet-cleaning" class="group flex items-baseline justify-between gap-4 border-b border-line py-5">
+<span><span class="block font-serif text-[1.5rem] leading-tight text-ink transition-colors group-hover:text-navy">Carpet cleaning</span><span class="mt-1 block text-[0.875rem] text-ink-mute">From $90</span></span>
+<span class="text-ink transition-transform duration-500 ease-soft group-hover:translate-x-1"><svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></span>
+</a></li>
+<li><a href="/window-cleaning" class="group flex items-baseline justify-between gap-4 border-b border-line py-5">
+<span><span class="block font-serif text-[1.5rem] leading-tight text-ink transition-colors group-hover:text-navy">Window cleaning</span><span class="mt-1 block text-[0.875rem] text-ink-mute">From $50</span></span>
+<span class="text-ink transition-transform duration-500 ease-soft group-hover:translate-x-1"><svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></span>
+</a></li>
+</ul>
+</div>
+<div data-reveal style="--d:90ms">
+<h3 class="eyebrow">Homes & moving</h3>
+<ul class="mt-6 border-t border-line" role="list">
+<li><a href="/regular-cleaning" class="group flex items-baseline justify-between gap-4 border-b border-line py-5">
+<span><span class="block font-serif text-[1.5rem] leading-tight text-ink transition-colors group-hover:text-navy">Regular cleaning</span><span class="mt-1 block text-[0.875rem] text-ink-mute">From $55/hour</span></span>
+<span class="text-ink transition-transform duration-500 ease-soft group-hover:translate-x-1"><svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></span>
+</a></li>
+<li><a href="/end-of-tenancy-cleaning" class="group flex items-baseline justify-between gap-4 border-b border-line py-5">
+<span><span class="block font-serif text-[1.5rem] leading-tight text-ink transition-colors group-hover:text-navy">End of tenancy cleaning</span><span class="mt-1 block text-[0.875rem] text-ink-mute">From $220</span></span>
+<span class="text-ink transition-transform duration-500 ease-soft group-hover:translate-x-1"><svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></span>
+</a></li>
+<li><a href="/after-builders-cleaning" class="group flex items-baseline justify-between gap-4 border-b border-line py-5">
+<span><span class="block font-serif text-[1.5rem] leading-tight text-ink transition-colors group-hover:text-navy">After builders cleaning</span><span class="mt-1 block text-[0.875rem] text-ink-mute">From $300</span></span>
+<span class="text-ink transition-transform duration-500 ease-soft group-hover:translate-x-1"><svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></span>
+</a></li>
+<li><a href="/ironing-laundry" class="group flex items-baseline justify-between gap-4 border-b border-line py-5">
+<span><span class="block font-serif text-[1.5rem] leading-tight text-ink transition-colors group-hover:text-navy">Ironing & laundry</span><span class="mt-1 block text-[0.875rem] text-ink-mute">From $25/load</span></span>
+<span class="text-ink transition-transform duration-500 ease-soft group-hover:translate-x-1"><svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></span>
+</a></li>
+</ul>
+</div>
+<div data-reveal style="--d:180ms">
+<h3 class="eyebrow">Business & events</h3>
+<ul class="mt-6 border-t border-line" role="list">
+<li><a href="/commercial-cleaning" class="group flex items-baseline justify-between gap-4 border-b border-line py-5">
+<span><span class="block font-serif text-[1.5rem] leading-tight text-ink transition-colors group-hover:text-navy">Commercial cleaning</span><span class="mt-1 block text-[0.875rem] text-ink-mute">Quote on request</span></span>
+<span class="text-ink transition-transform duration-500 ease-soft group-hover:translate-x-1"><svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></span>
+</a></li>
+<li><a href="/after-party-cleaning" class="group flex items-baseline justify-between gap-4 border-b border-line py-5">
+<span><span class="block font-serif text-[1.5rem] leading-tight text-ink transition-colors group-hover:text-navy">After party cleaning</span><span class="mt-1 block text-[0.875rem] text-ink-mute">From $150</span></span>
+<span class="text-ink transition-transform duration-500 ease-soft group-hover:translate-x-1"><svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></span>
+</a></li>
+<li><a href="/emergency-cleaning" class="group flex items-baseline justify-between gap-4 border-b border-line py-5">
+<span><span class="block font-serif text-[1.5rem] leading-tight text-ink transition-colors group-hover:text-navy">Emergency cleaning</span><span class="mt-1 block text-[0.875rem] text-ink-mute">Quote on request</span></span>
+<span class="text-ink transition-transform duration-500 ease-soft group-hover:translate-x-1"><svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></span>
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="on-dark bg-navy-deep text-linen" aria-labelledby="cta-title">
+<div class="grid lg:grid-cols-2">
+<div class="wrap flex flex-col justify-center py-20 sm:py-24 lg:mx-0 lg:max-w-none lg:py-32 lg:pl-[max(2.5rem,calc((100vw-1320px)/2+2.5rem))] lg:pr-16">
+<p class="eyebrow" data-reveal>Get a quote</p>
+<h2 id="cta-title" class="h1 mt-6 max-w-[14ch]" data-reveal style="--d:80ms">Tell us about your property.</h2>
+<p class="lead mt-6 max-w-md" data-reveal style="--d:160ms">Share a few details — the property, the service and when you need it — and we’ll come back to you with a quote.</p>
+<div class="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8" data-reveal style="--d:240ms">
+<a href="/get-a-quote?service=airbnb" class="btn btn-light">Request a quote <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a>
+<a href="tel:+642102606025" class="link-arrow"><svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5.6 1.8 3.4 2.3c-.8.2-1.3 1-1.2 1.8.9 5 4.7 8.8 9.7 9.7.8.1 1.6-.4 1.8-1.2l.5-2.2-3-1.4-1.4 1.6a8.4 8.4 0 0 1-3.8-3.8L7.6 5.4 6.2 2.4z"/></svg><span>Or call 021 0260 6025</span></a>
+</div>
+</div>
+<div class="media min-h-[18rem] sm:min-h-[26rem] lg:min-h-full" data-reveal="image">
+<picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/auckland-640.avif 640w, /assets/img/auckland-1280.avif 1280w, /assets/img/auckland-1920.avif 1920w" sizes="(min-width: 1024px) 50vw, 100vw"><source type="image/webp" srcset="/assets/img/auckland-640.webp 640w, /assets/img/auckland-1280.webp 1280w, /assets/img/auckland-1920.webp 1920w" sizes="(min-width: 1024px) 50vw, 100vw"><img src="/assets/img/auckland-1280.webp" alt="The Auckland city skyline seen across the harbour" width="1280" height="854" loading="lazy" decoding="async"></picture>
+</div>
+</div>
+</section>
+</main>
+<footer class="on-dark bg-night text-linen" data-footer>
+<div class="wrap pb-28 pt-20 md:pb-12 md:pt-28">
+<div class="grid gap-14 lg:grid-cols-12">
+<div class="lg:col-span-5">
+<a href="/" class="inline-flex items-center gap-3" aria-label="The Cleanic — home">
+<svg class="h-9 w-auto text-linen" viewBox="0 0 86 128" fill="currentColor" aria-hidden="true"><defs><mask id="m-foot"><rect width="86" height="128" fill="#fff"/><path d="M-2 103 L62 51 L92 76" fill="none" stroke="#000" stroke-width="7.5"/><rect x="24" y="96" width="8.5" height="40" fill="#000"/><g fill="#000"><rect x="52.5" y="92.5" width="8.6" height="8.6"/><rect x="63.4" y="92.5" width="8.6" height="8.6"/><rect x="52.5" y="103.4" width="8.6" height="8.6"/><rect x="63.4" y="103.4" width="8.6" height="8.6"/></g></mask></defs><path mask="url(#m-foot)" d="M41 0C29 22 0 52 0 85a43 43 0 0 0 86 0c0-8-2-15-6-24Z"/></svg>
+<span class="font-serif text-[1.75rem] leading-none">The Cleanic</span>
+</a>
+<p class="mt-8 max-w-sm font-serif text-[1.75rem] leading-[1.15] text-linen/90">Airbnb &amp; short-stay cleaning in Auckland.</p>
+<a href="/get-a-quote" class="btn btn-light mt-9">Get a quote <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a>
+</div>
+<div class="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:col-span-7">
+<div>
+<h2 class="eyebrow">Speciality</h2>
+<ul class="mt-6 grid gap-3 text-[0.9375rem]" role="list">
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="/airbnb-cleaning">Airbnb &amp; short-stay</a></li>
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="/airbnb-turnover-checklist">Host turnover checklist</a></li>
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="/commercial-cleaning">Commercial cleaning</a></li>
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="/services">All services</a></li>
+</ul>
+</div>
+<div>
+<h2 class="eyebrow">Company</h2>
+<ul class="mt-6 grid gap-3 text-[0.9375rem]" role="list">
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="/about">About</a></li><li><a class="text-linen/80 transition-colors hover:text-linen" href="/how-it-works">How it works</a></li><li><a class="text-linen/80 transition-colors hover:text-linen" href="/contact">Contact</a></li><li><a class="text-linen/80 transition-colors hover:text-linen" href="/get-a-quote">Get a quote</a></li><li><a class="text-linen/80 transition-colors hover:text-linen" href="/terms">Terms & conditions</a></li>
+</ul>
+</div>
+<div class="col-span-2 sm:col-span-1">
+<h2 class="eyebrow">Contact</h2>
+<ul class="mt-6 grid gap-3 text-[0.9375rem]" role="list">
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="tel:+642102606025">021 0260 6025</a></li>
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="tel:+64223791794">022 379 1794</a></li>
+<li><a class="break-all text-linen/80 transition-colors hover:text-linen" href="mailto:thecleanicnz@gmail.com">thecleanicnz@gmail.com</a></li>
+<li class="pt-2 text-night-mute">Mon–Fri<br><span class="text-linen/80">8am – 6pm</span><br>Sat–Sun<br><span class="text-linen/80">9am – 3pm</span></li>
+</ul>
+</div>
+</div>
+</div>
+<nav aria-label="All services" class="rule mt-16 grid gap-4 pt-8 sm:grid-cols-[9rem_1fr]">
+<h2 class="eyebrow pt-1">Services</h2>
+<ul class="flex flex-wrap gap-x-5 gap-y-2 text-[0.875rem]" role="list">
+<li><a class="text-linen/70 transition-colors hover:text-linen" href="/regular-cleaning">Regular cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/spring-cleaning">Spring cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/one-off-cleaning">One-off cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/end-of-tenancy-cleaning">End of tenancy cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/after-builders-cleaning">After builders cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/carpet-cleaning">Carpet cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/window-cleaning">Window cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/ironing-laundry">Ironing & laundry</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/after-party-cleaning">After party cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/emergency-cleaning">Emergency cleaning</a></li>
+</ul>
+</nav>
+<div class="rule mt-8 flex flex-col-reverse gap-6 pt-8 text-[0.8125rem] text-night-mute sm:flex-row sm:items-center sm:justify-between">
+<p>© 2026 The Cleanic · Auckland, New Zealand</p>
+<ul class="flex items-center gap-2" role="list">
+<li><a href="https://www.instagram.com/the_cleanic23" class="grid h-10 w-10 place-items-center text-linen/75 transition-colors hover:text-linen" target="_blank" rel="noopener" aria-label="The Cleanic on Instagram"><svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg></a></li><li><a href="https://www.facebook.com/the.cleanic.2023" class="grid h-10 w-10 place-items-center text-linen/75 transition-colors hover:text-linen" target="_blank" rel="noopener" aria-label="The Cleanic on Facebook"><svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21h3.1z"/></svg></a></li><li><a href="https://www.tiktok.com/@thecleanicnz5" class="grid h-10 w-10 place-items-center text-linen/75 transition-colors hover:text-linen" target="_blank" rel="noopener" aria-label="The Cleanic on TikTok"><svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3h-3v12.2a2.7 2.7 0 1 1-2.7-2.7c.3 0 .6 0 .8.1V9.5a5.8 5.8 0 1 0 4.9 5.7V9a7.4 7.4 0 0 0 4.2 1.3v-3A4.3 4.3 0 0 1 16.6 3z"/></svg></a></li>
+</ul>
+</div>
+</div>
+</footer>
+<div class="mobile-cta fixed inset-x-0 bottom-0 z-30 border-t border-line bg-linen/95 backdrop-blur md:hidden" data-mobile-cta aria-hidden="true">
+<div class="flex gap-3 px-4 py-3">
+<a href="tel:+642102606025" class="btn btn-outline btn-sm flex-none px-4" tabindex="-1" aria-label="Call 021 0260 6025"><svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5.6 1.8 3.4 2.3c-.8.2-1.3 1-1.2 1.8.9 5 4.7 8.8 9.7 9.7.8.1 1.6-.4 1.8-1.2l.5-2.2-3-1.4-1.4 1.6a8.4 8.4 0 0 1-3.8-3.8L7.6 5.4 6.2 2.4z"/></svg><span>Call</span></a>
+<a href="/get-a-quote?service=airbnb" class="btn btn-primary btn-sm flex-1" tabindex="-1">Get a quote <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a>
+</div>
+</div>
 </body>
 </html>

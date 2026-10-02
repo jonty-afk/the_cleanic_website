@@ -1,180 +1,253 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-NZ">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn about The Cleanic's Window Cleaning service in New Zealand.">
-  <meta name="keywords" content="window cleaning, The Cleanic, New Zealand">
-  <title>The Cleanic - Window Cleaning</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      padding-top: 96px; /* Desktop navbar height */
-      background-color: #f4f7fa;
-    }
-    .service-detail {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-    .service-detail img {
-      width: 100px;
-      height: 100px;
-      margin-bottom: 1rem;
-    }
-    .social-icons a {
-      margin: 0 10px;
-      color: #4a90e2;
-      font-size: 18px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .social-icons a:hover {
-      color: #2a6eb6;
-    }
-    .payment-icons i {
-      font-size: 24px;
-      margin: 0 10px;
-      color: #fff;
-      opacity: 0.8;
-    }
-    @media (max-width: 640px) {
-      body { padding-top: 100px; } /* Mobile navbar height */
-      nav { height: 100px; }
-      .navbar-menu {
-        display: none;
-        position: absolute;
-        top: 100px;
-        left: 0;
-        right: 0;
-        background: white;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 50;
-      }
-      .navbar-menu.active { display: block; }
-      .nav-links {
-        flex-direction: column;
-        padding: 10px 0;
-      }
-      .nav-links a {
-        padding: 10px 20px;
-        width: 100%;
-        text-align: center;
-        font-size: 1rem;
-      }
-      .hamburger {
-        display: block;
-        font-size: 24px;
-        cursor: pointer;
-        padding: 10px;
-        margin-right: 10px;
-      }
-      .hamburger.hidden { display: none; }
-      .service-detail { padding: 1rem; }
-      .service-detail img { width: 80px; height: 80px; }
-      h2 { font-size: 2rem; }
-      p { font-size: 0.875rem; }
-    }
-    @media (min-width: 641px) {
-      .hamburger { display: none; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Window Cleaning in Auckland | The Cleanic</title>
+<meta name="description" content="Interior and exterior window cleaning in Auckland — glass, frames and sills, finished streak-free. From $50, depending on window count and access.">
+<link rel="canonical" href="https://thecleanic.co.nz/window-cleaning">
+<meta name="theme-color" content="#F5F1EA">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Cleanic">
+<meta property="og:locale" content="en_NZ">
+<meta property="og:title" content="Window Cleaning in Auckland | The Cleanic">
+<meta property="og:description" content="Interior and exterior window cleaning in Auckland — glass, frames and sills, finished streak-free. From $50, depending on window count and access.">
+<meta property="og:url" content="https://thecleanic.co.nz/window-cleaning">
+<meta property="og:image" content="https://thecleanic.co.nz/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A freshly made bed in a calm, sunlit bedroom">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Window Cleaning in Auckland | The Cleanic">
+<meta name="twitter:description" content="Interior and exterior window cleaning in Auckland — glass, frames and sills, finished streak-free. From $50, depending on window count and access.">
+<meta name="twitter:image" content="https://thecleanic.co.nz/assets/img/og.jpg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/brand/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/hanken-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="/assets/img/window-light-1280.avif" imagesrcset="/assets/img/window-light-640.avif 640w, /assets/img/window-light-1280.avif 1280w, /assets/img/window-light-1920.avif 1920w" imagesizes="100vw" type="image/avif">
+<link rel="stylesheet" href="/assets/css/site.css?v=e9568af40d">
+<script>document.documentElement.classList.add('js')</script>
+<script src="/assets/js/site.js?v=8932747c75" defer></script>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};if(!/^(localhost|127.)/.test(location.hostname)){var s=document.createElement('script');s.defer=1;s.src='/_vercel/insights/script.js';document.head.appendChild(s)}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","name":"Window cleaning","serviceType":"Window cleaning","description":"Interior and exterior glass, frames and sills, left streak-free.","provider":{"@id":"https://thecleanic.co.nz/#business"},"areaServed":{"@type":"City","name":"Auckland"},"url":"https://thecleanic.co.nz/window-cleaning","offers":{"@type":"Offer","priceCurrency":"NZD","priceSpecification":{"@type":"PriceSpecification","minPrice":50,"priceCurrency":"NZD"}}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is window cleaning priced?","acceptedAnswer":{"@type":"Answer","text":"Window cleaning starts from $50 for small jobs. Whole-home window cleaning costs more — the final price depends on window count, size, access and scope."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://thecleanic.co.nz/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://thecleanic.co.nz/services"},{"@type":"ListItem","position":3,"name":"Window cleaning","item":"https://thecleanic.co.nz/window-cleaning"}]}]}</script>
 </head>
-<body class="text-gray-800">
-  <!-- Navbar -->
-  <nav class="bg-white shadow-xl fixed w-full z-50 top-0">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-24">
-        <div class="flex items-center space-x-1">
-          <img src="/logo.png" alt="The Cleanic Logo" class="h-20 md:h-20">
-          <h1 class="text-2xl md:text-4xl font-bold text-blue-900">The Cleanic</h1>
-        </div>
-        <div class="flex items-center space-x-8">
-          <div class="md:flex items-center space-x-8 hidden md:block navbar-menu" id="navbarMenu">
-            <div class="nav-links flex space-x-8">
-              <a href="index.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Home</a>
-              <a href="services.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Services</a>
-              <a href="about.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">About</a>
-              <a href="contact.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Contact</a>
-              <a href="get-a-quote.html" class="text-blue-900 hover:text-blue-700 font-semibold text-lg px-4 py-2 rounded-lg transition">Get a Quote</a>
-            </div>
-            <div class="social-icons mb-2 sm:mb-4">
-              <a href="https://www.tiktok.com/@thecleanicnz5?_t=ZS-8yLcjJF9NH6&_r=1" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok text-blue-900 hover:text-blue-700"></i></a>
-              <a href="https://www.instagram.com/the_cleanic23?igsh=MXQxNW5sNXM4dWxteA==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram text-blue-900 hover:text-blue-700"></i></a>
-              <a href="https://www.facebook.com/the.cleanic.2023" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f text-blue-900 hover:text-blue-700"></i></a>
-            </div>
-          </div>
-          <div class="md:hidden">
-            <i class="fas fa-bars hamburger" id="hamburgerBtn"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Service Detail Section -->
-  <section class="py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="service-detail">
-        <img src="https://img.icons8.com/color/100/4a90e2/window.png" alt="Window Cleaning">
-        <h2 class="text-4xl font-bold text-blue-900 mb-4">Window Cleaning</h2>
-        <p class="text-gray-700 mb-4">Our Window Cleaning service transforms your home or office by delivering crystal-clear, streak-free windows that enhance natural light and elevate the aesthetic appeal of your property with unparalleled brilliance. This meticulous service is performed by our highly trained specialists who utilize advanced tools and eco-friendly cleaning solutions to tackle dirt, grime, and hard water stains from both interior and exterior glass surfaces. We begin with a thorough inspection to identify problem areas, followed by a gentle yet effective cleaning process that removes dust, smudges, and pollutants, ensuring every pane shines with clarity. High-rise or hard-to-reach windows are handled with safety-certified equipment, such as extendable poles or ladders, to guarantee a flawless finish without risking damage or injury. Frame and sill cleaning is included to eliminate debris and prevent mold growth, while a final polish ensures a spotless result that maximizes your view and energy efficiency. Offered on a flexible schedule, this service starts at $30 per window, with pricing adjusted for the number of windows and their accessibility, making it an affordable way to refresh your space. Whether for residential homes, commercial buildings, or seasonal maintenance, our Window Cleaning service provides a professional touch that leaves your windows gleaming and your property looking its best.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-blue-900 text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-        <div class="text-left">
-          <h3 class="text-2xl font-bold mb-2">The Cleanic</h3>
-          <p class="text-gray-300 mb-4">Your Trusted Cleaning Experts</p>
-          <h3 class="text-xl font-semibold mb-2">Payment Options</h3>
-          <div class="payment-icons flex space-x-4">
-            <i class="fab fa-cc-visa"></i>
-            <i class="fab fa-cc-mastercard"></i>
-            <i class="fab fa-cc-amex"></i>
-          </div>
-        </div>
-        <div class="text-center">
-          <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
-          <p class="text-gray-300"><a href="tel:+64211759393" class="hover:underline text-white">021 175 9393</a></p>
-          <p class="text-gray-300"><a href="mailto:thecleanicnz@gmail.com" class="hover:underline text-white">thecleanicnz@gmail.com</a></p>
-        </div>
-        <div class="text-right">
-          <h3 class="text-xl font-semibold mb-4">Business Hours</h3>
-          <p class="text-gray-300">Mon-Fri: 8 AM - 6 PM</p>
-          <p class="text-gray-300">Sat-Sun: 9 AM - 3 PM</p>
-        </div>
-      </div>
-      <div class="text-center mt-8">
-        <div class="social-icons mb-2 sm:mb-4">
-          <a href="https://www.tiktok.com/@thecleanicnz5?_t=ZS-8yLcjJF9NH6&_r=1" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-          <a href="https://www.instagram.com/the_cleanic23?igsh=MXQxNW5sNXM4dWxteA==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/the.cleanic.2023" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        </div>
-        <p class="text-gray-400">© 2025 The Cleanic. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const hamburgerBtn = document.getElementById('hamburgerBtn');
-      const navbarMenu = document.getElementById('navbarMenu');
-      if (hamburgerBtn && navbarMenu) {
-        hamburgerBtn.addEventListener('click', () => {
-          navbarMenu.classList.toggle('active');
-        });
-      }
-    });
-  </script>
+<body>
+<a href="#main" class="sr-only-focusable fixed left-4 top-3 z-[80] bg-ink px-4 py-2 text-sm font-semibold text-linen">Skip to content</a>
+<header class="site-header fixed inset-x-0 top-0 z-50 border-b border-transparent" data-header>
+<div class="wrap flex h-full items-center justify-between gap-6">
+<a href="/" class="flex items-center gap-3 text-ink" aria-label="The Cleanic — home">
+<svg class="h-8 w-auto text-navy" viewBox="0 0 86 128" fill="currentColor" aria-hidden="true"><defs><mask id="m-head"><rect width="86" height="128" fill="#fff"/><path d="M-2 103 L62 51 L92 76" fill="none" stroke="#000" stroke-width="7.5"/><rect x="24" y="96" width="8.5" height="40" fill="#000"/><g fill="#000"><rect x="52.5" y="92.5" width="8.6" height="8.6"/><rect x="63.4" y="92.5" width="8.6" height="8.6"/><rect x="52.5" y="103.4" width="8.6" height="8.6"/><rect x="63.4" y="103.4" width="8.6" height="8.6"/></g></mask></defs><path mask="url(#m-head)" d="M41 0C29 22 0 52 0 85a43 43 0 0 0 86 0c0-8-2-15-6-24Z"/></svg>
+<span class="font-serif text-[1.625rem] leading-none tracking-[-0.01em]">The Cleanic</span>
+</a>
+<nav aria-label="Main" class="hidden lg:block">
+<ul class="flex items-center gap-7 xl:gap-9" role="list">
+<li><a class="nav-link" href="/airbnb-cleaning">Airbnb cleaning</a></li>
+<li class="has-dropdown relative">
+<a class="nav-link inline-flex items-center gap-1.5" href="/services" aria-current="page">Services<svg class="h-2 w-2.5" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m1 1 4 4 4-4"/></svg></a>
+<div class="dropdown-panel absolute left-1/2 top-full w-[54rem] -translate-x-1/2 pt-5">
+<div class="grid grid-cols-[15rem_1fr] border border-line bg-linen shadow-[0_24px_48px_-24px_rgba(27,32,38,.25)]">
+<a href="/airbnb-cleaning" class="group flex flex-col justify-between gap-6 bg-night p-7 text-linen">
+<span><span class="eyebrow !text-night-mute">Our speciality</span><span class="mt-4 block font-serif text-[1.75rem] leading-tight">Airbnb &amp; short-stay turnovers</span></span>
+<span class="inline-flex items-center gap-2 text-[0.875rem] font-semibold">From $120 per clean <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></span>
+</a>
+<div class="grid grid-cols-3 gap-6 p-7">
+<div><p class="fine font-semibold uppercase tracking-[0.12em]">Deep & specialist cleans</p><ul class="mt-3 grid gap-2" role="list"><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/spring-cleaning">Spring cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/one-off-cleaning">One-off cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/carpet-cleaning">Carpet cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/window-cleaning">Window cleaning</a></li></ul></div><div><p class="fine font-semibold uppercase tracking-[0.12em]">Homes & moving</p><ul class="mt-3 grid gap-2" role="list"><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/regular-cleaning">Regular cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/end-of-tenancy-cleaning">End of tenancy cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/after-builders-cleaning">After builders cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/ironing-laundry">Ironing & laundry</a></li></ul></div><div><p class="fine font-semibold uppercase tracking-[0.12em]">Business & events</p><ul class="mt-3 grid gap-2" role="list"><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/commercial-cleaning">Commercial cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/after-party-cleaning">After party cleaning</a></li><li><a class="text-[0.9375rem] text-ink-soft transition-colors hover:text-ink" href="/emergency-cleaning">Emergency cleaning</a></li></ul></div>
+</div>
+</div>
+</div>
+</li><li><a class="nav-link" href="/how-it-works">How it works</a></li><li><a class="nav-link" href="/about">About</a></li><li><a class="nav-link" href="/contact">Contact</a></li>
+</ul>
+</nav>
+<div class="flex items-center gap-3 sm:gap-5">
+<a href="tel:+642102606025" class="hidden items-center gap-2 text-[0.9375rem] font-medium text-ink-soft transition-colors hover:text-ink xl:inline-flex"><svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5.6 1.8 3.4 2.3c-.8.2-1.3 1-1.2 1.8.9 5 4.7 8.8 9.7 9.7.8.1 1.6-.4 1.8-1.2l.5-2.2-3-1.4-1.4 1.6a8.4 8.4 0 0 1-3.8-3.8L7.6 5.4 6.2 2.4z"/></svg>021 0260 6025</a>
+<a href="/get-a-quote" class="btn btn-primary btn-sm hidden sm:inline-flex">Get a quote</a>
+<button type="button" class="-mr-2 flex h-11 items-center gap-3 px-2 text-[0.9375rem] font-medium text-ink lg:hidden" aria-expanded="false" aria-controls="site-menu" data-menu-toggle>
+<span data-menu-label>Menu</span>
+<span class="menu-icon grid gap-[6px]" aria-hidden="true"><span></span><span></span></span>
+</button>
+</div>
+</div>
+</header>
+<div id="site-menu" class="menu-panel fixed inset-0 z-40 flex flex-col overflow-y-auto bg-linen pt-[76px] lg:hidden" role="dialog" aria-modal="true" aria-label="Menu" data-menu>
+<nav aria-label="Mobile" class="wrap flex flex-1 flex-col pb-8 pt-6">
+<ul class="border-t border-line" role="list">
+<li class="menu-item border-b border-line" style="transition-delay:60ms"><a href="/" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink">Home<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li><li class="menu-item border-b border-line" style="transition-delay:105ms"><a href="/airbnb-cleaning" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink">Airbnb cleaning<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li><li class="menu-item border-b border-line" style="transition-delay:150ms"><a href="/services" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink" aria-current="page">Services<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li><li class="menu-item border-b border-line" style="transition-delay:195ms"><a href="/how-it-works" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink">How it works<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li><li class="menu-item border-b border-line" style="transition-delay:240ms"><a href="/about" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink">About<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li><li class="menu-item border-b border-line" style="transition-delay:285ms"><a href="/contact" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink">Contact<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li><li class="menu-item border-b border-line" style="transition-delay:330ms"><a href="/get-a-quote" class="flex items-center justify-between py-4 font-serif text-[2rem] leading-tight text-ink">Get a quote<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li>
+</ul>
+<div class="menu-item pt-8" style="transition-delay:330ms">
+<p class="eyebrow">All services</p>
+<ul class="mt-4 grid grid-cols-2 gap-x-4 gap-y-2.5 text-[0.9375rem]" role="list">
+<li><a class="text-ink-soft" href="/airbnb-cleaning">Airbnb & short-stay</a></li><li><a class="text-ink-soft" href="/regular-cleaning">Regular cleaning</a></li><li><a class="text-ink-soft" href="/spring-cleaning">Spring cleaning</a></li><li><a class="text-ink-soft" href="/one-off-cleaning">One-off cleaning</a></li><li><a class="text-ink-soft" href="/end-of-tenancy-cleaning">End of tenancy cleaning</a></li><li><a class="text-ink-soft" href="/after-builders-cleaning">After builders cleaning</a></li><li><a class="text-ink-soft" href="/carpet-cleaning">Carpet cleaning</a></li><li><a class="text-ink-soft" href="/window-cleaning">Window cleaning</a></li><li><a class="text-ink-soft" href="/ironing-laundry">Ironing & laundry</a></li><li><a class="text-ink-soft" href="/commercial-cleaning">Commercial cleaning</a></li><li><a class="text-ink-soft" href="/after-party-cleaning">After party cleaning</a></li><li><a class="text-ink-soft" href="/emergency-cleaning">Emergency cleaning</a></li>
+</ul>
+</div>
+<div class="menu-item mt-auto grid gap-4 pt-10" style="transition-delay:360ms">
+<a href="/get-a-quote" class="btn btn-primary w-full">Get a quote <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a>
+<a href="tel:+642102606025" class="btn btn-outline w-full"><svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5.6 1.8 3.4 2.3c-.8.2-1.3 1-1.2 1.8.9 5 4.7 8.8 9.7 9.7.8.1 1.6-.4 1.8-1.2l.5-2.2-3-1.4-1.4 1.6a8.4 8.4 0 0 1-3.8-3.8L7.6 5.4 6.2 2.4z"/></svg> Call 021 0260 6025</a>
+<p class="fine text-center">Also <a class="link-underline" href="tel:+64223791794">022 379 1794</a> · Mon–Fri 8am – 6pm · Sat–Sun 9am – 3pm</p>
+</div>
+</nav>
+</div>
+<main id="main" tabindex="-1" class="outline-none">
+<section data-hero class="pt-[calc(var(--header-h)+2rem)] sm:pt-[calc(var(--header-h)+3.5rem)]" aria-labelledby="hero-title">
+<div class="wrap">
+<nav aria-label="Breadcrumb" class="fine">
+<ol class="flex flex-wrap items-center gap-2" role="list">
+<li><a href="/" class="hover:text-ink">Home</a></li>
+<li aria-hidden="true">/</li><li><a href="/services" class="hover:text-ink">Services</a></li><li aria-hidden="true">/</li><li><span aria-current="page" class="text-ink-soft">Window cleaning</span></li>
+</ol>
+</nav>
+<div class="mt-10 grid gap-8 lg:grid-cols-12 lg:gap-12">
+<div class="lg:col-span-7">
+<p class="eyebrow" data-reveal>Deep & specialist cleans · Auckland</p>
+<h1 id="hero-title" class="h1 mt-6 max-w-[16ch]" data-reveal style="--d:80ms">Window cleaning, <em>let the light in</em></h1>
+</div>
+<div class="self-end lg:col-span-4 lg:col-start-9">
+<p class="lead" data-reveal style="--d:160ms">Clean glass, frames and sills — inside and out — for clearer views and brighter rooms.</p>
+<div class="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-7" data-reveal style="--d:240ms">
+<a href="/get-a-quote?service=window" class="btn btn-primary">Get a quote <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a>
+<span class="text-[0.9375rem] font-semibold">From $50</span>
+</div>
+</div>
+</div>
+</div>
+<div class="wrap mt-12 sm:mt-16">
+<div class="media aspect-[4/3] sm:aspect-[21/9]" data-reveal="image">
+<picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/window-light-640.avif 640w, /assets/img/window-light-1280.avif 1280w, /assets/img/window-light-1920.avif 1920w" sizes="(min-width: 1320px) 1240px, 100vw"><source type="image/webp" srcset="/assets/img/window-light-640.webp 640w, /assets/img/window-light-1280.webp 1280w, /assets/img/window-light-1920.webp 1920w" sizes="(min-width: 1320px) 1240px, 100vw"><img src="/assets/img/window-light-1280.webp" alt="Sunlight through a large window onto a white chair" width="1280" height="853" fetchpriority="high" loading="eager" decoding="async"></picture>
+</div>
+</div>
+</section>
+<!-- Overview + inclusions -->
+<section class="section" aria-labelledby="included-title">
+<div class="wrap grid gap-14 lg:grid-cols-12 lg:gap-12">
+<div class="lg:col-span-5">
+<p class="eyebrow" data-reveal>Overview</p>
+<div class="mt-6 grid gap-5 font-serif text-[1.5rem] leading-[1.3] text-ink sm:text-[1.75rem]" data-reveal style="--d:80ms">
+<p>Clean windows change how a room feels. We remove dirt, smudges and water marks from the glass, clear the frames and sills, and finish with a streak-free polish.</p>
+</div>
+</div>
+<div class="lg:col-span-6 lg:col-start-7">
+<h2 id="included-title" class="h3" data-reveal>What’s included</h2>
+<div class="mt-6" data-reveal style="--d:80ms"><ul class="checklist " role="list"><li><svg class="tick" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m2 7.4 3.2 3.1L12 3.5"/></svg><span>Interior and exterior glass</span></li><li><svg class="tick" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m2 7.4 3.2 3.1L12 3.5"/></svg><span>Dirt, smudges and water marks removed</span></li><li><svg class="tick" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m2 7.4 3.2 3.1L12 3.5"/></svg><span>Frames and sills cleaned</span></li><li><svg class="tick" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m2 7.4 3.2 3.1L12 3.5"/></svg><span>Streak-free finish</span></li></ul></div>
+<div class="mt-12 grid gap-4 sm:grid-cols-[10rem_1fr]" data-reveal style="--d:120ms">
+<h2 class="eyebrow pt-1">Suited to</h2>
+<ul class="flex flex-wrap gap-2" role="list"><li class="border border-line px-3 py-1.5 text-[0.875rem] text-ink-soft">Homes</li><li class="border border-line px-3 py-1.5 text-[0.875rem] text-ink-soft">Rentals and short-stay properties</li><li class="border border-line px-3 py-1.5 text-[0.875rem] text-ink-soft">Shopfronts and offices</li></ul>
+</div>
+<div class="mt-4 grid gap-4 sm:grid-cols-[10rem_1fr]" data-reveal style="--d:160ms">
+<h2 class="eyebrow pt-1">Pricing</h2>
+<p class="text-[0.9375rem]"><span class="font-semibold">From $50.</span> <span class="text-ink-soft">Final pricing depends on window count, size, access and scope.</span></p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="section-sm rule bg-paper" aria-labelledby="faq-title">
+<div class="wrap grid gap-10 lg:grid-cols-12">
+<div class="lg:col-span-4"><h2 id="faq-title" class="h2" data-reveal>Questions</h2></div>
+<div class="lg:col-span-7 lg:col-start-6">
+<div class="border-t border-line">
+<details class="faq-item border-b border-line" data-reveal>
+<summary><span>How is window cleaning priced?</span><span class="plus" aria-hidden="true"></span></summary>
+<div class="answer"><p>Window cleaning starts from $50 for small jobs. Whole-home window cleaning costs more — the final price depends on window count, size, access and scope.</p></div>
+</details>
+</div></div>
+</div>
+</section>
+<!-- Airbnb cross-link + related -->
+<section class="section-sm rule" aria-labelledby="related-title">
+<div class="wrap grid gap-12 lg:grid-cols-12">
+<a href="/airbnb-cleaning" class="group block border-l-2 border-navy pl-6 sm:pl-8 lg:col-span-7" data-reveal>
+<div>
+<p class="eyebrow">Our speciality</p>
+<p class="h3 mt-4">Airbnb &amp; short-stay turnover cleaning</p>
+<p class="mt-3 text-[0.9375rem] text-ink-soft">Turnover cleaning between guests, with linen service and guest toiletries available.</p>
+<span class="link-arrow mt-4">Airbnb cleaning <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></span>
+</div>
+</a>
+<div class="lg:col-span-4 lg:col-start-9" data-reveal style="--d:100ms">
+<h2 id="related-title" class="eyebrow">Related services</h2>
+<ul class="mt-5 border-t border-line" role="list">
+<li><a href="/spring-cleaning" class="flex items-center justify-between gap-4 border-b border-line py-4 font-serif text-[1.375rem] transition-colors hover:text-navy">Spring cleaning<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li><li><a href="/after-builders-cleaning" class="flex items-center justify-between gap-4 border-b border-line py-4 font-serif text-[1.375rem] transition-colors hover:text-navy">After builders cleaning<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li>
+<li><a href="/services" class="flex items-center justify-between gap-4 border-b border-line py-4 text-[0.9375rem] font-semibold">All services<svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a></li>
+</ul>
+</div>
+</div>
+</section>
+<section class="on-dark bg-navy-deep text-linen" aria-labelledby="cta-title">
+<div class="grid lg:grid-cols-2">
+<div class="wrap flex flex-col justify-center py-20 sm:py-24 lg:mx-0 lg:max-w-none lg:py-32 lg:pl-[max(2.5rem,calc((100vw-1320px)/2+2.5rem))] lg:pr-16">
+<p class="eyebrow" data-reveal>Get a quote</p>
+<h2 id="cta-title" class="h1 mt-6 max-w-[14ch]" data-reveal style="--d:80ms">Get a quote for window cleaning.</h2>
+<p class="lead mt-6 max-w-md" data-reveal style="--d:160ms">Tell us about the property and what you need. We’ll come back to you with a price.</p>
+<div class="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8" data-reveal style="--d:240ms">
+<a href="/get-a-quote?service=window" class="btn btn-light">Request a quote <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a>
+<a href="tel:+642102606025" class="link-arrow"><svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5.6 1.8 3.4 2.3c-.8.2-1.3 1-1.2 1.8.9 5 4.7 8.8 9.7 9.7.8.1 1.6-.4 1.8-1.2l.5-2.2-3-1.4-1.4 1.6a8.4 8.4 0 0 1-3.8-3.8L7.6 5.4 6.2 2.4z"/></svg><span>Or call 021 0260 6025</span></a>
+</div>
+</div>
+<div class="media min-h-[18rem] sm:min-h-[26rem] lg:min-h-full" data-reveal="image">
+<picture class="absolute inset-0"><source type="image/avif" srcset="/assets/img/window-bright-640.avif 640w, /assets/img/window-bright-1280.avif 1280w, /assets/img/window-bright-1920.avif 1920w" sizes="(min-width: 1024px) 50vw, 100vw"><source type="image/webp" srcset="/assets/img/window-bright-640.webp 640w, /assets/img/window-bright-1280.webp 1280w, /assets/img/window-bright-1920.webp 1920w" sizes="(min-width: 1024px) 50vw, 100vw"><img src="/assets/img/window-bright-1280.webp" alt="A tall window letting light onto a polished floor" width="1280" height="1707" loading="lazy" decoding="async"></picture>
+</div>
+</div>
+</section>
+</main>
+<footer class="on-dark bg-night text-linen" data-footer>
+<div class="wrap pb-28 pt-20 md:pb-12 md:pt-28">
+<div class="grid gap-14 lg:grid-cols-12">
+<div class="lg:col-span-5">
+<a href="/" class="inline-flex items-center gap-3" aria-label="The Cleanic — home">
+<svg class="h-9 w-auto text-linen" viewBox="0 0 86 128" fill="currentColor" aria-hidden="true"><defs><mask id="m-foot"><rect width="86" height="128" fill="#fff"/><path d="M-2 103 L62 51 L92 76" fill="none" stroke="#000" stroke-width="7.5"/><rect x="24" y="96" width="8.5" height="40" fill="#000"/><g fill="#000"><rect x="52.5" y="92.5" width="8.6" height="8.6"/><rect x="63.4" y="92.5" width="8.6" height="8.6"/><rect x="52.5" y="103.4" width="8.6" height="8.6"/><rect x="63.4" y="103.4" width="8.6" height="8.6"/></g></mask></defs><path mask="url(#m-foot)" d="M41 0C29 22 0 52 0 85a43 43 0 0 0 86 0c0-8-2-15-6-24Z"/></svg>
+<span class="font-serif text-[1.75rem] leading-none">The Cleanic</span>
+</a>
+<p class="mt-8 max-w-sm font-serif text-[1.75rem] leading-[1.15] text-linen/90">Airbnb &amp; short-stay cleaning in Auckland.</p>
+<a href="/get-a-quote" class="btn btn-light mt-9">Get a quote <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a>
+</div>
+<div class="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:col-span-7">
+<div>
+<h2 class="eyebrow">Speciality</h2>
+<ul class="mt-6 grid gap-3 text-[0.9375rem]" role="list">
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="/airbnb-cleaning">Airbnb &amp; short-stay</a></li>
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="/airbnb-turnover-checklist">Host turnover checklist</a></li>
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="/commercial-cleaning">Commercial cleaning</a></li>
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="/services">All services</a></li>
+</ul>
+</div>
+<div>
+<h2 class="eyebrow">Company</h2>
+<ul class="mt-6 grid gap-3 text-[0.9375rem]" role="list">
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="/about">About</a></li><li><a class="text-linen/80 transition-colors hover:text-linen" href="/how-it-works">How it works</a></li><li><a class="text-linen/80 transition-colors hover:text-linen" href="/contact">Contact</a></li><li><a class="text-linen/80 transition-colors hover:text-linen" href="/get-a-quote">Get a quote</a></li><li><a class="text-linen/80 transition-colors hover:text-linen" href="/terms">Terms & conditions</a></li>
+</ul>
+</div>
+<div class="col-span-2 sm:col-span-1">
+<h2 class="eyebrow">Contact</h2>
+<ul class="mt-6 grid gap-3 text-[0.9375rem]" role="list">
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="tel:+642102606025">021 0260 6025</a></li>
+<li><a class="text-linen/80 transition-colors hover:text-linen" href="tel:+64223791794">022 379 1794</a></li>
+<li><a class="break-all text-linen/80 transition-colors hover:text-linen" href="mailto:thecleanicnz@gmail.com">thecleanicnz@gmail.com</a></li>
+<li class="pt-2 text-night-mute">Mon–Fri<br><span class="text-linen/80">8am – 6pm</span><br>Sat–Sun<br><span class="text-linen/80">9am – 3pm</span></li>
+</ul>
+</div>
+</div>
+</div>
+<nav aria-label="All services" class="rule mt-16 grid gap-4 pt-8 sm:grid-cols-[9rem_1fr]">
+<h2 class="eyebrow pt-1">Services</h2>
+<ul class="flex flex-wrap gap-x-5 gap-y-2 text-[0.875rem]" role="list">
+<li><a class="text-linen/70 transition-colors hover:text-linen" href="/regular-cleaning">Regular cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/spring-cleaning">Spring cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/one-off-cleaning">One-off cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/end-of-tenancy-cleaning">End of tenancy cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/after-builders-cleaning">After builders cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/carpet-cleaning">Carpet cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/window-cleaning">Window cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/ironing-laundry">Ironing & laundry</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/after-party-cleaning">After party cleaning</a></li><li><a class="text-linen/70 transition-colors hover:text-linen" href="/emergency-cleaning">Emergency cleaning</a></li>
+</ul>
+</nav>
+<div class="rule mt-8 flex flex-col-reverse gap-6 pt-8 text-[0.8125rem] text-night-mute sm:flex-row sm:items-center sm:justify-between">
+<p>© 2026 The Cleanic · Auckland, New Zealand</p>
+<ul class="flex items-center gap-2" role="list">
+<li><a href="https://www.instagram.com/the_cleanic23" class="grid h-10 w-10 place-items-center text-linen/75 transition-colors hover:text-linen" target="_blank" rel="noopener" aria-label="The Cleanic on Instagram"><svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg></a></li><li><a href="https://www.facebook.com/the.cleanic.2023" class="grid h-10 w-10 place-items-center text-linen/75 transition-colors hover:text-linen" target="_blank" rel="noopener" aria-label="The Cleanic on Facebook"><svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21h3.1z"/></svg></a></li><li><a href="https://www.tiktok.com/@thecleanicnz5" class="grid h-10 w-10 place-items-center text-linen/75 transition-colors hover:text-linen" target="_blank" rel="noopener" aria-label="The Cleanic on TikTok"><svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3h-3v12.2a2.7 2.7 0 1 1-2.7-2.7c.3 0 .6 0 .8.1V9.5a5.8 5.8 0 1 0 4.9 5.7V9a7.4 7.4 0 0 0 4.2 1.3v-3A4.3 4.3 0 0 1 16.6 3z"/></svg></a></li>
+</ul>
+</div>
+</div>
+</footer>
+<div class="mobile-cta fixed inset-x-0 bottom-0 z-30 border-t border-line bg-linen/95 backdrop-blur md:hidden" data-mobile-cta aria-hidden="true">
+<div class="flex gap-3 px-4 py-3">
+<a href="tel:+642102606025" class="btn btn-outline btn-sm flex-none px-4" tabindex="-1" aria-label="Call 021 0260 6025"><svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5.6 1.8 3.4 2.3c-.8.2-1.3 1-1.2 1.8.9 5 4.7 8.8 9.7 9.7.8.1 1.6-.4 1.8-1.2l.5-2.2-3-1.4-1.4 1.6a8.4 8.4 0 0 1-3.8-3.8L7.6 5.4 6.2 2.4z"/></svg><span>Call</span></a>
+<a href="/get-a-quote?service=window" class="btn btn-primary btn-sm flex-1" tabindex="-1">Get a quote <svg class="arrow h-3 w-3.5" viewBox="0 0 14 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h12.5M8 1.2 12.8 6 8 10.8"/></svg></a>
+</div>
+</div>
 </body>
 </html>
