@@ -299,6 +299,12 @@
         const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
         const out = await res.json().catch(() => ({}));
         if (!res.ok || out.success === false) throw new Error(String(res.status));
+        // Ask the site to email the customer a short "we've received your request" note.
+        // Fire-and-forget: it never delays or fails the form.
+        fetch('/api/acknowledge', {
+          method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: data.get('name'), email: data.get('email'), form: form.dataset.form }),
+        }).catch(() => {});
         done();
       } catch (err) {
         // The background request was blocked before a reply (network or security check):
