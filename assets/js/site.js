@@ -145,7 +145,7 @@
     $$('[data-step]', stepsWrap).forEach((el) => sio.observe(el));
   }
 
-  /* Forms: validation, multi-step quote, background submission to Getform */
+  /* Forms: validation, multi-step quote, background submission to Web3Forms */
   const messages = {
     name: 'Please enter your name.',
     email: 'Please enter a valid email address.',
@@ -192,7 +192,7 @@
   function validateScope(scope) {
     let firstBad = null;
     $$('[data-group]', scope).forEach((g) => { if (!validateGroup(g) && !firstBad) firstBad = $('input', g); });
-    $$('input:not([type=radio]):not([type=hidden]):not([name=_gotcha]), select, textarea', scope).forEach((i) => {
+    $$('input:not([type=radio]):not([type=hidden]):not([name=botcheck]), select, textarea', scope).forEach((i) => {
       if (!validateField(i) && !firstBad) firstBad = i;
     });
     return firstBad;
@@ -290,16 +290,20 @@
         const top = card.getBoundingClientRect().top + window.scrollY - 96;
         if (window.scrollY > top) window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
       };
-      if (data.get('_gotcha')) { done(); return; } // spam trap: pretend success
+      if (data.get('botcheck')) { done(); return; } // spam trap: pretend success
 
       submit.disabled = true;
       submit.setAttribute('aria-busy', 'true');
       submit.textContent = 'Sending…';
       try {
         const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-        if (!res.ok) throw new Error(String(res.status));
+        const out = await res.json().catch(() => ({}));
+        if (!res.ok || out.success === false) throw new Error(String(res.status));
         done();
       } catch (err) {
+        // The background request was blocked before a reply (network or security check):
+        // fall back to a normal form post, which lands on /thank-you.
+        if (err instanceof TypeError && !form.dataset.fallback) { form.dataset.fallback = '1'; form.submit(); return; }
         formError.innerHTML = '<span></span>';
         formError.firstChild.textContent = 'Sorry — your request didn’t send. Please try again, or call us on 021 0260 6025.';
         formError.hidden = false;

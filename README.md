@@ -38,14 +38,11 @@ Generated files (root `*.html`, `assets/css/site.css`, `sitemap.xml`, `robots.tx
 
 ## Forms
 
-Both original Getform endpoints are kept exactly as they were wired before the redesign:
+The quote form (`/get-a-quote`) and contact form (`/contact`) post to Web3Forms (`https://api.web3forms.com/submit`), which emails each submission to `info@thecleanic.co.nz`. The access key lives in `site.forms.accessKey` in `src/data/site.mjs`; it is tied to that inbox and is safe to publish. To change where enquiries go, create a new key at web3forms.com for the new address and replace it there.
 
-- Quote form (`/get-a-quote`) → `https://getform.io/f/bxoykmza`
-- Contact form (`/contact`) → `https://getform.io/f/bmdmrdga`
+Submissions are sent in the background and the visitor sees an on-site thank-you state. Without JavaScript the forms post normally and redirect to `/thank-you`. A hidden `botcheck` field filters basic spam.
 
-The public contact address is `info@thecleanic.co.nz` (Zoho Mail; set by `site.email` in `src/data/site.mjs`). Where form submissions are emailed is configured in the Getform dashboard, not in this code.
-
-Submissions are sent in the background and the visitor sees an on-site thank-you state. Without JavaScript the forms post normally and redirect to `/thank-you`.
+The public contact address is `info@thecleanic.co.nz` (Zoho Mail; `site.email` in `src/data/site.mjs`). The site previously used Getform; those endpoints are no longer referenced.
 
 ## Waiting on confirmation from the business
 

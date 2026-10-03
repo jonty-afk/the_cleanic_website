@@ -60,11 +60,13 @@ export const render = () => `
         <div class="border border-line bg-paper p-6 sm:p-10" ${rv(120)}>
           <h2 class="h3">Send a message</h2>
           <p class="mt-2 text-[0.9375rem] text-ink-soft">Looking for a price? The <a class="link-underline" href="/get-a-quote">quote form</a> asks the right questions.</p>
-          <form class="mt-8 grid gap-6" action="${site.forms.contact}" method="POST" novalidate data-form="contact">
-            <input type="hidden" name="_subject" value="New message from The Cleanic website">
+          <form class="mt-8 grid gap-6" action="${site.forms.endpoint}" method="POST" novalidate data-form="contact">
+            <input type="hidden" name="access_key" value="${site.forms.accessKey}">
+            <input type="hidden" name="subject" value="New message from The Cleanic website">
+            <input type="hidden" name="from_name" value="The Cleanic website">
             <input type="hidden" name="form" value="contact">
-            <input type="hidden" name="_next" value="${site.url}/thank-you">
-            <div class="hidden" aria-hidden="true"><label for="c-gotcha">Leave this empty</label><input type="text" id="c-gotcha" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+            <input type="hidden" name="redirect" value="${site.url}/thank-you">
+            <input type="checkbox" name="botcheck" id="c-botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
             ${field('c-name', 'Your name', `<input class="input" id="c-name" name="name" type="text" autocomplete="name" required aria-describedby="c-name-error">`)}
             <div class="grid gap-6 sm:grid-cols-2">
               ${field('c-email', 'Email', `<input class="input" id="c-email" name="email" type="email" autocomplete="email" required aria-describedby="c-email-error">`)}

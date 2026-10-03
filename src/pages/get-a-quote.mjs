@@ -61,11 +61,13 @@ export const render = () => `
           <p class="sr-only" aria-live="polite" data-progress-live></p>
         </div>
 
-        <form class="p-6 sm:p-10" action="${site.forms.quote}" method="POST" novalidate data-form="quote" data-steps-form>
-          <input type="hidden" name="_subject" value="New quote request from The Cleanic website">
-          <input type="hidden" name="form" value="quote">
-          <input type="hidden" name="_next" value="${site.url}/thank-you">
-          <div class="hidden" aria-hidden="true"><label for="q-gotcha">Leave this empty</label><input type="text" id="q-gotcha" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+        <form class="p-6 sm:p-10" action="${site.forms.endpoint}" method="POST" novalidate data-form="quote" data-steps-form>
+          <input type="hidden" name="access_key" value="${site.forms.accessKey}">
+            <input type="hidden" name="subject" value="New quote request from The Cleanic website">
+            <input type="hidden" name="from_name" value="The Cleanic website">
+            <input type="hidden" name="form" value="quote">
+            <input type="hidden" name="redirect" value="${site.url}/thank-you">
+            <input type="checkbox" name="botcheck" id="q-botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 
           <!-- Step 1 -->
           <fieldset class="grid gap-7" data-step="0">
