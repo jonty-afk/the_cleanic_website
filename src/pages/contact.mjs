@@ -7,7 +7,7 @@ export const meta = {
   path: '/contact',
   out: 'contact.html',
   title: 'Contact The Cleanic | Auckland Cleaning',
-  description: 'Call The Cleanic on 021 0260 6025, email thecleanicnz@gmail.com or send a message. Airbnb, short-stay and home cleaning across Auckland, seven days.',
+  description: `Call The Cleanic on ${site.phone.display}, email ${site.email} or send a message. Airbnb, short-stay and home cleaning across Auckland, seven days.`,
   crumbs: [['/contact', 'Contact']],
   schema: [{ '@type': 'ContactPage', url: `${site.url}/contact`, about: { '@id': `${site.url}/#business` } }, businessSchema()],
   hideMobileCta: true,

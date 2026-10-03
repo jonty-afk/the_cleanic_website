@@ -43,6 +43,8 @@ Both original Getform endpoints are kept exactly as they were wired before the r
 - Quote form (`/get-a-quote`) → `https://getform.io/f/bxoykmza`
 - Contact form (`/contact`) → `https://getform.io/f/bmdmrdga`
 
+The public contact address is `info@thecleanic.co.nz` (Zoho Mail; set by `site.email` in `src/data/site.mjs`). Where form submissions are emailed is configured in the Getform dashboard, not in this code.
+
 Submissions are sent in the background and the visitor sees an on-site thank-you state. Without JavaScript the forms post normally and redirect to `/thank-you`.
 
 ## Waiting on confirmation from the business

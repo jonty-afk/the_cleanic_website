@@ -10,7 +10,7 @@ export const site = {
   area: 'Auckland',
   phone: { display: '021 0260 6025', tel: '+642102606025', schema: '+64 21 0260 6025' },
   phone2: { display: '022 379 1794', tel: '+64223791794', schema: '+64 22 379 1794' },
-  email: 'thecleanicnz@gmail.com',
+  email: 'info@thecleanic.co.nz',
   hours: [
     { days: 'Monday – Friday', short: 'Mon–Fri', time: '8am – 6pm', schema: { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '18:00' } },
     { days: 'Saturday – Sunday', short: 'Sat–Sun', time: '9am – 3pm', schema: { days: ['Saturday', 'Sunday'], opens: '09:00', closes: '15:00' } },
