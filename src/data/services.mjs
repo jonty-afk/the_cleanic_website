@@ -387,7 +387,7 @@ export const services = [
 export const serviceBySlug = Object.fromEntries(services.map((s) => [s.slug, s]));
 export const groups = ['Deep & specialist cleans', 'Homes & moving', 'Business & events'];
 
-// For quote form select (value = stable key sent to Getform)
+// For quote form select (value = stable key sent with the form)
 export const quoteServices = [
   ['airbnb', 'Airbnb / short-stay turnover'],
   ['regular', 'Regular cleaning'],

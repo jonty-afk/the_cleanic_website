@@ -21,10 +21,11 @@ export const site = {
     { name: 'TikTok', url: 'https://www.tiktok.com/@thecleanicnz5' },
   ],
   payment: ['Visa', 'Mastercard', 'American Express'],
-  // Getform endpoints — both kept exactly as wired on the original site.
+  // Forms are sent to Web3Forms, which emails each submission to the address the
+  // access key was created for (info@thecleanic.co.nz). The key is safe to publish.
   forms: {
-    quote: 'https://getform.io/f/bxoykmza', // original homepage popup + quote page
-    contact: 'https://getform.io/f/bmdmrdga', // original contact page + other popups
+    endpoint: 'https://api.web3forms.com/submit',
+    accessKey: 'REPLACE_WITH_WEB3FORMS_KEY',
   },
   airbnbFrom, // from ./pricing.mjs
 };

@@ -56,4 +56,5 @@ writeFileSync(new URL('site.webmanifest', root), JSON.stringify({
   icons: [{ src: '/assets/brand/icon-192.png', sizes: '192x192', type: 'image/png' }, { src: '/assets/brand/icon-512.png', sizes: '512x512', type: 'image/png' }],
 }, null, 2) + '\n');
 
+if (site.forms.accessKey.startsWith('REPLACE')) console.warn('WARNING: Web3Forms access key not set in src/data/site.mjs — forms will not deliver.');
 console.log(`Built ${pages.length} pages · css ${assets.css} · js ${assets.js}`);

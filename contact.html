@@ -29,7 +29,7 @@
 <link rel="preload" href="/assets/fonts/hanken-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css?v=e9568af40d">
 <script>document.documentElement.classList.add('js')</script>
-<script src="/assets/js/site.js?v=8932747c75" defer></script>
+<script src="/assets/js/site.js?v=d6577ac69e" defer></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};if(!/^(localhost|127.)/.test(location.hostname)){var s=document.createElement('script');s.defer=1;s.src='/_vercel/insights/script.js';document.head.appendChild(s)}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ContactPage","url":"https://thecleanic.co.nz/contact","about":{"@id":"https://thecleanic.co.nz/#business"}},{"@type":"LocalBusiness","@id":"https://thecleanic.co.nz/#business","name":"The Cleanic","description":"Airbnb and short-stay turnover cleaning, plus home and property cleaning, in Auckland.","url":"https://thecleanic.co.nz/","logo":"https://thecleanic.co.nz/assets/brand/icon-512.png","image":"https://thecleanic.co.nz/assets/img/og.jpg","telephone":"+64 21 0260 6025","contactPoint":[{"@type":"ContactPoint","telephone":"+64 21 0260 6025","contactType":"customer service","areaServed":"NZ"},{"@type":"ContactPoint","telephone":"+64 22 379 1794","contactType":"customer service","areaServed":"NZ"}],"email":"info@thecleanic.co.nz","address":{"@type":"PostalAddress","addressLocality":"Auckland","addressRegion":"Auckland","addressCountry":"NZ"},"areaServed":{"@type":"City","name":"Auckland"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:00","closes":"15:00"}],"paymentAccepted":"Visa, Mastercard, American Express","sameAs":["https://www.instagram.com/the_cleanic23","https://www.facebook.com/the.cleanic.2023","https://www.tiktok.com/@thecleanicnz5"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://thecleanic.co.nz/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://thecleanic.co.nz/contact"}]}]}</script>
 </head>
@@ -130,11 +130,13 @@
 <div class="border border-line bg-paper p-6 sm:p-10" data-reveal style="--d:120ms">
 <h2 class="h3">Send a message</h2>
 <p class="mt-2 text-[0.9375rem] text-ink-soft">Looking for a price? The <a class="link-underline" href="/get-a-quote">quote form</a> asks the right questions.</p>
-<form class="mt-8 grid gap-6" action="https://getform.io/f/bmdmrdga" method="POST" novalidate data-form="contact">
-<input type="hidden" name="_subject" value="New message from The Cleanic website">
+<form class="mt-8 grid gap-6" action="https://api.web3forms.com/submit" method="POST" novalidate data-form="contact">
+<input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_KEY">
+<input type="hidden" name="subject" value="New message from The Cleanic website">
+<input type="hidden" name="from_name" value="The Cleanic website">
 <input type="hidden" name="form" value="contact">
-<input type="hidden" name="_next" value="https://thecleanic.co.nz/thank-you">
-<div class="hidden" aria-hidden="true"><label for="c-gotcha">Leave this empty</label><input type="text" id="c-gotcha" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+<input type="hidden" name="redirect" value="https://thecleanic.co.nz/thank-you">
+<input type="checkbox" name="botcheck" id="c-botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 <div class="field">
 <label class="label" for="c-name">Your name</label>
 <input class="input" id="c-name" name="name" type="text" autocomplete="name" required aria-describedby="c-name-error">
