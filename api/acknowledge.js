@@ -35,14 +35,27 @@ function firstName(raw) {
   return clean || 'there';
 }
 
-function buildMessage({ from, to, name }) {
+/** True when `date` falls inside the business hours in site data (Auckland time). */
+export function isOpen(date = new Date()) {
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('en-NZ', {
+    timeZone: 'Pacific/Auckland', weekday: 'long', hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
+  }).formatToParts(date).map((p) => [p.type, p.value]));
+  const time = `${parts.hour}:${parts.minute}`;
+  return site.hours.some((h) => h.schema.days.includes(parts.weekday) && time >= h.schema.opens && time < h.schema.closes);
+}
+
+export function buildMessage({ from, to, name, now = new Date() }) {
   const hours = site.hours.map((h) => `${h.days.replace(/\s*–\s*/g, ' to ')}, ${h.time.replace(/\s*–\s*/g, '–')}`).join(', and ');
   const text = [
     `Hi ${name},`,
     '',
-    'Thank you for contacting The Cleanic. We have received your request and will be in touch shortly.',
-    '',
-    `Our business hours are ${hours}. For urgent requests, please call ${site.phone.display}.`,
+    ...(isOpen(now)
+      ? ['Thank you for contacting The Cleanic. We have received your request and will be in touch shortly.',
+        '',
+        `For urgent requests, please call ${site.phone.display}.`]
+      : ['Thank you for contacting The Cleanic. We have received your request.',
+        '',
+        `We are currently outside our business hours and will respond when we reopen. Our hours are ${hours}.`]),
     '',
     'Kind regards,',
     'The Cleanic',
@@ -53,8 +66,11 @@ function buildMessage({ from, to, name }) {
   ].join('\r\n');
   const html = `<div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#1B2026;max-width:560px">
 <p>Hi ${escapeHtml(name)},</p>
-<p>Thank you for contacting The Cleanic. We have received your request and will be in touch shortly.</p>
-<p>Our business hours are ${escapeHtml(hours)}. For urgent requests, please call <a href="tel:${site.phone.tel}" style="color:#0B4F7C;text-decoration:none">${site.phone.display}</a>.</p>
+${isOpen(now)
+    ? `<p>Thank you for contacting The Cleanic. We have received your request and will be in touch shortly.</p>
+<p>For urgent requests, please call <a href="tel:${site.phone.tel}" style="color:#0B4F7C;text-decoration:none">${site.phone.display}</a>.</p>`
+    : `<p>Thank you for contacting The Cleanic. We have received your request.</p>
+<p>We are currently outside our business hours and will respond when we reopen. Our hours are ${escapeHtml(hours)}.</p>`}
 <p>Kind regards,</p>
 <p style="margin-top:20px;padding-top:16px;border-top:1px solid #DDD5C7">
 <span style="font-family:Georgia,'Times New Roman',serif;font-size:19px">The Cleanic</span><br>
