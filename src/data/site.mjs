@@ -25,7 +25,7 @@ export const site = {
   // access key was created for (info@thecleanic.co.nz). The key is safe to publish.
   forms: {
     endpoint: 'https://api.web3forms.com/submit',
-    accessKey: 'REPLACE_WITH_WEB3FORMS_KEY',
+    accessKey: '93a5601a-18b0-4254-8626-0e5b188f05c0',
   },
   airbnbFrom, // from ./pricing.mjs
 };

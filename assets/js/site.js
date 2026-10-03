@@ -301,6 +301,9 @@
         if (!res.ok || out.success === false) throw new Error(String(res.status));
         done();
       } catch (err) {
+        // The background request was blocked before a reply (network or security check):
+        // fall back to a normal form post, which lands on /thank-you.
+        if (err instanceof TypeError && !form.dataset.fallback) { form.dataset.fallback = '1'; form.submit(); return; }
         formError.innerHTML = '<span></span>';
         formError.firstChild.textContent = 'Sorry — your request didn’t send. Please try again, or call us on 021 0260 6025.';
         formError.hidden = false;
