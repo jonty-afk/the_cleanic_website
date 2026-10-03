@@ -42,6 +42,10 @@ The quote form (`/get-a-quote`) and contact form (`/contact`) post to Web3Forms 
 
 Submissions are sent in the background and the visitor sees an on-site thank-you state. Without JavaScript the forms post normally and redirect to `/thank-you`. A hidden `botcheck` field filters basic spam.
 
+After a successful submission the page also calls `/api/acknowledge` (`api/acknowledge.js`, a Vercel function), which emails the customer a short fixed "we've received your request" note from the business mailbox over Zoho SMTP. It needs two Vercel environment variables — `ZOHO_SMTP_USER` (the mailbox address) and `ZOHO_SMTP_PASS` (a Zoho app password); without them it does nothing and the forms still work. Only the customer's first name is used in the email, requests from other sites are refused, and repeat sends to one address are throttled. Edit the wording in `buildMessage()`.
+
+`vercel.json` skips Vercel's install and build steps (built files are committed), so the function must stay dependency-free.
+
 The public contact address is `info@thecleanic.co.nz` (Zoho Mail; `site.email` in `src/data/site.mjs`). The site previously used Getform; those endpoints are no longer referenced.
 
 ## Waiting on confirmation from the business
